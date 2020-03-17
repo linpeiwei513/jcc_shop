@@ -1,0 +1,55 @@
+/* pages/mall/affirm/affirm.wxss */
+.mall-address{
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+.mall-main{
+  padding: 30rpx;
+}
+.add-img{
+  float: left;
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 10rpx;
+}
+.add-img image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.add-txt{
+  float: left;
+  margin-left: 30rpx;
+  width: 500rpx;
+}
+.add-name text{
+  margin-right: 20rpx;
+  font-size: 34rpx;
+}
+.add-add{
+  font-size: 30rpx;
+  color: #888888;
+  padding-top: 10rpx;
+}
+.add-right{
+  float: right;
+  margin-top: 50rpx;
+}
+.add-right image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.mall-btn{
+  position: fixed;
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #ffffff;
+  background-color: #ed5349;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+

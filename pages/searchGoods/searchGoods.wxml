@@ -1,0 +1,30 @@
+<!--
+* 新增商品
+* by linpeiwei
+* to 2020.01.04
+-->
+
+
+<view class="top-nav">
+  <view class="top-so">
+    <input type="text" placeholder="请输入你要添加货品的名称或单号"></input>
+    <icon type="search" size="22" color="rgb(0,0,0)"/>
+  </view>
+</view>
+
+<view class="goods-list">
+
+  <view class="gos-li">
+    <view class="gos-img"><image src="../images/test.png"></image></view>
+    <view class="go-txt">
+      <view class="go-title">足金吊坠（PAS465666552233）</view>
+      <text class="go-no">库存：897</text>
+      <text class="go-no">销量：124 / 900</text>
+      <view class="go-btn">
+        <view bindtap="goAdd"><image src="../images/add.png"></image>加入补货</view>
+      </view>
+    </view>
+    <view class="co"></view>
+  </view>
+
+</view>

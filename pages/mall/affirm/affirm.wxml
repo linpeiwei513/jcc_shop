@@ -1,0 +1,46 @@
+<!--
+  * 确认订单
+  * by linpeiwei
+  * to 20200211
+-->
+<view class="mall-main">
+  <view class="mall-address" bindtap="goAddress">
+    <view class="add-img">
+      <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-map.png"></image>
+    </view>
+    <view class="add-txt">
+      <view class="add-name">
+        <text>林先森</text>
+        <text>13588892729</text>
+      </view>
+      <view class="add-add">广东省深圳市龙华区白石路34号猎德大厦24F</view>
+    </view>
+    <view class="add-right">
+      <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    </view>
+    <view class="co"></view>
+  </view>
+
+  <view class="order-list">
+    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
+    <view class="order-right">
+      <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
+      <view class="order-shu">
+        <text class="te1">5893积分</text>
+        <text class="te2">X 2</text>
+      </view>
+    </view>
+    <view class="co"></view>
+  </view>
+
+  <view class="beizhu">
+    <input type="text" placeholder="请输入备注"></input>
+  </view>
+
+</view>
+
+
+<view class="mall-btn">
+  <view class="btn-shu">总计：3991积分</view>
+  <view class="btn-btn">确认支付</view>
+</view>

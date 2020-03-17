@@ -1,0 +1,18 @@
+/* pages/mall/list/list.wxss */
+.list-nav image{
+  width: 750rpx;
+  height: 95rpx;
+}
+.list-nav{
+  background-color: #ffffff;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+.mall-goods image{
+  width: 750rpx;
+  height: 1140rpx;
+}
+.mall-goods {
+  margin-top: 95rpx;
+}

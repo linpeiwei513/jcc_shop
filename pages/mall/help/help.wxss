@@ -1,0 +1,44 @@
+/* pages/mall/user/user.wxss */
+.containers{
+  background-color: #ffffff;
+  text-align: left;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.userinfo image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 65rpx;
+  float: left;
+}
+.user-txt{
+  float: left;
+  margin-left: 30rpx;
+}
+.name1{
+  font-size: 38rpx;
+  padding-bottom: 10rpx;
+  padding-top: 15rpx;
+}
+.name2{
+  font-size: 34rpx;
+}
+
+.user-main{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.user-li{
+  margin-left: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.user-li image{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 32rpx;
+}

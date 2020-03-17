@@ -1,0 +1,12 @@
+<!--
+* 区
+* by linpeiwei
+* to 2020.03.16
+-->
+
+<view class="site-main">
+  <view class="site-li" wx:for="{{cityData}}" wx:key="key" bindtap="getRegion" data-item="{{item}}">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/gengduo.png"></image>
+    {{item.name}}
+  </view>
+</view>

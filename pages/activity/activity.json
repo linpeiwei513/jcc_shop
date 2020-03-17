@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "txv-video":"plugin://tencentvideo/video"
+  },
+  "navigationBarTitleText": "活动列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark" 
+  
+}

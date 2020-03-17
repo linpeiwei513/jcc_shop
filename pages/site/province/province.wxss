@@ -1,0 +1,16 @@
+/* pages/site/province/province.wxss */
+.site-main{
+  padding-left: 30rpx;
+}
+.site-li{
+  font-size: 34rpx;
+  line-height: 110rpx;
+  border-bottom: 1rpx solid #e9e6e6;
+  padding-right: 30rpx;
+}
+.site-li image{
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 35rpx;
+}

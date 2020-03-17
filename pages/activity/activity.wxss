@@ -1,0 +1,115 @@
+/* pages/activity/activity.wxss */
+.banner image{
+  width: 750rpx;
+  height: 290rpx;
+}
+.act-list{
+  padding: 30rpx;
+}
+.act-li{
+  background-color: #ffffff;
+  padding: 20rpx 15rpx;
+  margin-bottom: 30rpx;
+  
+}
+text{
+  display: block;
+}
+.title{
+  float: left;
+  font-size: 34rpx;
+  padding-bottom: 20rpx;
+}
+.time{
+  float: right;
+  font-size: 30rpx;
+  color: #777777;
+  padding-top: 5rpx;
+}
+.txt{
+  clear: both;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #888888;
+}
+.at-nav{
+  height: 90rpx;
+  width: 100%;
+  background-color: #f0f0f0;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+.navl{
+  float: left;
+  line-height: 90rpx;
+  padding: 0rpx 20rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+.scroll-view_H{
+  height: 90rpx;
+  width: 100%;
+}
+.on{
+  color: #000000;
+}
+.at-list{
+  margin-top: 100rpx;
+  background-color: #ffffff;
+  font-size: 30rpx;
+}
+
+.at-tw{
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+.at-tw .at-txt{
+  float: left;
+  width: 470rpx;
+}
+.at-tw .at-img{
+  float: right;
+}
+.at-tw .at-img image{
+  width: 160rpx;
+  height: 130rpx;
+}
+.at-tw .at-txt .at-time{
+  font-size: 28rpx;
+  color: #888888;
+  padding-top: 10rpx;
+}
+.at-sp{
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+.at-video{
+  padding-top: 10rpx;
+}
+.at-video video{
+  width: 100%;
+  height: 390rpx;
+}
+.at-xz{
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+.at-xz .at-txt{
+  float: left;
+  width: 600rpx;
+}
+.at-xz .at-img{
+  float: right;
+  padding-top: 5rpx;
+  padding-right: 30rpx;
+}
+.at-xz .at-img image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.at-xz .at-txt .at-time{
+  font-size: 28rpx;
+  color: #888888;
+  padding-top: 10rpx;
+}

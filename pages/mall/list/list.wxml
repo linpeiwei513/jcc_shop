@@ -1,0 +1,14 @@
+<!--
+  * 积分商城商品列表
+  * by linpeiwei
+  * to 20200210
+-->
+
+<view class="list-nav">
+  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/saixuan.jpg"></image>
+</view>
+
+<view class="mall-goods">
+  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods1.jpg" bindtap="goGoods"></image>
+  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods2.jpg" bindtap="goGoods"></image>
+</view>

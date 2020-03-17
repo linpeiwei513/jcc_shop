@@ -1,0 +1,135 @@
+/* pages/goodsAdd/goodsAdd.wxss */
+.img{
+  text-align: center;
+}
+.img image{
+  width: 260rpx;
+  height: 260rpx;
+  margin: 50rpx auto;
+}
+.list{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.li{
+  padding: 0rpx 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 34rpx;
+}
+input{
+  float: right;
+  background-color: #ffffff;
+  text-align: right;
+  font-size: 34rpx;
+  height: 100rpx;
+}
+.btn{
+  width: 100%;
+  height: 110rpx;
+  background-color: #f75060;
+  color: #ffffff;
+  font-size: 40rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  line-height: 110rpx;
+}
+.goods-list{
+  padding: 20rpx;
+}
+.goods-li{
+  background-color: #ffffff;
+  padding: 20rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.go-title{
+  font-size: 30rpx;
+}
+.go-type{
+  font-size: 26rpx;
+  color: #777777;
+}
+.go-num{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.go-num text{
+  display: block;
+  font-size: 26rpx;
+}
+.go-btn{
+  margin-top: 20rpx;
+}
+.go-btn text{
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #f0f0f0;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  float: left;
+}
+.go-btn input{
+  width: 70rpx;
+  height: 50rpx;
+  float: left;
+  font-size: 30rpx;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+.top-nav{
+  height: 110rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+.top-nav .nav{
+  text-align: center;
+  width: 160rpx;
+  float: left;
+  padding-top: 5rpx;
+  position: relative;
+}
+.top-nav .nav image{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin: 6rpx auto;
+  margin-top: 12rpx;
+}
+.top-nav .nav text{
+  font-size: 24rpx;
+  display: block;
+}
+.top-nav .nav .ic{
+  background-color: red;
+  color: #ffffff;
+  position: absolute;
+  padding: 2rpx 10rpx;
+  border-radius: 14rpx;
+  font-size: 20rpx;
+  top: 10rpx;
+  left: 50%;
+}
+
+.to-btn{
+  float: right;
+  height: 90rpx;
+  width: 330rpx;
+  background-color: #F6724E;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+  border-radius: 45rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #ffffff;
+  font-size: 34rpx;
+}

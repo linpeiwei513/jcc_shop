@@ -1,0 +1,53 @@
+<!--
+* 首页
+* by linpeiwei
+* to 2020.01.02
+-->
+
+<view class="banner">
+	<image src="../images/banner_bg.png" class="banner-bg"></image>
+  <!--banner-->
+  <view class="banner-li">
+    <swiper indicator-dots="true" indicator-active-color="#e1ad62" autoplay="true" >
+          <swiper-item>
+            <image src="../images/banner1.jpg"></image>
+          </swiper-item>
+          <swiper-item>
+            <image src="../images/banner2.jpg"></image>
+          </swiper-item>
+      </swiper>
+  </view>
+  <!--快捷导航-->
+  <view class="nav">
+    <view class="nav-li" bindtap="goShop">
+      <image src="../images/nav_shop.png"></image>
+      <text>店铺信息</text>
+    </view>
+    <view class="nav-li" bindtap="goGoods">
+      <image src="../images/nav_goods.png"></image>
+      <text>货品管理</text>
+    </view>
+    <view class="nav-li" bindtap="goActivity">
+      <image src="../images/nav_ur.png"></image>
+      <text>活动专区</text>
+    </view>
+    <view class="nav-li" bindtap="goClerk">
+      <image src="../images/nav_user.png"></image>
+      <text>店员管理</text>
+    </view>
+    <view class="nav-li" bindtap="goXiaoucun">
+      <image src="../images/nav_clerk.png"></image>
+      <text>销存记录</text>
+    </view>
+    <view class="nav-li" bindtap="goStatistics">
+      <image src="../images/nav_statistics.png"></image>
+      <text>数据统计</text>
+    </view>
+    <view class="nav-li" bindtap="goMall">
+      <image src="../images/nav_shop.png"></image>
+      <text>积分商城</text>
+    </view>
+  </view>
+</view>
+
+

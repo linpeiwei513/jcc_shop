@@ -1,0 +1,14 @@
+/* pages/mall/helpShow/helpShow.wxss */
+.page-main{
+  background-color: #ffffff;
+  padding: 30rpx;
+}
+.page-title{
+  text-align: center;
+  font-size: 38rpx;
+  margin-bottom: 20rpx;
+}
+.page-txt{
+  font-size: 30rpx;
+  color: #555555;
+}

@@ -1,0 +1,32 @@
+<!--
+  * 积分记录
+  * by linpeiwei
+  * to 20200210
+-->
+
+<view class="soso">
+  <input type="text" placeholder="请选择查询时间段"></input>
+  <view class="btn">查询</view>
+  <view class="co"></view>
+</view>
+
+<view class="jf-list">
+  <view class="jf-li">
+    <view class="jf-time">兑换时间：2020-12-12 22:11:11</view>
+    <view class="jf-p">动账金额：<text>18991</text></view>
+    <view class="jf-p">动账原因：阿昆达卡爱仕达老实交代卢萨卡</view>
+    <view class="jf-p">备注：萨拉暗示领导力</view>
+  </view>
+  <view class="jf-li">
+    <view class="jf-time">兑换时间：2020-12-12 22:11:11</view>
+    <view class="jf-p">动账金额：<text>18991</text></view>
+    <view class="jf-p">动账原因：阿昆达卡爱仕达老实交代卢萨卡</view>
+    <view class="jf-p">备注：萨拉暗示领导力</view>
+  </view>
+  <view class="jf-li">
+    <view class="jf-time">兑换时间：2020-12-12 22:11:11</view>
+    <view class="jf-p">动账金额：<text>18991</text></view>
+    <view class="jf-p">动账原因：阿昆达卡爱仕达老实交代卢萨卡</view>
+    <view class="jf-p">备注：萨拉暗示领导力</view>
+  </view>
+</view>

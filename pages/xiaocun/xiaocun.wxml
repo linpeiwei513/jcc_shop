@@ -1,0 +1,16 @@
+<!--
+* 销存导航页
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="main">
+  <view class="box se1" bindtap="goStock">
+    <image src="../images/calendar.png"></image>
+    补货记录
+  </view>
+  <view class="box se2" bindtap="goSales">
+    <image src="../images/calendar.png"></image>
+    消数记录
+  </view>
+</view>

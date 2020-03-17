@@ -1,0 +1,32 @@
+<!--
+* 新增店员
+* by linpeiwei
+* to 2020.01.05
+-->
+<view class="img">
+  <image src="../images/uu.png" class="userimg"></image>
+</view>
+
+<view class="form">
+  <view class="form-li">
+    <text>姓名：</text>
+    <input type="text" placeholder="请输入姓名"></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <text>电话：</text>
+    <input type="number" placeholder="请输入手机号码"></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <text>状态：</text>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+    </picker>
+    <view class="co"></view>
+  </view>
+</view>
+
+<view class="btn" bindtap="submitData">确定</view>

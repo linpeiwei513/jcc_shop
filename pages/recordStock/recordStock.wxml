@@ -1,0 +1,38 @@
+<!--
+* 补货记录
+* by linpeiwei
+* to 2020.01.02
+-->
+
+<view class="list">
+  <view class="li">
+    <view class="title">订单号：4566886666644</view>
+    <view class="txt">钻石行业面临衰退迹象 抛光钻石和原石需求双双下降</view>
+    <view class="time">2020-12-12 03:11:23</view>
+    <text>正常</text>
+  </view>
+  <view class="li">
+    <view class="title">订单号：4566886666644</view>
+    <view class="txt">钻石行业面临衰退迹象 抛光钻石和原石需求双双下降</view>
+    <view class="time">2020-12-12 03:11:23</view>
+    <text>正常</text>
+  </view>
+  <view class="li">
+    <view class="title">订单号：4566886666644</view>
+    <view class="txt">钻石行业面临衰退迹象 抛光钻石和原石需求双双下降</view>
+    <view class="time">2020-12-12 03:11:23</view>
+    <text>正常</text>
+  </view>
+  <view class="li">
+    <view class="title">订单号：4566886666644</view>
+    <view class="txt">钻石行业面临衰退迹象 抛光钻石和原石需求双双下降</view>
+    <view class="time">2020-12-12 03:11:23</view>
+    <text>正常</text>
+  </view>
+  <view class="li">
+    <view class="title">订单号：4566886666644</view>
+    <view class="txt">钻石行业面临衰退迹象 抛光钻石和原石需求双双下降</view>
+    <view class="time">2020-12-12 03:11:23</view>
+    <text>正常</text>
+  </view>
+</view>

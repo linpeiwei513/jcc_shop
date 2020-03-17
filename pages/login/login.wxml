@@ -1,0 +1,8 @@
+<!--登录页-->
+
+<view class="lo-main">
+  <!-- <view class="lo-logo"><image src="/pages/images/test.png"></image></view> -->
+  <view class="lo-put"><input type="text" placeholder="请输入用户名" value="{{username}}" bindinput='formName'></input></view>
+  <view class="lo-put"><input password="true" placeholder="请输入密码" value="{{password}}" bindinput='formPass'></input></view>
+  <view class="lo-btn"><button bindtap="getLogin">登录</button></view>
+</view>

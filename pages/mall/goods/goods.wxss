@@ -1,0 +1,149 @@
+/* pages/mall/goods/goods.wxss */
+swiper{
+  width: 750rpx;
+  height: 750rpx;
+}
+swiper image{
+  width: 750rpx;
+  height: 750rpx;
+}
+.goods-title{
+  background-color: #ffffff;
+  padding: 30rpx;
+}
+.goods-name{
+  font-size: 32rpx;
+}
+.goods-price{
+  font-size: 46rpx;
+  color: red;
+  padding-top: 10rpx;
+}
+.goods-price text{
+  font-size: 24rpx;
+  color: #888888;
+  margin-left: 10rpx;
+}
+.goods-show{
+  background-color: #ffffff;
+  margin-top: 20rpx;
+  position: 30rpx 0rpx;
+  padding-top: 30rpx;
+  padding-bottom: 130rpx;
+}
+.goods-show .goods1 image{
+  width: 750rpx;
+  height: 1500rpx;
+}
+.goods-show .goods2 image{
+  width: 750rpx;
+  height: 980rpx;
+}
+.goods-show .goods3 image{
+  width: 750rpx;
+  height: 1100rpx;
+}
+.goods-show .goods4 image{
+  width: 750rpx;
+  height: 1480rpx;
+}
+.mall-btn{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 110rpx;
+  background-color: #ed5349;
+  text-align: center;
+  line-height: 110rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+}
+
+/*模态框*/
+.modals-cancel {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ 
+.bottom-dialog-body {
+  position: absolute;
+  z-index: 10001;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 480rpx;
+  background-color: #fff;
+}
+ 
+/*动画前初始位置*/
+ 
+.bottom-pos {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+ 
+.yuyue{
+  background-color: #ed5349;
+}
+.bottom-dialog-body button{
+  width: 750rpx;
+  border: 0rpx;
+  border-radius: 0rpx;
+  color: #ffffff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
+}
+ 
+.mo-main{
+  padding: 30rpx;
+}
+.mo-title{
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.mo-li{
+  font-size: 30rpx;
+  border: 1rpx solid #f0f0f0;
+  float: left;
+  padding:10rpx 25rpx;
+  border-radius: 14rpx;
+
+}
+.on{
+  border: 1rpx solid #ed5349;
+}
+.mo-titles{
+  font-size: 30rpx;
+  float: left;
+  margin-top: 60rpx;
+}
+.mo-sum{
+  float: right;
+  width: 300rpx;
+  margin-top: 56rpx;
+}
+.mo-sum .sum1{
+  float: right;
+  width: 70rpx;
+  height: 70rpx;
+  background-color: #ffffff;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 36rpx;
+}
+.mo-sum .sum2{
+  float: right;
+  width: 70rpx;
+  height: 70rpx;
+  background-color: #f0f0f0;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 36rpx;
+}

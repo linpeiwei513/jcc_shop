@@ -1,0 +1,49 @@
+<!--
+* 一键补货
+* by linpeiwei
+* to 2020.01.09
+-->
+
+<view class="goods-list">
+  <view class="goods-li">
+    <view class="go-title">限量版黄金吊坠</view>
+    <view class="go-type">KKS2566684466</view>
+    <view class="go-type">库存：897</view>
+    <view class="go-num">
+      <text>数量：</text>
+      <view class="go-btn">
+        <text>-</text>
+        <input type="number" value="0"></input>
+        <text>+</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="goods-li">
+    <view class="go-title">限量版黄金吊坠</view>
+    <view class="go-type">KKS2566684466</view>
+    <view class="go-type">库存：897</view>
+    <view class="go-num">
+      <text>数量：</text>
+      <view class="go-btn">
+        <text>-</text>
+        <input type="number" value="0"></input>
+        <text>+</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="top-nav">
+  <view class="nav">
+    <image src="../images/nav4.png"></image>
+    <text>编辑</text>
+  </view>
+  <view class="nav" bindtap="goAdd">
+    <image src="../images/nav2.png"></image>
+    <text>新增货品</text>
+  </view>
+  <view class="to-btn">确定</view>
+</view>

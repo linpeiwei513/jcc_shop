@@ -1,0 +1,10 @@
+<!--
+  * 单页详情
+  * by linpeiwei
+  * to 20200210
+-->
+
+<view class="page-main">
+  <view class="page-title">积分规则</view>
+  <view class="page-txt">一些积分规则的文字一些积分规则的文字一些积分规则的文字一些积分规则的文字一些积分规则的文字一些积分规则的文字一些积分规则的文字</view>
+</view>

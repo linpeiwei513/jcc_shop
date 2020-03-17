@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="containers">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="user-txt">
+        <view class="name1">{{userInfo.nickName}}</view>
+        <view class="name2">积分：38901</view>
+      </view>
+      <view class="co"></view>
+    </block>
+  </view>
+</view>
+
+<view class="user-main">
+  <view class="user-li" bindtap="goOrder">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    待付款订单
+    <view class="co"></view>
+  </view>
+  <view class="user-li" bindtap="goOrder">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    待发货订单
+    <view class="co"></view>
+  </view>
+  <view class="user-li" bindtap="goOrder">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    待收货订单
+    <view class="co"></view>
+  </view>
+  <view class="user-li" bindtap="goOrder">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    已完成订单
+    <view class="co"></view>
+  </view>
+</view>
+
+<view class="user-main">
+  <view class="user-li" bindtap="goAddress">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    收货地址
+    <view class="co"></view>
+  </view>
+</view>

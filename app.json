@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/shop/shop",
+    "pages/site/province/province",
+    "pages/welcome/welcome",
+    "pages/login/login",
+    "pages/password/password",
+    "pages/home/home",
+    "pages/activity/activity",
+    "pages/mall/integral/integral",
+    "pages/mall/orderShow/orderShow",
+    "pages/mall/order/order",
+    "pages/mall/index/index",
+    "pages/mall/affirm/affirm",
+    "pages/mall/cart/cart",
+    "pages/mall/help/help",
+    "pages/mall/user/user",
+    "pages/mall/address/address",
+    "pages/mall/goods/goods",
+    "pages/mall/list/list",
+    "pages/searchGoods/searchGoods",
+    "pages/yijian/yijian",
+    "pages/goodsList/goodsList",
+    "pages/goodsAdd/goodsAdd",
+    "pages/statistics/statistics",
+    "pages/recordSales/recordSales",
+    "pages/recordStock/recordStock",
+    "pages/xiaocun/xiaocun",
+    "pages/clerkAdd/clerkAdd",
+    "pages/clerkList/clerkList",
+    "pages/activityDetails/activityDetails",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/clerkUpdate/clerkUpdate",
+    "pages/user/user",
+    "pages/mall/helpShow/helpShow",
+    "pages/site/city/city",
+    "pages/site/region/region"
+  ],
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.1.1",
+      "provider": "wxa75efa648b60994b"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f9deb7",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#e1ad62",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "pages/images/icon_home.png",
+        "selectedIconPath": "pages/images/icon_home_n.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/goodsList/goodsList",
+        "iconPath": "pages/images/icon_goods.png",
+        "selectedIconPath": "pages/images/icon_goods_n.png",
+        "text": "货品管理"
+      },
+      {
+        "pagePath": "pages/xiaocun/xiaocun",
+        "iconPath": "pages/images/icon_record.png",
+        "selectedIconPath": "pages/images/icon_record_n.png",
+        "text": "销存记录"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/images/icon_user.png",
+        "selectedIconPath": "pages/images/icon_user_n.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

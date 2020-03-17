@@ -1,0 +1,36 @@
+<!--
+* 店员列表
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="list">
+  <view class="list-li" >
+    <view class="txt" bindtap="goAdd">
+      <text class="name">郭富城</text>
+      <text class="phone">1354665546</text>
+    </view>
+    <view class="tab on1">正常</view>
+    <view class="time">
+      2020-12-12 14:22:11
+    </view>
+    <view class="del"><image src="../images/delete.png" bindtap="del"></image></view>
+    <view class="co"></view>
+  </view>
+
+  <view class="list-li" >
+    <view class="txt" bindtap="goAdd">
+      <text class="name">郭富城</text>
+      <text class="phone">1354665546</text>
+    </view>
+    <view class="tab on2">禁用</view>
+    <view class="time">
+      2020-12-12 14:22:11
+    </view>
+    <view class="del"><image src="../images/delete.png" bindtap="del"></image></view>
+    <view class="co"></view>
+  </view>
+</view>
+
+<view class="btn" bindtap="goAdd">新增店员</view>
+

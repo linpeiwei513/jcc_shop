@@ -1,0 +1,86 @@
+<!--
+* 商品列表
+* by linpeiwei
+* to 2020.01.04
+-->
+<!-- <view class="soso">
+  <view class="go-tu">
+    <button class="tu1" bindtap="goAdd">待补清单(3)</button>
+    <button class="tu2" bindtap="goAdd">待销清单(21)</button>
+  </view>
+  <view class="go-so"><icon type="search" size="20" color="rgb(0,255,255)"/></view>
+</view> -->
+
+<view class="top-nav">
+  <view class="nav" bindtap="goAdd">
+    <image src="../images/nav1.png"></image>
+    <text>补货清单</text>
+    <text class="ic">2</text>
+  </view>
+  <view class="nav" bindtap="goAdd">
+    <image src="../images/nav2.png"></image>
+    <text>销货清单</text>
+    <text class="ic">8</text>
+  </view>
+  <view class="nav" bindtap="goYijian">
+    <image src="../images/nav3.png"></image>
+    <text>一键补货</text>
+    <text class="ic">6</text>
+  </view>
+  <view class="top-so">
+    <text>搜索货品</text>
+    <icon type="search" size="22" color="rgb(0,0,0)"/>
+  </view>
+</view>
+
+
+
+
+<view class="goods-list">
+
+  <view class="gos-li">
+    <view class="gos-img"><image src="../images/test.png"></image></view>
+    <view class="go-txt">
+      <view class="go-title">足金吊坠（PAS465666552233）</view>
+      <text class="go-no">库存：897</text>
+      <text class="go-no">销量：124 / 900</text>
+      <view class="go-btn">
+        <view><image src="../images/add.png"></image>加入补货</view>
+        <view><image src="../images/add.png"></image>加入待销</view>
+        <view><image src="../images/add.png"></image>销售消货</view>
+      </view>
+    </view>
+    <view class="co"></view>
+  </view>
+
+
+<view class="gos-li">
+    <view class="gos-img"><image src="../images/goods.jpg"></image></view>
+    <view class="go-txt">
+      <view class="go-title">足金吊坠（PAS465666552233）</view>
+      <text class="go-no">库存：897</text>
+      <text class="go-no">销量：124 / 900</text>
+      <view class="go-btn">
+        <view><image src="../images/add.png"></image>加入补货</view>
+        <view><image src="../images/add.png"></image>加入待销</view>
+        <view><image src="../images/add.png"></image>销售消货</view>
+      </view>
+    </view>
+    <view class="co"></view>
+  </view>
+
+  <view class="gos-li">
+    <view class="gos-img"><image src="../images/test.png"></image></view>
+    <view class="go-txt">
+      <view class="go-title">足金吊坠（PAS465666552233）</view>
+      <text class="go-no">库存：897</text>
+      <text class="go-no">销量：124 / 900</text>
+      <view class="go-btn">
+        <view><image src="../images/add.png"></image>加入补货</view>
+        <view><image src="../images/add.png"></image>加入待销</view>
+        <view><image src="../images/add.png"></image>销售消货</view>
+      </view>
+    </view>
+    <view class="co"></view>
+  </view>
+</view>

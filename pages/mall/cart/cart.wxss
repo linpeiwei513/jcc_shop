@@ -1,0 +1,96 @@
+/* pages/mall/affirm/affirm.wxss */
+.mall-address{
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 16rpx;
+}
+.mall-main{
+  padding: 30rpx;
+}
+.add-img{
+  float: left;
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 10rpx;
+}
+.add-img image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.add-txt{
+  float: left;
+  margin-left: 30rpx;
+  width: 500rpx;
+}
+.add-name text{
+  margin-right: 20rpx;
+  font-size: 34rpx;
+}
+.add-add{
+  font-size: 30rpx;
+  color: #888888;
+  padding-top: 10rpx;
+}
+.add-right{
+  float: right;
+  margin-top: 50rpx;
+}
+.add-right image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.order-list{
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  margin-top: 20rpx;
+}
+.order-img image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.order-img{
+  float: left;
+}
+.order-right{
+  float: right;
+  width: 440rpx;
+}
+.order-title{
+  font-size: 34rpx;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.order-shu .te1{
+  float: left;
+  font-size: 36rpx;
+  color: red;
+}
+.order-shu .te2{
+  float: right;
+  font-size: 30rpx;
+  color: #666666;
+  padding-top: 5rpx;
+}
+.mall-btn{
+  width: 750rpx;
+  height: 100rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  line-height: 100rpx;
+}
+.btn-shu{
+  font-size: 36rpx;
+  margin-left: 30rpx;
+  float: left;
+}
+.btn-btn{
+  float: right;
+  background-color: #ed5349;
+  color: #ffffff;
+  font-size: 36rpx;
+  padding: 0rpx 40rpx;
+}

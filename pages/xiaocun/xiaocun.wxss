@@ -1,0 +1,26 @@
+/* pages/xiaocun/xiaocun.wxss */
+.box{
+  width: 340rpx;
+  height: 200rpx;
+  background-color: #dfdfdf;
+  line-height: 200rpx;
+  color: #ffffff;
+  border-radius: 15rpx;
+  margin-left: 200rpx;
+  margin-bottom: 80rpx;
+}
+.box image{
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align:middle;
+  margin-left: 60rpx;
+}
+.main{
+  padding-top: 150rpx;
+}
+.se1{
+  background-color: #f3d3a5;
+}
+.se2{
+  background-color: #5daaf9;
+}

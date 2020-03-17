@@ -1,0 +1,81 @@
+<!--
+* 活动列表
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="at-nav">
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+    <view class="navl {{navClass==0? 'on': ''}}" bindtap="getTui">推荐</view>
+    <block wx:for="{{navList}}" wx:key="key">
+      <view class="navl {{index==navClass? 'on': ''}}" bindtap="getList" data-num="{{index}}" data-index="{{item.modelid}}">{{item.catname}}</view>
+    </block>
+    
+  </scroll-view>
+</view>
+
+<view class="at-list">
+  
+  <block wx:for="{{listData}}" wx:key="key">
+    
+
+    <!--视频-->
+    <block wx:if="{{item.video_url}}">
+      <view class="at-sp">
+        <view class="at-title">{{item.title}}</view>
+        <view class="at-video">
+          <block wx:if="{{item.video_url.length < 15}}">
+            <txv-video playerid="txv1" autoplay="{{false}}" vid="{{item.video_url}}"></txv-video>
+            <!-- <video id="myVideo" src="https://fyt.test.fastcmf.com{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video> -->
+          </block>
+          <block wx:else>
+            <video id="myVideo" src="https://fyt.test.fastcmf.com{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+          </block>
+          
+        </view>
+      </view>
+    </block>
+
+    <!--下载-->
+    <block wx:elif="{{item.filesurl}}">
+      <view class="at-xz">
+        <view class="at-txt">
+          <view class="at-title">{{item.title}}</view>
+          <view class="at-time">{{item.description}}</view>
+        </view>
+        <view class="at-img" bindtap="getDw" data-url="{{item.filesurl}}"><image src="../images/xz.png"></image></view>
+        <view class="co"></view>
+      </view>
+    </block>
+
+    <!--图文-->
+    <block wx:else>
+      <navigator url="../activityDetails/activityDetails?cid={{item.id}}" hover-class="navigator-hover">
+        <view class="at-tw">
+          <view class="at-txt">
+            <view class="at-title">{{item.title}}</view>
+            <view class="at-time">{{item.description}}</view>
+          </view>
+          <view class="at-img"><image src="{{url}}{{item.thumb}}"></image></view>
+          <view class="co"></view>
+        </view>
+      </navigator>
+    </block>
+
+
+
+  </block>
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+

@@ -1,0 +1,80 @@
+/* pages/mall/order/order.wxss */
+.or-nav{
+  background-color: #ffffff;
+  font-size: 30rpx;
+}
+.nav-li{
+  width: 20%;
+  float: left;
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #888888;
+}
+.on{
+  color: #111111;
+}
+
+.order-list{
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  margin-top: 0rpx;
+  margin-bottom: 20rpx;
+}
+.order-img image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.order-img{
+  float: left;
+}
+.order-right{
+  float: right;
+  width: 440rpx;
+}
+.order-title{
+  font-size: 34rpx;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.order-shu .te1{
+  float: left;
+  font-size: 36rpx;
+  color: red;
+}
+.order-shu .te2{
+  float: right;
+  font-size: 30rpx;
+  color: #666666;
+  padding-top: 5rpx;
+}
+.mall-btn{
+  width: 750rpx;
+  height: 100rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  line-height: 100rpx;
+}
+
+.mall-main{
+  padding: 30rpx;
+}
+.or-tt{
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  padding-bottom: 10rpx;
+  margin-bottom: 20rpx;
+}
+.or-tt text{
+  float: right;
+}
+.or-time{
+  font-size: 30rpx;
+  color: #666666;
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 20rpx;
+  margin-top: 20rpx;
+}

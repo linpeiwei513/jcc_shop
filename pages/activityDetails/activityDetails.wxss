@@ -1,0 +1,29 @@
+/* pages/activityDetails/activityDetails.wxss */
+page{
+  background-color: #ffffff;
+}
+.act-main{
+  padding: 30rpx;
+}
+.title{
+  font-size: 38rpx;
+  margin-bottom: 20rpx;
+}
+.time{
+  font-size: 30rpx;
+  color: #888888;
+  margin-bottom: 30rpx;
+}
+.txt{
+  font-size: 32rpx;
+  line-height: 46rpx;
+}
+.txt image{
+  max-width: 100%;
+  display: block;
+  margin: 20rpx 0;
+}
+.txt text{
+  display: block;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,64 @@
+<!--
+  * 兑换详情
+  * by linpeiwei
+  * to 20200210
+-->
+
+<view class="dh-main">
+  <view class="dh-title">订单信息：</view>
+  <view class="dh-box">
+    <view class="dh-li">订单编号：18991027389991</view>
+    <view class="dh-li">兑换时间：2020-12-12 21:22:11</view>
+    <view class="dh-li">订单状态：已完成</view>
+  </view>
+</view>
+
+<view class="dh-main">
+  <view class="dh-title">商品信息：</view>
+  <view class="dh-box">
+    <view class="goods">
+      <view class="sp-img"><image src="../../images/goods.jpg"></image></view>
+      <view class="sp-name">
+        <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
+        <view class="order-title">编号：12819977191</view>
+          <view class="order-shu">
+            <text class="te1">5893积分</text> 
+            <text class="te2">X 2</text>
+          </view>
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="goods">
+      <view class="sp-img"><image src="../../images/goods.jpg"></image></view>
+      <view class="sp-name">
+        <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
+        <view class="order-title">编号：12819977191</view>
+          <view class="order-shu">
+            <text class="te1">5893积分</text> 
+            <text class="te2">X 2</text>
+          </view>
+      </view>
+      <view class="co"></view>
+    </view>
+    
+  </view>
+  <view class="sp-zong">共计：3719积分</view>
+</view>
+
+<view class="dh-main">
+  <view class="dh-title">收货信息：</view>
+  <view class="dh-box">
+    <view class="dh-name"><text>林先生</text><text>13562888898</text></view>
+    <view class="dh-address">广东省深圳市宝安区月河路中央大道5楼</view>
+    <view class="dh-li">备注：指示仪阿达拉斯</view>
+  </view>
+</view>
+
+<view class="dh-main">
+  <view class="dh-title"><text>查看详情</text>物流信息：</view>
+  <view class="dh-box">
+    <view class="dh-li">物流单号：18991027389991</view>
+    <view class="dh-li">物流名称：顺丰速递</view>
+  </view>
+</view>

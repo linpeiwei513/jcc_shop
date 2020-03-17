@@ -1,0 +1,17 @@
+<view class="user-main">
+  <view class="user-li" bindtap="goShow">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    积分权益
+    <view class="co"></view>
+  </view>
+  <view class="user-li" bindtap="goShow">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    兑换规则
+    <view class="co"></view>
+  </view>
+  <view class="user-li" bindtap="goShow">
+    <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
+    积分规则
+    <view class="co"></view>
+  </view>
+</view>

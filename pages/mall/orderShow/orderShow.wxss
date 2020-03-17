@@ -1,0 +1,55 @@
+.dh-main{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.dh-title{
+  font-size: 30rpx;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+.dh-box{
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  color: #555555;
+}
+.dh-name{
+  font-size: 32rpx;
+  padding-bottom: 10rpx;
+}
+.dh-name text{
+  margin-right: 20rpx;
+  color: #000000;
+}
+.dh-title text{
+  float: right;
+  color: cornflowerblue;
+}
+.sp-img image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.sp-img{
+  float: left;
+}
+.sp-name{
+  float: right;
+  width: 520rpx;
+}
+.order-title{
+  padding: 5rpx 0rpx;
+}
+.te1{
+  float: left;
+}
+.te2{
+  float: right;
+}
+.goods{
+  padding: 10rpx 0rpx;
+}
+.sp-zong{
+  text-align: right;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  border-top: 1rpx solid #f6f6f6;
+}
