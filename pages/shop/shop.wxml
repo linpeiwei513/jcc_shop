@@ -5,19 +5,40 @@
 -->
 
 <!--审核通过-->
-<view wx-if="{{agent_info.status == 100}}">
+<view>
   <view class="banner"><image src="../images/banner2.jpg"></image></view>
-  <view class="main">
-    <view class="main-box" >
-      <view class="main-img"><image src="{{imgUrl}}"></image></view>
-      <view class="main-txt">
-        <text class="h3">{{agent_info.name}}</text>
-        <text>地址：{{agent_info.district_str}}{{agent_info.address}}</text>
-        <text>联系电话：{{agent_info.mobile}}</text>
-        <text>联系人：{{agent_info.contact}}</text>
-      </view>
-    </view>
+  <view class="form-main fo-tu">
+  <view class="form-li">
+    <view class="put">深圳市测试数据有限公司</view>
+    <view class="title">公司名称：</view>
+    <view class="co"></view>
   </view>
+  <view class="form-li">
+    <view class="put">王五</view>
+    <view class="title">联系人：</view>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <view class="put">13588888889</view>
+    <view class="title">联系电话：</view>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <view class="put">广东省-深圳市-福田区</view>
+    <view class="title">地区信息：</view>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <view class="put">月河路321号中央大道大厦23楼3211</view>
+    <view class="title">详细地址：</view>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <view class="put"><view class="img"><image src="../images/test.png"></image></view></view>
+    <view class="title">营业执照：</view>
+    <view class="co"></view>
+  </view> 
+</view>
 </view>
 
 <!--编辑信息-->
@@ -55,7 +76,7 @@
 </view>
 
 <!--审核中信息-->
-<view class="form-main fo-shen">
+<view class="form-main fo-shen" wx-if="{{agent_info.status == 100}}">
   <view class="form-li">
     <view class="put">深圳市测试数据有限公司</view>
     <view class="title">公司名称：</view>
@@ -89,5 +110,5 @@
 </view>
 
 
-<view class="btn">审核中</view>
+<!-- <view class="btn">审核中</view> -->
 

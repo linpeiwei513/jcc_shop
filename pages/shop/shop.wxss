@@ -92,3 +92,8 @@ page{
   width: 100rpx;
   height: 100rpx;
 }
+.fo-tu{
+  z-index: 2000;
+  position: absolute;
+  top: 120rpx;
+}
