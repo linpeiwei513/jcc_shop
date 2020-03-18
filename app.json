@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/shop/shop",
-    "pages/site/province/province",
     "pages/welcome/welcome",
+    "pages/shop/shop",
+    
+    
+    "pages/site/province/province",
+    
     "pages/login/login",
     "pages/password/password",
     "pages/home/home",

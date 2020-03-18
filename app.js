@@ -22,8 +22,10 @@ App({
         wx.login({
           success(res) { 
             console.log('code：', res.code)
+            
             var sessionid = wx.getStorageSync("sessionID");
             sessionid = sessionid ? sessionid : '';
+            console.log('sessionid：', sessionid)
             //将code存到缓存中  
             wx.setStorageSync('Code', res.code)
             wx.request({
