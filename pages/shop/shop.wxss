@@ -89,8 +89,8 @@ page{
   color: #999999;
 }
 .put .img image{
-  width: 100rpx;
-  height: 100rpx;
+  width: 150rpx;
+  height: 150rpx;
 }
 .fo-tu{
   z-index: 2000;
