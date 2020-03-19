@@ -1,0 +1,43 @@
+<!--
+* 下级代理详情
+* by linpeiwei
+* to 2020.03.19
+-->
+
+<view class="form-main fo-shen" wx:if="{{ageData}}">
+  <view class="form-li">
+      <view class="put">{{ageData.name}}</view>
+      <view class="title">公司名称：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{ageData.contact}}</view>
+      <view class="title">联系人：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{ageData.mobile}}</view>
+      <view class="title">联系电话：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{ageData.district_str}}</view>
+      <view class="title">地区信息：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{ageData.address}}</view>
+      <view class="title">详细地址：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put"><view class="img"><image src="{{imgUrl}}"></image></view></view>
+      <view class="title">营业执照：</view>
+      <view class="co"></view>
+    </view> 
+    <view class="form-li no">
+      <view class="put">{{ageData.address}}</view>
+      <view class="title">代理等级：</view>
+      <view class="co"></view>
+    </view>
+</view>

@@ -64,10 +64,18 @@ Page({
       success: function(res) {
         console.log('登录回调：',res)
         if(res.data.status == '1'){
+          if (res.data.data.is_initial == '0'){
+            //跳转到修改密码
+            wx.reLaunch({
+              url: '/pages/password/password',
+            })
+          }else{
             //跳转到首页
             wx.switchTab({
               url: '/pages/home/home',
             })
+          }
+            
         }else{
           wx.showToast({
             title: res.data.msg,

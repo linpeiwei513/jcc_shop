@@ -1,0 +1,19 @@
+<!--
+* 下级代理列表
+* by linpeiwei
+* to 2020.03.19
+-->
+
+<view class="main">
+
+  <view class="list" wx:for="{{listData}}" wx:key="key">
+    <navigator url="../agencyDetails/agencyDetails?id={{item.id}}" hover-class="navigator-hover">
+      <view class="title">{{item.name}}</view>
+      <view class="name">{{item.contact}}</view>
+      <view class="phone">{{item.mobile}}</view>
+      <view class="cl"></view>
+    </navigator>
+  </view>
+
+
+</view>

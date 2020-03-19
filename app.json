@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/shop/shop",
+    "pages/agencyList/agencyList",
+    "pages/agencyDetails/agencyDetails",
     
-    
-    "pages/site/province/province",
     
     "pages/login/login",
+    "pages/shop/shop",
+    "pages/site/province/province",
     "pages/password/password",
     "pages/home/home",
     "pages/activity/activity",
@@ -39,6 +40,7 @@
     "pages/mall/helpShow/helpShow",
     "pages/site/city/city",
     "pages/site/region/region"
+    
   ],
   "plugins": {
     "tencentvideo": {

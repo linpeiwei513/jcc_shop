@@ -47,6 +47,10 @@
       <image src="../images/nav_shop.png"></image>
       <text>积分商城</text>
     </view>
+    <view class="nav-li" bindtap="goAgency">
+      <image src="../images/nav_user.png"></image>
+      <text>下级代理</text>
+    </view>
   </view>
 </view>
 

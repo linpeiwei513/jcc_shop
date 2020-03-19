@@ -62,6 +62,13 @@ Page({
     wx.navigateTo({
       url: '../mall/index/index',
     })
+  },
+
+  //下级代理
+  goAgency: function () {
+    wx.navigateTo({
+      url: '../agencyList/agencyList',
+    })
   }
 
 
