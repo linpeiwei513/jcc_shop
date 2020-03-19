@@ -1,10 +1,13 @@
 {
   "pages": [
+    "pages/clerkList/clerkList",
+    "pages/clerk/clerk",
+    
     "pages/welcome/welcome",
+    "pages/clerkAdd/clerkAdd",
+    
     "pages/agencyList/agencyList",
     "pages/agencyDetails/agencyDetails",
-    
-    
     "pages/login/login",
     "pages/shop/shop",
     "pages/site/province/province",
@@ -30,8 +33,6 @@
     "pages/recordSales/recordSales",
     "pages/recordStock/recordStock",
     "pages/xiaocun/xiaocun",
-    "pages/clerkAdd/clerkAdd",
-    "pages/clerkList/clerkList",
     "pages/activityDetails/activityDetails",
     "pages/index/index",
     "pages/logs/logs",

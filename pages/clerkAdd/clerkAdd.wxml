@@ -3,26 +3,41 @@
 * by linpeiwei
 * to 2020.01.05
 -->
-<view class="img">
+<!-- <view class="img">
   <image src="../images/uu.png" class="userimg"></image>
-</view>
+</view> -->
 
 <view class="form">
   <view class="form-li">
-    <text>姓名：</text>
-    <input type="text" placeholder="请输入姓名"></input>
+    <text>用户名：</text>
+    <input type="text" placeholder="请输入用户名" value="{{username}}" bindinput='getusername'></input>
     <view class="co"></view>
   </view>
   <view class="form-li">
-    <text>电话：</text>
-    <input type="number" placeholder="请输入手机号码"></input>
+    <text>真实姓名：</text>
+    <input type="text" placeholder="请输入真实姓名" value="{{realname}}" bindinput='getrealname'></input>
     <view class="co"></view>
   </view>
   <view class="form-li">
-    <text>状态：</text>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <text>联系电话：</text>
+    <input type="number" placeholder="请输入联系电话" value="{{mobile}}" bindinput='getmobile'></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li ss">
+    <text>微信号：</text>
+    <input type="text" placeholder="请输入微信号" value="{{qq}}" bindinput='getqq'></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li ss">
+    <text>密码：</text>
+    <input password="true" placeholder="请输入密码" value="{{password}}" bindinput='getpassword'></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <text>账号状态：</text>
+    <picker bindchange="bindPickerChange" value="{{status}}" range="{{array}}">
         <view class="picker">
-          {{array[index]}}
+          {{array[status]}}
         </view>
     </picker>
     <view class="co"></view>

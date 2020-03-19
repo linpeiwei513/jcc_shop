@@ -17,8 +17,8 @@
   color: #777777;
 }
 .txt .phone{
-  font-size: 34rpx;
-  margin-left: 20rpx;
+  font-size: 32rpx;
+  margin-left: 0rpx;
 }
 .txt .name{
   font-size: 36rpx;
@@ -26,19 +26,20 @@
 }
 .time{
   padding-top: 20rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #888888;
   margin-left: 20rpx;
-  clear: both;
+  float: left;
+  margin-right: 20rpx;
 }
 .tab{
-  float: left;
   font-size: 26rpx;
   padding: 5rpx 20rpx;
   background-color: #f0f0f0;
-  margin-left:20rpx;
-  margin-top: 5rpx;
   border-radius: 2rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .on1{
   background-color: #e1ad62;
@@ -62,4 +63,8 @@
   left: 0rpx;
   text-align: center;
   line-height: 110rpx;
+}
+.bian{
+  height: 140rpx;
+  clear: both;
 }

@@ -66,9 +66,9 @@ App({
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
                     
                     //跳转到首页
-                    wx.switchTab({
-                      url: '/pages/home/home',
-                    })
+                    // wx.switchTab({
+                    //   url: '/pages/home/home',
+                    // })
                   }
                   
                 } else if(loginCode == 201){

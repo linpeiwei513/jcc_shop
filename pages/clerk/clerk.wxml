@@ -1,0 +1,53 @@
+<!--
+* 店员详情
+* by linpeiwei
+* to 2020.03.19
+-->
+
+<view class="form-main fo-shen">
+  <view class="form-li">
+      <view class="put">{{dataList.id}}</view>
+      <view class="title">店员ID：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.username}}</view>
+      <view class="title">用户名：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.realname}}</view>
+      <view class="title">真实姓名：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.mobile}}</view>
+      <view class="title">联系电话：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.qq}}</view>
+      <view class="title">微信号：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.credits}}</view>
+      <view class="title">积分数：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li">
+      <view class="put">{{dataList.experience}}</view>
+      <view class="title">总消数量：</view>
+      <view class="co"></view>
+    </view>
+    <view class="form-li no">
+      <view class="put">{{dataList.status==1?'启用' : '禁用'}}</view>
+      <view class="title">状态：</view>
+      <view class="co"></view>
+    </view>
+</view>
+
+<view class="btns">
+  <view class="anniu an1">编辑</view>
+  <view class="anniu an2" bindtap="del">删除</view>
+</view>
