@@ -1,4 +1,4 @@
-// pages/clerkAdd/clerkAdd.js
+// pages/clerkUp/clerkUp.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
 Page({
@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['禁用','启用' ],
+    id: '',
+    array: ['禁用', '启用'],
     status: 1,
     username: '',
     password: '',
@@ -20,24 +21,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      id: options.id,
+      username: options.username
+    })
   },
 
 
-  //新增
-  submitData: function() {
+  submitData: function () {
     let that = this
-    if (this.verify()){
+    if (this.verify()) {
 
       wx.request({
-        url: apiUrl + '/Api/AgentEmploy/addEmploy',
+        url: apiUrl + '/Api/AgentEmploy/editEmploy',
         data: {
           username: that.data.username,
           password: that.data.password,
           realname: that.data.realname,
           mobile: that.data.mobile,
           qq: that.data.qq,
-          status: that.data.status
+          status: that.data.status,
+          id: that.data.id
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded',
@@ -47,17 +52,17 @@ Page({
         dataType: 'json',
         responseType: 'text',
         success: function (res) {
-          console.log('新增回调：', res)
+          console.log('修改回调：', res)
           if (res.data.status == '1') {
             wx.showToast({
-              title: '新增成功',
+              title: '修改成功',
               icon: 'success',
               duration: 1000,
               mask: true
             })
             setTimeout(function () {
-              wx.reLaunch({
-                url: '../clerkList/clerkList'　　// 页面 A
+              wx.navigateTo({
+                url: '../clerk/clerk?id='+that.data.id　　// 页面 A
               })
             }, 1000) 
 
@@ -71,32 +76,20 @@ Page({
               wx.navigateBack({
                 delta: 1
               })
-            }, 2000) 
-            
+            }, 2000)
+
           }
         }
       })
-
-
-
-      
     }
-      
 
-    
   },
 
+
   //校验
-  verify: function() {
-    if (this.data.username == '' || this.data.username.length < 3 ){
-      wx.showToast({
-        title: '请输入不少于3个字符的用户名',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (this.data.realname == '' || this.data.realname.length < 2) {
+  verify: function () {
+
+    if (this.data.realname.length > 0 && this.data.realname.length < 2) {
       wx.showToast({
         title: '请输入不少于2个字符的真实姓名',
         icon: 'none',
@@ -104,23 +97,8 @@ Page({
       })
       return
     }
-    if (this.data.mobile == '') {
-      wx.showToast({
-        title: '请输入联系电话',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (this.data.qq == '') {
-      wx.showToast({
-        title: '请输入微信号',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (this.data.password == '' || this.data.password.length < 6) {
+
+    if (this.data.password > 0 && this.data.password.length < 6) {
       wx.showToast({
         title: '请输入不少于6个字符的密码',
         icon: 'none',
@@ -131,12 +109,6 @@ Page({
     return true
   },
 
-
-  getusername:function(e) {
-    this.setData({
-      username: e.detail.value
-    })
-  },
 
   getpassword: function (e) {
     this.setData({
@@ -161,16 +133,6 @@ Page({
       qq: e.detail.value
     })
   },
-
-
-
-
-
-
-
-
-
-
 
 
   /**

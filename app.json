@@ -1,11 +1,10 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/clerkList/clerkList",
     "pages/clerk/clerk",
     
-    "pages/welcome/welcome",
     "pages/clerkAdd/clerkAdd",
-    
     "pages/agencyList/agencyList",
     "pages/agencyDetails/agencyDetails",
     "pages/login/login",
@@ -40,8 +39,8 @@
     "pages/user/user",
     "pages/mall/helpShow/helpShow",
     "pages/site/city/city",
-    "pages/site/region/region"
-    
+    "pages/site/region/region",
+    "pages/clerkUp/clerkUp"
   ],
   "plugins": {
     "tencentvideo": {

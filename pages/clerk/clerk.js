@@ -23,6 +23,13 @@ Page({
     }
   },
 
+  //编辑
+  goUp: function() {
+    
+    wx.navigateTo({
+      url: '../clerkUp/clerkUp?id=' + this.data.id + '&username=' + this.data.dataList.username,
+    })
+  },
 
   //删除
   del: function () {

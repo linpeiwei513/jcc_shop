@@ -48,6 +48,6 @@
 </view>
 
 <view class="btns">
-  <view class="anniu an1">编辑</view>
+  <view class="anniu an1" bindtap="goUp">编辑</view>
   <view class="anniu an2" bindtap="del">删除</view>
 </view>
