@@ -8,6 +8,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <button bindtap="getExit">退出登录</button>
   </view>
 </view>

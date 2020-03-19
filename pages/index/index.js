@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const apiUrl = app.globalData.apiUrl;
 Page({
   data: {
     motto: 'Hello World',
@@ -15,6 +15,39 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  //退出
+  getExit: function() {
+
+    wx.request({
+      url: apiUrl + '/Api/Member/logout',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('退出回调：', res)
+        if (res.data.status == '1') {
+          
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+
+  },
+
+
+
+
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
