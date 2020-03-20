@@ -36,7 +36,7 @@
       <view class="co"></view>
     </view> 
     <view class="form-li no">
-      <view class="put">{{ageData.address}}</view>
+      <view class="put">{{ageData.rank_str}}</view>
       <view class="title">代理等级：</view>
       <view class="co"></view>
     </view>

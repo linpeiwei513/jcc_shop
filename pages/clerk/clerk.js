@@ -31,6 +31,13 @@ Page({
     })
   },
 
+  //积分
+  jifen: function() {
+    wx.navigateTo({
+      url: '../recordIntegral/recordIntegral?id=' + this.data.id,
+    })
+  },
+
   //删除
   del: function () {
     let that = this

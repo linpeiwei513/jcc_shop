@@ -1,9 +1,12 @@
 {
   "pages": [
-    
+    "pages/xiaocun/xiaocun",
     "pages/welcome/welcome",
-    "pages/clerkList/clerkList",
+    "pages/recordSales/recordSales",
+    "pages/goodsList/goodsList",
+    "pages/recordIntegral/recordIntegral",
     "pages/clerk/clerk",
+    "pages/clerkList/clerkList",
     "pages/index/index",
     "pages/clerkAdd/clerkAdd",
     "pages/agencyList/agencyList",
@@ -27,14 +30,11 @@
     "pages/mall/list/list",
     "pages/searchGoods/searchGoods",
     "pages/yijian/yijian",
-    "pages/goodsList/goodsList",
     "pages/goodsAdd/goodsAdd",
     "pages/statistics/statistics",
-    "pages/recordSales/recordSales",
     "pages/recordStock/recordStock",
-    "pages/xiaocun/xiaocun",
-    "pages/activityDetails/activityDetails",
     
+    "pages/activityDetails/activityDetails",
     "pages/logs/logs",
     "pages/clerkUpdate/clerkUpdate",
     "pages/user/user",

@@ -21,7 +21,7 @@
   <view class="nav">
     <view class="nav-li" bindtap="goShop">
       <image src="../images/nav_shop.png"></image>
-      <text>店铺信息</text>
+      <text>公司信息</text>
     </view>
     <view class="nav-li" bindtap="goGoods">
       <image src="../images/nav_goods.png"></image>
@@ -39,6 +39,10 @@
       <image src="../images/nav_clerk.png"></image>
       <text>销存记录</text>
     </view>
+    <view class="nav-li" bindtap="goAgency">
+      <image src="../images/nav_user.png"></image>
+      <text>下级代理</text>
+    </view>
     <view class="nav-li" bindtap="goStatistics">
       <image src="../images/nav_statistics.png"></image>
       <text>数据统计</text>
@@ -47,10 +51,7 @@
       <image src="../images/nav_shop.png"></image>
       <text>积分商城</text>
     </view>
-    <view class="nav-li" bindtap="goAgency">
-      <image src="../images/nav_user.png"></image>
-      <text>下级代理</text>
-    </view>
+    
   </view>
 </view>
 

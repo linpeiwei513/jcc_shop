@@ -8,9 +8,11 @@
 
   <view class="list" wx:for="{{listData}}" wx:key="key">
     <navigator url="../agencyDetails/agencyDetails?id={{item.id}}" hover-class="navigator-hover">
-      <view class="title">{{item.name}}</view>
-      <view class="name">{{item.contact}}</view>
-      <view class="phone">{{item.mobile}}</view>
+      <view class="title">公司名：{{item.name?item.name:'（未设置）'}}</view>
+      <view class="name">联系人：{{item.contact?item.contact:'(未设置)'}} {{item.mobile}}</view>
+      <view class="cl"></view>
+      <view class="dj">{{item.rank_str}}</view>
+      <view class="dj zl">{{item.status==0?'资料待完善':item.status==1?'资料待审核':item.status==2?'资料通过':''}}</view>
       <view class="cl"></view>
     </navigator>
   </view>

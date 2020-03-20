@@ -47,7 +47,22 @@
     </view>
 </view>
 
-<view class="btns">
-  <view class="anniu an1" bindtap="goUp">编辑</view>
-  <view class="anniu an2" bindtap="del">删除</view>
+
+<view class="bo-btn">
+  <view class="bo-li" bindtap="jifen">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/bo1.png"></image>
+    <text>积分</text>
+  </view>
+  <view class="bo-li" bindtap="xiaoshu">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/bo2.png"></image>
+    <text>消数</text>
+  </view>
+  <view class="bo-li" bindtap="goUp">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/bo3.png"></image>
+    <text>编辑</text>
+  </view>
+  <view class="bo-li" bindtap="del">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/bo4.png"></image>
+    <text>删除</text>
+  </view>
 </view>

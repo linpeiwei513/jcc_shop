@@ -1,0 +1,17 @@
+<!--
+* 积分记录
+* by linpeiwei
+* to 2020.03.20
+-->
+
+<view class="main">
+
+  <view class="main-li" wx:for="{{listData}}" wx:key="key">
+    <view class="main-time">{{item.add_time}}</view>
+    <view class="main-num">{{item.credit}}</view>
+    <view class="main-txt">原因：{{item.desc}}</view>
+    <view class="main-tab">{{item.type==0?'消费':'增加'}}</view>
+    <view class="co"></view>
+  </view>
+
+</view>

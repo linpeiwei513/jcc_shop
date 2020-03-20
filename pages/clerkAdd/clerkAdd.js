@@ -162,6 +162,12 @@ Page({
     })
   },
 
+  bindPickerChange: function(e) {
+    this.setData({
+      status: e.detail.value
+    })
+  },
+
 
 
 

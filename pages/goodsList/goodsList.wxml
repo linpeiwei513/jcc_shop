@@ -3,15 +3,8 @@
 * by linpeiwei
 * to 2020.01.04
 -->
-<!-- <view class="soso">
-  <view class="go-tu">
-    <button class="tu1" bindtap="goAdd">待补清单(3)</button>
-    <button class="tu2" bindtap="goAdd">待销清单(21)</button>
-  </view>
-  <view class="go-so"><icon type="search" size="20" color="rgb(0,255,255)"/></view>
-</view> -->
 
-<view class="top-nav">
+<!-- <view class="top-nav">
   <view class="nav" bindtap="goAdd">
     <image src="../images/nav1.png"></image>
     <text>补货清单</text>
@@ -31,56 +24,42 @@
     <text>搜索货品</text>
     <icon type="search" size="22" color="rgb(0,0,0)"/>
   </view>
+</view> -->
+
+<!--分类-->
+<view class="go-nav">
+
+  <scroll-view scroll-x>
+    <view style="display: flex; flex-direction:row;">
+      <view class="go-li {{showNav==item.id?'on':''}}"  wx:for="{{navList}}" wx:key="key" data-index="{{item.id}}" bindtap="onType" >{{item.name}}</view>
+    </view>
+  </scroll-view>
+  
+  
 </view>
 
 
-
-
-<view class="goods-list">
-
-  <view class="gos-li">
-    <view class="gos-img"><image src="../images/test.png"></image></view>
+<view class="goods-list" wx:if="{{dataList}}">
+  <view class="gos-li" wx:for="{{dataList}}" wx:key="key">
+    <view class="gos-img"><image src="{{imgUrl}}{{item.img}}"></image></view>
     <view class="go-txt">
-      <view class="go-title">足金吊坠（PAS465666552233）</view>
-      <text class="go-no">库存：897</text>
-      <text class="go-no">销量：124 / 900</text>
-      <view class="go-btn">
+      <view class="go-title">{{item.name}}</view> 
+      <view class="go-sn">{{item.sn}}</view> 
+      <text class="go-no">价格：{{item.shop_price}}</text>
+      <text class="go-no">库存：{{item.my_onhand}}</text>
+      <view class="co"></view>
+      <!-- <view class="go-btn">
         <view><image src="../images/add.png"></image>加入补货</view>
         <view><image src="../images/add.png"></image>加入待销</view>
         <view><image src="../images/add.png"></image>销售消货</view>
-      </view>
+      </view> -->
     </view>
     <view class="co"></view>
   </view>
+</view>
 
 
-<view class="gos-li">
-    <view class="gos-img"><image src="../images/goods.jpg"></image></view>
-    <view class="go-txt">
-      <view class="go-title">足金吊坠（PAS465666552233）</view>
-      <text class="go-no">库存：897</text>
-      <text class="go-no">销量：124 / 900</text>
-      <view class="go-btn">
-        <view><image src="../images/add.png"></image>加入补货</view>
-        <view><image src="../images/add.png"></image>加入待销</view>
-        <view><image src="../images/add.png"></image>销售消货</view>
-      </view>
-    </view>
-    <view class="co"></view>
-  </view>
-
-  <view class="gos-li">
-    <view class="gos-img"><image src="../images/test.png"></image></view>
-    <view class="go-txt">
-      <view class="go-title">足金吊坠（PAS465666552233）</view>
-      <text class="go-no">库存：897</text>
-      <text class="go-no">销量：124 / 900</text>
-      <view class="go-btn">
-        <view><image src="../images/add.png"></image>加入补货</view>
-        <view><image src="../images/add.png"></image>加入待销</view>
-        <view><image src="../images/add.png"></image>销售消货</view>
-      </view>
-    </view>
-    <view class="co"></view>
-  </view>
+<view class="none" wx:if="{{dataList.length < 1}}">
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
+  <view>没有相关商品</view>
 </view>

@@ -1,7 +1,7 @@
 /* pages/goodsList/goodsList.wxss */
 .goods-list{
   margin-top: 100rpx;
-  margin: 130rpx 20rpx 20px 20rpx;
+  margin: 100rpx 20rpx 20px 20rpx;
 }
 
 .co{
@@ -49,12 +49,16 @@ input{
   padding-bottom: 5rpx;
 }
 .go-no{
-  font-size: 24rpx;
-  color: #888888;
+  font-size: 28rpx;
+  color: #444444;
   margin-right: 40rpx;
 }
 .go-btn{
   margin-top: 15rpx;
+}
+.go-sn{
+  font-size: 30rpx;
+  color: #444444;
 }
 .go-btn button{
   font-size: 24rpx;
@@ -197,4 +201,45 @@ input{
   height: 30rpx;
   margin-right: 5rpx;
   vertical-align: middle;
+}
+
+.go-nav{
+  white-space: nowrap;
+  height: 80rpx;
+  width: 750rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow:hidden;
+}
+.go-li{
+  font-size: 28rpx;
+  margin-right: 40rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  color: #666666;
+}
+
+.on{
+  color: #000000;
+  font-weight: bold;
+}
+
+.go-li:first-child{
+  margin-left: 30rpx;
+}
+.go-li:last-child{
+  margin-right: 30rpx;
+  padding-right: 30rpx;
+}
+
+::-webkit-scrollbar{
+
+width: 0;
+
+height: 0;
+
+color: transparent;
+
 }

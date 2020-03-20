@@ -14,15 +14,46 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    this.getLoginState()
+  },
+
+  //获取用户登录状态
+  getLoginState: function() {
+    let that = this
+    wx.request({
+      url: that.data.apiUrl + '/Api/Member/checkLogin',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('登录状态：', res)
+        if(res.data.status == '1'){
+          wx.setStorageSync('loginStatus', 1)
+          that.accreditLogin()
+        }else{
+          wx.setStorageSync('loginStatus', 0)
+        }
+      }
+    })
+  },
+
+
+  //授权登录
+  accreditLogin: function() {
+    let that = this
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         //判断登录
         wx.login({
-          success(res) { 
+          success(res) {
             console.log('code：', res.code)
-            
+
             var sessionid = wx.getStorageSync("sessionID");
             sessionid = sessionid ? sessionid : '';
             console.log('sessionid：', sessionid)
@@ -32,46 +63,43 @@ App({
               url: that.data.apiUrl + '/Api/Member/wxLogin/code/' + res.code,
               header: {
                 'content-type': 'application/json',
-                'Cookie': 'PHPSESSID='+sessionid
+                'Cookie': 'PHPSESSID=' + sessionid
               },
               method: 'GET',
               dataType: 'json',
               responseType: 'text',
               success: function (e) {
-                console.log('返回数据：',e)
+                console.log('返回数据：', e)
                 let loginCode = e.data.data.loginCode
                 let userOpenid = e.data.data.userOpenid
                 let sessionID = e.data.data.sessionID
-                
-                if(sessionID){
+
+                if (sessionID) {
                   that.setSession(sessionID)
                 }
 
-                // wx.setStorageSync("cookieKey", e.header["Set-Cookie"]);
-
-
-                if(loginCode == 200){
+                if (loginCode == 200) {
                   //如果sessionID存在则存到缓存中
 
-                  if (e.data.data.userInfo.is_initial == '0'){
+                  if (e.data.data.userInfo.is_initial == '0') {
                     //跳转到修改密码
                     wx.reLaunch({
                       url: '/pages/password/password',
                     })
                     return
-                  }else{
+                  } else {
                     //储存用户信息
                     wx.setStorageSync("userInfo", e.data.data.userInfo);
                     //存储代理商信息
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
-                    
+
                     //跳转到首页
-                    wx.switchTab({
-                      url: '/pages/home/home',
-                    })
+                    // wx.switchTab({
+                    //   url: '/pages/home/home',
+                    // })
                   }
-                  
-                } else if(loginCode == 201){
+
+                } else if (loginCode == 201) {
                   //将openid存到缓存
                   wx.setStorageSync('openid', userOpenid)
                   //跳转到登录页面
@@ -80,8 +108,8 @@ App({
                   })
                 }
               },
-              fail: function(err){
-                console.log('请求失败：',err)
+              fail: function (err) {
+                console.log('请求失败：', err)
               }
             })
           }
@@ -94,6 +122,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -105,7 +134,7 @@ App({
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
-                linsfhas .userInfoReadyCallbackadficall
+                linsfhas.userInfoReadyCallbackadficall
               }
             }
           })
@@ -113,6 +142,9 @@ App({
       }
     })
   },
+
+
+
 
    //将sessionID存缓存
    setSession: function (value) {

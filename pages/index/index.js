@@ -32,6 +32,15 @@ Page({
         console.log('退出回调：', res)
         if (res.data.status == '1') {
           
+          wx.removeStorageSync("sessionID")
+          wx.removeStorageSync("openid")
+          wx.removeStorageSync("userInfo")
+          wx.removeStorageSync("agent_info")
+          wx.removeStorageSync("loginStatus")
+          wx.redirectTo({
+            url: '../welcome/welcome?id=1'
+          })
+
         } else {
           wx.showToast({
             title: res.data.msg,

@@ -4,7 +4,7 @@
 * to 2020.01.05
 -->
 
-<view class="main">
+<!-- <view class="main">
   <view class="box se1" bindtap="goStock">
     <image src="../images/calendar.png"></image>
     补货记录
@@ -13,4 +13,45 @@
     <image src="../images/calendar.png"></image>
     消数记录
   </view>
+</view> -->
+
+<view class="mm">
+
+  <view class="xc-main">
+    <view class="xc-title">我的记录</view>
+    <view class="box se1" bindtap="goStock">
+      <image src="../images/calendar.png"></image>
+      补货记录
+    </view>
+    <view class="box se3" bindtap="goSales" >
+      <image src="../images/calendar.png"></image>
+      消数记录
+    </view>
+    <view class="box se2" bindtap="goSales">
+      <image src="../images/calendar.png"></image>
+      销货记录
+    </view>
+    <view class="co"></view>
+  </view>
+
+  <view class="xc-main">
+    <view class="xc-title">下级代理+记录</view>
+    <view class="box se1" bindtap="goStock">
+      <image src="../images/calendar.png"></image>
+      补货记录
+    </view>
+    <view class="box se3" bindtap="goSales" >
+      <image src="../images/calendar.png"></image>
+      消数记录
+    </view>
+    <view class="box se2" bindtap="goSales">
+      <image src="../images/calendar.png"></image>
+      销货记录
+    </view>
+    <view class="co"></view>
+  </view>
+
 </view>
+
+
+

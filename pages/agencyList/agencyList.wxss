@@ -14,17 +14,32 @@
   margin-bottom: 20rpx;
 }
 .title{
-  font-size: 34rpx;
+  font-size: 30rpx;
   font-weight: bold;
   color: #444444;
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
 }
 .name{
-  font-size: 32rpx;
-  float: left;
-  margin-right: 20rpx;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
 }
 .phone{
   font-size: 34rpx;
   float: left
+}
+.dj{
+  font-size: 20rpx;
+  background-color: red;
+  color: #ffffff;
+  float: left;
+  padding: 0rpx 6rpx;
+  margin-right: 20rpx;
+  border-radius: 4rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin-top: 8rpx;
+}
+.zl{
+  background-color: #f9deb7;
+  color: #444444;
 }

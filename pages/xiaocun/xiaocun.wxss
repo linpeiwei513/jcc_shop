@@ -1,26 +1,41 @@
 /* pages/xiaocun/xiaocun.wxss */
 .box{
-  width: 340rpx;
-  height: 200rpx;
+  width: 200rpx;
+  height: 130rpx;
   background-color: #dfdfdf;
-  line-height: 200rpx;
   color: #ffffff;
   border-radius: 15rpx;
-  margin-left: 200rpx;
-  margin-bottom: 80rpx;
+  float: left;
+  font-size: 32rpx;
+  text-align: center;
 }
 .box image{
-  width: 60rpx;
-  height: 60rpx;
-  vertical-align:middle;
-  margin-left: 60rpx;
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 15rpx auto;
 }
 .main{
   padding-top: 150rpx;
 }
 .se1{
   background-color: #f3d3a5;
+  margin-right: 20rpx;
 }
 .se2{
   background-color: #5daaf9;
+  float: right;
+}
+.xc-main{
+  background-color: #ffffff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+.mm{
+  padding: 30rpx;
+}
+.xc-title{
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
 }

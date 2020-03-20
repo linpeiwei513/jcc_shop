@@ -40,12 +40,12 @@ swiper image{
   background-color: #ffffff;
   border-radius: 10rpx;
   margin: 15rpx;
-  height: 160rpx;
+  height: 120rpx;
 }
 .nav-li image{
-  width: 80rpx;
-  height: 80rpx;
-  margin-top: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 32rpx;
   margin-left: 40rpx;
   display: block;
   float: left
@@ -53,5 +53,5 @@ swiper image{
 .nav-li text{
   font-size: 26rpx;
   margin-left: 40rpx;
-  line-height: 160rpx;
+  line-height: 120rpx;
 }

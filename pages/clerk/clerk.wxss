@@ -120,3 +120,27 @@
   background-color: #f9dea1;
   color: #222222;
 }
+
+.bo-btn{
+  position: fixed;
+  height: 110rpx;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  width: 750rpx;
+}
+.bo-li{
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.bo-li image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.bo-li text{
+  display: block;
+  font-size: 28rpx;
+  color: #555555;
+}

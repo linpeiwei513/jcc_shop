@@ -8,7 +8,7 @@
   margin-bottom: 20rpx;
 }
 .title{
-  font-size: 32rpx;
+  font-size: 30rpx;
   padding: 0rpx 20rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -16,7 +16,7 @@
 }
 .txt{
   padding: 20rpx;
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 .time{
   font-size: 28rpx;
@@ -24,7 +24,7 @@
   border-top: 1rpx solid #f0f0f0;
   padding: 20rpx;
 }
-.li text{
+.li .type{
   position: absolute;
   background-color: #e1ad62;
   color: #ffffff;
@@ -33,4 +33,23 @@
   border-radius: 2rpx;
   right: 20rpx;
   top: 20rpx;
+}
+.user{
+  position: absolute;
+  color: #e1ad62;
+  font-size: 30rpx;
+  padding: 3rpx 10rpx;
+  border-radius: 2rpx;
+  right: 20rpx;
+  bottom: 18rpx;
+}
+.main{
+  padding: 20rpx 20rpx;
+}
+.main-p{
+  font-size: 30rpx;
+  float: left;
+  margin-right: 30rpx;
+  margin-bottom: 10rpx;
+  color: #666666;
 }

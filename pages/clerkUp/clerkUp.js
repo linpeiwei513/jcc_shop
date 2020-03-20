@@ -61,7 +61,7 @@ Page({
               mask: true
             })
             setTimeout(function () {
-              wx.navigateTo({
+              wx.reLaunch({
                 url: '../clerk/clerk?id='+that.data.id　　// 页面 A
               })
             }, 1000) 
@@ -131,6 +131,12 @@ Page({
   getqq: function (e) {
     this.setData({
       qq: e.detail.value
+    })
+  },
+
+  bindPickerChange: function (e) {
+    this.setData({
+      status: e.detail.value
     })
   },
 
