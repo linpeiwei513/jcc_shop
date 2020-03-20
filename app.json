@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/xiaocun/xiaocun",
     "pages/welcome/welcome",
+    "pages/xiaocun/xiaocun",
+    
     "pages/recordSales/recordSales",
     "pages/goodsList/goodsList",
     "pages/recordIntegral/recordIntegral",
@@ -52,7 +53,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f9deb7",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "福盈泰销售管理",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
