@@ -1,6 +1,6 @@
 /* pages/recordStock/recordStock.wxss */
 .list{
-  padding: 20rpx 30rpx;
+  padding: 20rpx 20rpx;
 }
 .li{
   background-color: #ffffff;
@@ -52,4 +52,40 @@
   margin-right: 30rpx;
   margin-bottom: 10rpx;
   color: #666666;
+}
+
+.m-li{
+  background-color: #ffffff;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.m-sn{
+  font-weight: bold;
+}
+.m-t{
+  border-bottom: 1rpx solid #f0f0f0;
+  padding: 20rpx;
+}
+.m-m{
+  border-bottom: 1rpx solid #f0f0f0;
+  padding: 20rpx 60rpx;
+}
+.m-m .m-p{
+  width: 50%;
+  line-height: 40rpx;
+}
+.m-b{
+  padding: 20rpx;
+}
+.m-b .m-p{
+  margin-right: 20rpx;
+  background-color: darkseagreen;
+  color: #ffffff;
+  padding: 2rpx 10rpx;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+}
+.list text{
+  color: #777777;
 }

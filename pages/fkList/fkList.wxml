@@ -1,0 +1,22 @@
+<!--
+* 放款列表
+* by linpeiwei
+* to 2020.01.02
+-->
+
+<view class="main" wx:if="{{listData}}">
+
+  <view class="main-li" wx:for="{{listData}}" wx:key="key" data-id="{{item.bill_no}}" bindtap="goxq">
+    <view class="li-t">单号：{{item.bill_no}}</view>
+    <view class="li-p">返现金额：￥ {{item.amount}}</view>
+    <view class="li-p">收款方：{{item.in_id_name}}</view>
+    <view class="li-p">日期：{{item.billdate}}</view>
+    <view class="li-tap">{{item.receipt_status==1?'已收款':'未收款'}}</view>
+  </view>
+
+</view>
+
+<view class="none" wx:if="{{listData.length < 1}}">
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
+  <view>没有相关数据</view>
+</view>

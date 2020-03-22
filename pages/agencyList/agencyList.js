@@ -46,6 +46,13 @@ Page({
   },
 
 
+  //新增代理
+  goAdd: function() {
+    wx.navigateTo({
+      url: '../agencyAdd/agencyAdd',
+    })
+  },
+
 
 
 

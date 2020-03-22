@@ -25,6 +25,13 @@ Page({
     }
   },
 
+  //编辑代理
+  goUp: function() {
+    wx.navigateTo({
+      url: '../agencyUp/agencyUp?id='+this.data.id+'&discount='+this.data.ageData.discount,
+    })
+  },
+
   //获取代理资料
   getData: function() {
     let that = this

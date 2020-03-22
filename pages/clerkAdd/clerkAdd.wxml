@@ -3,9 +3,6 @@
 * by linpeiwei
 * to 2020.01.05
 -->
-<!-- <view class="img">
-  <image src="../images/uu.png" class="userimg"></image>
-</view> -->
 
 <view class="form">
   <view class="form-li">

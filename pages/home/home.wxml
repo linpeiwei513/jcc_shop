@@ -43,6 +43,10 @@
       <image src="../images/nav_user.png"></image>
       <text>下级代理</text>
     </view>
+    <view class="nav-li" bindtap="gofangkuan">
+      <image src="../images/nav_clerk.png"></image>
+      <text>返现放款</text>
+    </view>
     <view class="nav-li" bindtap="goStatistics">
       <image src="../images/nav_statistics.png"></image>
       <text>数据统计</text>

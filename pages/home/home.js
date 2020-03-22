@@ -69,6 +69,13 @@ Page({
     wx.navigateTo({
       url: '../agencyList/agencyList',
     })
+  },
+
+  //放款返现
+  gofangkuan: function () {
+    wx.navigateTo({
+      url: '../fangkuan/fangkuan',
+    })
   }
 
 

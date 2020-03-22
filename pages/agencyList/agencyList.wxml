@@ -17,5 +17,14 @@
     </navigator>
   </view>
 
+</view>
 
+
+<view style="height:120rpx"></view>
+<view class="tool-main">
+  <view class="tool-btn w1" bindtap="goAdd">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/add_user.png"></image>
+    新增代理
+  </view>
+  <view class="co"></view>
 </view>

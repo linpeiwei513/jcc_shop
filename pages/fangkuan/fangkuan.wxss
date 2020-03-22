@@ -1,0 +1,46 @@
+/* pages/fangkuan/fangkuan.wxss */
+
+.main{
+  padding: 20rpx;
+}
+.main-li{
+  background-color: #ffffff;
+  padding: 30rpx 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.se1{
+  background-color: #f3d3a5;
+}
+.se2{
+  background-color: #5daaf9;
+}
+.se3{
+  background-color: #E6A23C;
+}
+.se4{
+  background-color: #F56C6C;
+}
+.nav-li{
+  width: 330rpx;
+  height: 140rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #ffffff;
+  border-radius: 10rpx;
+}
+.nav-li image{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 3rpx auto;
+}
+.nav-max{
+  width: 100%;
+}
+.nav-title{
+  text-align: center;
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}

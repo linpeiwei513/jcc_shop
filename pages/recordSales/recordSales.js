@@ -16,7 +16,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
     this.getDataList()
+  },
+
+  //查看详情
+  goDetails: function(e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../salesDetails/salesDetails?id='+e.currentTarget.dataset.id,
+    })
   },
 
 

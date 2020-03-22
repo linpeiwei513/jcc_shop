@@ -23,6 +23,12 @@ Page({
     }
   },
 
+  xiaoshu: function() {
+    wx.navigateTo({
+      url: '../recordMarket/recordMarket?id=' + this.data.id,
+    })
+  },
+
   //编辑
   goUp: function() {
     

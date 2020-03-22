@@ -1,0 +1,28 @@
+<!--
+* 返现放款管理
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="main">
+  <view class="main-li">
+   <view class="nav-li se1 le" bindtap="gofx">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/financial_fill.png"></image>
+    我的返现单
+   </view>
+   <view class="nav-li se2 rt" bindtap="gofk">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/transaction_fill.png"></image>
+    我的放款单
+   </view>
+   <view class="co"></view>
+  </view>
+
+  <view class="main-li">
+   <view class="nav-li nav-max se4" bindtap="goadd">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/addition_fill.png"></image>
+    新增放款单
+   </view>
+   <view class="co"></view>
+  </view>
+
+</view>

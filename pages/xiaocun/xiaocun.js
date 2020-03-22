@@ -27,10 +27,29 @@ Page({
     })
   },
 
+  goMarket: function() {
+    wx.navigateTo({
+      url: '../recordMarket/recordMarket?id=',
+    })
+  },
 
+  goSalesD: function() {
+    wx.navigateTo({
+      url: '../recordSalesD/recordSalesD',
+    })
+  },
 
+  goStockD: function() {
+    wx.navigateTo({
+      url: '../recordStockD/recordStockD',
+    })
+  },
 
-
+  goMarketD: function() {
+    wx.navigateTo({
+      url: '../recordMarketD/recordMarketD?id=',
+    })
+  },
 
 
 

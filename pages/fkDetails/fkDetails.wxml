@@ -1,0 +1,64 @@
+<!--
+* 详情
+* by linpeiwei
+* to 2020.03.19
+-->
+
+<view class="m-main">
+  <view class="m-box">
+    <view class="m-title">单据信息</view>
+    <view class="m-ul">
+      <view class="m-li">
+        <view class="li-title le">单据编号：</view>
+        <view class="li-txt rt">{{orderData.bill_no}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">单据日期：</view>
+        <view class="li-txt rt">{{orderData.billdate}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">返现金额：</view>
+        <view class="li-txt rt">{{orderData.amount}}</view>
+        <view class="co"></view>
+      </view>
+
+      <view class="m-li">
+        <view class="li-title le">收款状态：</view>
+        <view class="li-txt rt">{{orderData.receipt_status==1?'已收款':'未收款'}}</view>
+        <view class="co"></view>
+      </view>
+
+      <view class="m-li">
+        <view class="li-title le">收款方：</view>
+        <view class="li-txt rt">{{orderData.in_id_name}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">付款方：</view>
+        <view class="li-txt rt">{{orderData.out_id_name}}</view>
+        <view class="co"></view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="m-box">
+    <view class="m-title">关联清单</view>
+    <view class="order-li" wx:for="{{goodsData}}" wx:key="key">
+      <view class="or-t">清单号：{{item.invoice_info.bill_no}}</view>
+      <view class="or-p le">原价：￥ {{item.invoice_info.total_amt}}</view>
+      <view class="or-p">折扣：￥ {{item.invoice_info.amount}}</view>
+      <view class="co"></view>
+      <view class="or-p">返现金额：￥ {{item.amount}}</view>
+      <view class="or-p">日期：{{item.invoice_info.billdate}}</view>
+      <view class="co"></view>
+    </view>
+
+
+    <view class="m-title no">合计：{{orderData.amount}}</view>
+
+  </view>
+
+</view>

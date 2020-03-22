@@ -1,0 +1,35 @@
+<!--
+* 消数记录
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="list" wx:if="{{dataList}}">
+  
+  <view class="m-li" wx:for="{{dataList}}" wx:key="key" >
+    <view class="m-t">
+      <view class="m-sn le">单号：{{item.bill_no}}</view>
+      <view class="co"></view>
+    </view>
+    <view class="m-m">
+      <view class="m-p">代理：<text>{{item.agent_id}}</text></view>
+      <view class="m-p">消数人：<text>{{item.m_id}}</text></view>
+      <view class="m-p">商品：<text>{{item.goods_info.name}}</text></view>
+      <view class="m-p le">规格：<text>{{item.spec_info.key_name}}</text></view>
+      <view class="m-p le">数量：<text>{{item.quantity}}</text></view>
+      <view class="m-p le">奖励积分：<text>{{item.credit}}</text></view>
+      <view class="co"></view>
+    </view>
+    <view class="m-b">
+      <view class="m-p le">{{item.credit_status==1?'积分已到账':'积分未到账'}}</view>
+      <view class="m-p le">{{item.onhand_status==1?'库存已减':'库存未减'}}</view>
+      <view class="co"></view>
+    </view>
+  </view>
+
+</view>
+
+<view class="none" wx:if="{{dataList.length < 1}}">
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
+  <view>没有相关数据</view>
+</view>

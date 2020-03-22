@@ -19,6 +19,13 @@ Page({
     this.getDataList()
   },
 
+  //查看详情
+  goDetails: function(e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../stockDetails/stockDetails?id='+e.currentTarget.dataset.id,
+    })
+  },
 
   //获取列表
   getDataList: function () {

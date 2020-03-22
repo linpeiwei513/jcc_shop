@@ -1,0 +1,85 @@
+<!--
+* 销货详情
+* by linpeiwei
+* to 2020.03.19
+-->
+
+<view class="m-main">
+  <view class="m-box">
+    <view class="m-title">单据信息</view>
+    <view class="m-ul">
+      <view class="m-li">
+        <view class="li-title le">单据编号：</view>
+        <view class="li-txt rt">{{orderData.bill_no}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">单据日期：</view>
+        <view class="li-txt rt">{{orderData.billdate}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">商品总额：</view>
+        <view class="li-txt rt">{{orderData.amount}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">总商品数：</view>
+        <view class="li-txt rt">{{orderData.total_qty}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">入库方：</view>
+        <view class="li-txt rt">{{orderData.in_id_name}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">出货方：</view>
+        <view class="li-txt rt">{{orderData.out_id_name}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">入库状态：</view>
+        <view class="li-txt rt">{{orderData.onhand_status==1?'已入库':'未入库'}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">出库状态：</view>
+        <view class="li-txt rt">{{orderData.shipping_status==1?'已发货':'未发货'}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">提交时间：</view>
+        <view class="li-txt rt">{{orderData.billdate}}</view>
+        <view class="co"></view>
+      </view>
+      <view class="m-li">
+        <view class="li-title le">审核状态：</view>
+        <view class="li-txt rt">{{orderData.status==1?'已通过':'审核中'}}</view>
+        <view class="co"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-box">
+    <view class="m-title">商品信息</view>
+    <view class="goods-li" wx:for="{{goodsData}}" wx:key="key">
+      <view class="goods-img le"><image src="{{imgUrl+item.goods_info.img}}"></image></view>
+      <view class="goods-txt rt">
+        <view class="name">{{item.goods_info.name}}</view>
+        <view class="p">
+          <text>数量：{{item.quantity}}</text>
+          <text>规格：{{item.goods_info.spec_info}}</text>
+          <text>折扣：{{item.discount}}</text>
+        </view>
+        <view class="price">￥{{item.amount}}</view>
+      </view>
+      <view class="co"></view>
+    </view>
+
+
+    <view class="m-title no">合计：{{orderData.amount}}</view>
+
+  </view>
+
+</view>

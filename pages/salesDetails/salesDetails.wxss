@@ -1,0 +1,63 @@
+/* pages/shop/shop.wxss */
+
+
+
+.m-main{
+  padding: 20rpx;
+}
+.m-box{
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.m-title{
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx;
+  border-bottom: 3rpx solid #f0f0f0;
+  text-align: center;
+}
+.m-li{
+  font-size: 30rpx;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.li-txt{
+  color: #555555;
+}
+.goods-li{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.goods-img{
+  width: 130rpx;
+  height: 130rpx;
+}
+.goods-img image{
+  width: 130rpx;
+  height: 130rpx;
+}
+.goods-txt{
+  width: 520rpx;
+}
+.goods-txt .name{
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goods-txt .p{
+  font-size: 28rpx;
+  color: #777777;
+}
+.goods-txt .p text{
+  margin-right: 20rpx;
+}
+.goods-txt .price{
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+}
+.no{
+  border-bottom: none;
+}

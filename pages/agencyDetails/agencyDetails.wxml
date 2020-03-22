@@ -35,9 +35,24 @@
       <view class="title">营业执照：</view>
       <view class="co"></view>
     </view> 
+    <view class="form-li">
+      <view class="put">{{ageData.discount}}</view>
+      <view class="title">折扣：</view>
+      <view class="co"></view>
+    </view>
     <view class="form-li no">
       <view class="put">{{ageData.rank_str}}</view>
       <view class="title">代理等级：</view>
       <view class="co"></view>
     </view>
+</view>
+
+
+<view style="height:120rpx"></view>
+<view class="tool-main">
+  <view class="tool-btn w1" bindtap="goUp">
+    <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/bo3.png"></image>
+    编辑代理
+  </view>
+  <view class="co"></view>
 </view>

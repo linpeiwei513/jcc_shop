@@ -23,7 +23,7 @@
       <image src="../images/calendar.png"></image>
       补货记录
     </view>
-    <view class="box se3" bindtap="goSales" >
+    <view class="box se3" bindtap="goMarket" >
       <image src="../images/calendar.png"></image>
       消数记录
     </view>
@@ -35,16 +35,16 @@
   </view>
 
   <view class="xc-main">
-    <view class="xc-title">下级代理+记录</view>
-    <view class="box se1" bindtap="goStock">
+    <view class="xc-title">下级代理记录</view>
+    <view class="box se1" bindtap="goStockD">
       <image src="../images/calendar.png"></image>
       补货记录
     </view>
-    <view class="box se3" bindtap="goSales" >
+    <view class="box se3" bindtap="goMarketD" >
       <image src="../images/calendar.png"></image>
       消数记录
     </view>
-    <view class="box se2" bindtap="goSales">
+    <view class="box se2" bindtap="goSalesD">
       <image src="../images/calendar.png"></image>
       销货记录
     </view>

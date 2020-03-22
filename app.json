@@ -1,22 +1,29 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/xiaocun/xiaocun",
-    
+    "pages/home/home",
+    "pages/fkList/fkList",
+    "pages/fkDetails/fkDetails",
+    "pages/fangkuan/fangkuan",
     "pages/recordSales/recordSales",
+    "pages/salesDetails/salesDetails",
+    "pages/recordMarket/recordMarket",
+    "pages/agencyList/agencyList",
+    "pages/agencyAdd/agencyAdd",
+    
+    "pages/recordStock/recordStock",
+    "pages/xiaocun/xiaocun",
     "pages/goodsList/goodsList",
     "pages/recordIntegral/recordIntegral",
     "pages/clerk/clerk",
     "pages/clerkList/clerkList",
     "pages/index/index",
     "pages/clerkAdd/clerkAdd",
-    "pages/agencyList/agencyList",
     "pages/agencyDetails/agencyDetails",
     "pages/login/login",
     "pages/shop/shop",
     "pages/site/province/province",
     "pages/password/password",
-    "pages/home/home",
     "pages/activity/activity",
     "pages/mall/integral/integral",
     "pages/mall/orderShow/orderShow",
@@ -33,8 +40,6 @@
     "pages/yijian/yijian",
     "pages/goodsAdd/goodsAdd",
     "pages/statistics/statistics",
-    "pages/recordStock/recordStock",
-    
     "pages/activityDetails/activityDetails",
     "pages/logs/logs",
     "pages/clerkUpdate/clerkUpdate",
@@ -42,7 +47,15 @@
     "pages/mall/helpShow/helpShow",
     "pages/site/city/city",
     "pages/site/region/region",
-    "pages/clerkUp/clerkUp"
+    "pages/clerkUp/clerkUp",
+    "pages/recordSalesD/recordSalesD",
+    "pages/recordStockD/recordStockD",
+    "pages/recordMarketD/recordMarketD",
+    "pages/agencyUp/agencyUp",
+    "pages/stockDetails/stockDetails",
+    "pages/fxList/fxList",
+    "pages/fxDetails/fxDetails",
+    "pages/fxAdd/fxAdd"
   ],
   "plugins": {
     "tencentvideo": {

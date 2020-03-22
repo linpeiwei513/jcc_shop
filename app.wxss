@@ -9,7 +9,7 @@
   box-sizing: border-box;
 } 
 page{
-  background-color: #f9f9f9;
+  background-color: #f6f6f6;
 }
 .co{
   clear: both;
@@ -29,4 +29,29 @@ page{
 .none image{
   width: 160rpx;
   height: 160rpx;
+}
+
+.tool-main{
+  position: fixed;
+  width: 100%;
+  height: 110rpx;
+  bottom: 0;
+  left: 0;
+  background-color:rgba(255,255,255,0.9);
+  border-top: 1rpx solid #f0f0f0;
+}
+.tool-main .tool-btn{
+  float: left;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+.tool-main .tool-btn image{
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 8rpx auto;
+}
+.tool-main .w1{
+  width: 100%;
 }

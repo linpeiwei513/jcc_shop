@@ -1,0 +1,28 @@
+/* pages/fkList/fkList.wxss */
+.main{
+  padding: 20rpx;
+}
+.main-li{
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.li-t{
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+.li-p{
+  color: #666666;
+}
+.li-tap{
+  background-color: #67C23A;
+  padding: 2rpx 6rpx;
+  color: #ffffff;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 6rpx;
+}

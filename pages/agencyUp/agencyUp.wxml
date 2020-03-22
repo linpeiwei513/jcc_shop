@@ -1,0 +1,26 @@
+<!--
+* 新增代理
+* by linpeiwei
+* to 2020.01.05
+-->
+
+<view class="form">
+
+  <view class="form-li">
+    <text>密码：</text>
+    <input password="true" placeholder="留空为不修改" value="{{password}}" bindinput='getpassword'></input>
+    <view class="co"></view>
+  </view>
+
+  <view class="form-li">
+    <text>折扣：</text>
+    <picker bindchange="binZk" value="{{discountIndex}}" range="{{discountList}}">
+        <view class="picker">
+          {{discountList[discountIndex]}}
+        </view>
+    </picker>
+    <view class="co"></view>
+  </view>
+</view>
+
+<view class="btn" bindtap="submitData">确定</view>
