@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -9,5 +9,22 @@
   </view>
   <view class="usermotto">
     <button bindtap="getExit">退出登录</button>
+  </view>
+</view> -->
+
+<view class="user-top">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="user-main">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <view class="user-t">
+          <view class="user-no">我系渣渣林</view>
+          <view class="user-po">深圳市超级无敌有限公司</view>
+          <view class="po-ben">管理</view>
+        </view>
+      </view>
+      
+    </block>
   </view>
 </view>

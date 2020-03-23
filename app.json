@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/fkList/fkList",
@@ -17,7 +18,7 @@
     "pages/recordIntegral/recordIntegral",
     "pages/clerk/clerk",
     "pages/clerkList/clerkList",
-    "pages/index/index",
+    
     "pages/clerkAdd/clerkAdd",
     "pages/agencyDetails/agencyDetails",
     "pages/login/login",
