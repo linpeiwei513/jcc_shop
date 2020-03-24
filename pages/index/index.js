@@ -7,7 +7,9 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userData: '',
+    agentData: ''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -84,7 +86,35 @@ Page({
         }
       })
     }
+
+
+    this.getUserData()
   },
+
+
+  //获取用户信息 agent_info
+  getUserData: function() {
+    this.setData({
+      userData: wx.getStorageSync("userInfo"),
+      agentData: wx.getStorageSync("agent_info")
+    })
+    console.log('用户信息：',this.data.userData)
+  },
+
+  //公司信息
+  goShop: function() {
+    wx.navigateTo({
+      url: '../shop/shop'
+    })
+  },
+
+  //修改密码
+  goMima: function() {
+    wx.navigateTo({
+      url: '../password/password'
+    })
+  },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

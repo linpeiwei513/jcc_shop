@@ -19,12 +19,72 @@
       <view class="user-main">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="user-t">
-          <view class="user-no">我系渣渣林</view>
-          <view class="user-po">深圳市超级无敌有限公司</view>
-          <view class="po-ben">管理</view>
+          <view class="user-no">{{userData.username}} ({{userInfo.nickName}})</view>
+          <view class="user-po">{{agentData.name}}</view>
+          <view class="po-ben" bindtap="goShop">管理</view>
         </view>
-      </view>
-      
+        <view class="co"></view>
+      </view> 
     </block>
   </view>
+</view>
+
+<view class="user-nav">
+  
+  <view class="nav-main nav1">
+    <view class="nav-li le">
+      <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav1.png"></image>
+       补货申请
+    </view>
+    <view class="nav-li le">
+      <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav2.png"></image>
+       销货申请
+    </view>
+    <view class="co"></view>
+  </view>
+
+  <view class="nav-main nav2">
+  <view class="nav-li">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_xiaoshu.png"></image></view>
+      <view class="name le">消数记录</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_jifen.png"></image></view>
+      <view class="name le">积分记录</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="p rt">{{userData.credits}}</view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_jifen.png"></image></view>
+      <view class="name le">兑换记录</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_dizhi.png"></image></view>
+      <view class="name le">收货地址</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_ziliao.png"></image></view>
+      <view class="name le">资料修改</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li no" bindtap="goMima">
+      <view class="lf-img le"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav_mima.png"></image></view>
+      <view class="name le">密码修改</view>
+      <view class="rt-img rt"><image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+  </view>
+
+  <view class="nav-main nav3" bindtap="getExit">
+    退出登录
+  </view>
+
 </view>
