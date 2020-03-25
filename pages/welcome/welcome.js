@@ -10,14 +10,17 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loginStatue: ''
+    loginStatue: '0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('退出回调111：', options.id)
+    
+    this.setData({
+      loginStatue: wx.getStorageSync("lo")
+    })
     wx.showToast({
       title: '获取信息中...',
       icon: 'loading',
@@ -26,11 +29,16 @@ Page({
 
     if (wx.getStorageSync("sessionID")) {
       this.getLoginState()
+    }else{
+      //this.accreditLogin()
+      if(this.data.loginStatue == '1'){
+        this.accreditLogin()
+      }
+      console.log('loginStatue:', wx.getStorageSync('lo'))
     }
 
-    this.setData({
-      loginStatue: wx.getStorageSync("loginStatus")
-    })
+    
+
     // 查看是否授权
     wx.getSetting({
       success: function (res) {
@@ -38,7 +46,8 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
+              console.log('微信信息：',res.userInfo)
+              wx.setStorageSync("wxUserInfo", res.userInfo);
             }
           })
         }
@@ -47,10 +56,10 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
-    console.log(e.detail.userInfo)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    wx.showToast({
+      title: '登录中...',
+      icon: 'loading',
+      duration: 2000
     })
     this.accreditLogin()
   },
@@ -70,13 +79,13 @@ Page({
       success: function (res) {
         console.log('登录状态：', res)
         if (res.data.status == '1') {
-          wx.setStorageSync('loginStatus', 1)
+          wx.setStorageSync('lo', 1)
           that.setData({
             loginStatue: 1
           })
           that.accreditLogin()
         } else {
-          wx.setStorageSync('loginStatus', 0)
+          wx.setStorageSync('lo', 0)
           that.setData({
             loginStatue: 0
           })
@@ -87,6 +96,7 @@ Page({
 
   //授权登录
   accreditLogin: function () {
+    
     let that = this
     // 登录
     wx.login({
@@ -112,10 +122,12 @@ Page({
               dataType: 'json',
               responseType: 'text',
               success: function (e) {
-                console.log('返回数据：', e)
+                console.log('返回数据11：', e)
                 let loginCode = e.data.data.loginCode
                 let userOpenid = e.data.data.userOpenid
                 let sessionID = e.data.data.sessionID
+
+                wx.setStorageSync('lo', 1)
 
                 if (sessionID) {
                   that.setSession(sessionID)

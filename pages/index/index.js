@@ -41,6 +41,7 @@ Page({
           wx.removeStorageSync("userInfo")
           wx.removeStorageSync("agent_info")
           wx.removeStorageSync("loginStatus")
+          wx.setStorageSync("lo", 0);
           wx.redirectTo({
             url: '../welcome/welcome?id=1'
           })
@@ -58,10 +59,6 @@ Page({
   },
 
   onLoad: function () {
-
-
-    this.getUserInfo()
-
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -112,7 +109,8 @@ Page({
   getUserData: function() {
     this.setData({
       userData: wx.getStorageSync("userInfo"),
-      agentData: wx.getStorageSync("agent_info")
+      agentData: wx.getStorageSync("agent_info"),
+      userInfo: wx.getStorageSync("wxUserInfo")
     })
     console.log('用户信息：',this.data.userData)
   },
