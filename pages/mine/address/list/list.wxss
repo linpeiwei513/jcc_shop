@@ -1,0 +1,21 @@
+/* pages/mine/address/list/list.wxss */
+.main{
+  padding: 20rpx;
+}
+.main-li{
+  background-color: #FFFFFF;
+    border-radius: 24rpx;
+    min-height: 200rpx;
+    position: relative;
+    margin-bottom: 20rpx;
+    box-shadow: #ebedf0 0 4rpx 12rpx;
+}
+.bian{
+  width: 2rpx;
+  position: absolute;
+  height: 90rpx;
+  background-color: #3d464b;
+  opacity: 0.1;
+  top: 50rpx;
+  left: 600rpx;
+}

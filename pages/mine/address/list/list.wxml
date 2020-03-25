@@ -1,0 +1,16 @@
+<!--
+* 地址列表
+* by linpeiwei
+* to 2020.03.25
+-->
+
+<view class="main">
+
+  <view class="main-li">
+    <view class="user">
+      <view class=""></view>
+    </view>
+    <view class="bian"></view>
+  </view>
+
+</view>

@@ -2,9 +2,11 @@
 //获取应用实例
 const app = getApp()
 const apiUrl = app.globalData.apiUrl;
+//const iconUrl = app.globalData.iconUrl;
 Page({
-  data: {
+  data: { 
     motto: 'Hello World',
+    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -55,11 +57,12 @@ Page({
 
   },
 
-
-
-
-
   onLoad: function () {
+
+
+    this.getUserInfo()
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -91,6 +94,19 @@ Page({
     this.getUserData()
   },
 
+  //积分记录
+  gointegral: function() {
+    wx.navigateTo({
+      url: '../mine/integral/integral',
+    })
+  },
+
+  //消数记录
+  goxiaoshu: function() {
+    wx.navigateTo({
+      url: '../mine/xiaoshu/xiaoshu',
+    })
+  },
 
   //获取用户信息 agent_info
   getUserData: function() {

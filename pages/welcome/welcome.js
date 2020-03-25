@@ -24,7 +24,7 @@ Page({
       duration: 2000
     })
 
-    if(options.id == 1){
+    if (wx.getStorageSync("sessionID")) {
       this.getLoginState()
     }
 
@@ -186,6 +186,18 @@ Page({
     // })
   },
 
+  //将sessionID存缓存
+  setSession: function (value) {
+    wx.setStorageSync("sessionID", value);
+  },
+  //在缓存中取Session
+  getSession: function () {
+    return wx.getStorageSync("sessionID")
+  },
+  //删除缓存Session
+  removeSession: function () {
+    wx.removeStorageSync("sessionID")
+  },
 
 
   /**

@@ -3,7 +3,8 @@ App({
 
 
   data: {
-    apiUrl: 'https://fyt.test.fastcmf.com'
+    apiUrl: 'https://fyt.test.fastcmf.com',
+    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
   },
 
 
@@ -14,7 +15,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    this.getLoginState()
+    
   },
 
   //获取用户登录状态
@@ -62,8 +63,7 @@ App({
             wx.request({
               url: that.data.apiUrl + '/Api/Member/wxLogin/code/' + res.code,
               header: {
-                'content-type': 'application/json',
-                'Cookie': 'PHPSESSID=' + sessionid
+                'content-type': 'application/json'
               },
               method: 'GET',
               dataType: 'json',
@@ -94,14 +94,15 @@ App({
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
 
                     //跳转到首页
-                    // wx.switchTab({
-                    //   url: '/pages/home/home',
-                    // })
+                    wx.switchTab({
+                      url: '/pages/home/home',
+                    })
                   }
 
                 } else if (loginCode == 201) {
                   //将openid存到缓存
                   wx.setStorageSync('openid', userOpenid)
+                  console.log('userOpenid:', userOpenid)
                   //跳转到登录页面
                   wx.reLaunch({
                     url: '/pages/login/login',
@@ -179,6 +180,17 @@ App({
     })
   },
 
+  //格式化时间戳
+  formattingDate: function (timestamp) {
+    var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = date.getDate() + ' ';
+    var h = date.getHours() + ':';
+    var m = date.getMinutes() + ':';
+    var s = date.getSeconds();
+    return Y + M + D + h + m + s;
+  },
 
 
 

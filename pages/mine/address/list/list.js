@@ -1,4 +1,6 @@
-// pages/xiaocun/xiaocun.js
+// pages/mine/address/list/list.js
+const app = getApp()
+const apiUrl = app.globalData.apiUrl;
 Page({
 
   /**
@@ -12,47 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
+    var addtime = app.formattingDate(1585109077);
+    console.log('格式化时间：', addtime)
   },
-
-  goSales: function() {
-    wx.navigateTo({
-      url: '../recordSales/recordSales',
-    })
-  },
-
-  goStock: function() {
-    wx.navigateTo({
-      url: '../recordStock/recordStock',
-    })
-  }, 
-
-  goMarket: function() {
-    wx.navigateTo({
-      url: '../mine/xiaoshu/xiaoshu',
-    })
-  },
-
-  goSalesD: function() {
-    wx.navigateTo({
-      url: '../recordSalesD/recordSalesD',
-    })
-  },
-
-  goStockD: function() {
-    wx.navigateTo({
-      url: '../recordStockD/recordStockD',
-    })
-  },
-
-  goMarketD: function() {
-    wx.navigateTo({
-      url: '../recordMarketD/recordMarketD?id=',
-    })
-  },
-
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
