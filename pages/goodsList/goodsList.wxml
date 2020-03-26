@@ -47,13 +47,13 @@
       <view class="go-txt">
         <view class="go-title">{{item.name}}</view> 
         <view class="go-sn">{{item.sn}}</view> 
-        <text class="go-no">价格：{{item.shop_price}}</text>
-        <text class="go-no">库存：{{item.my_onhand}}</text>
+        <view class="go-no">价格：{{item.shop_price}}</view>
+        <view class="go-no">库存：{{item.my_onhand}}（在途库存：32）</view>
         <view class="co"></view>
       </view>
       <view class="co"></view>
     </view>
-    <view class="go-btn">
+    <view class="go-btn" wx:if="{{item.my_onhand > 0}}">
       <view class="btn-li b1" data-item="{{item}}" bindtap="goxiaoshu">
         销售消货
       </view>

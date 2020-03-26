@@ -25,7 +25,7 @@ Page({
     console.log(e.currentTarget.dataset.item)
     let item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../addXiaoshu/addXiaoshu?goods_id='+this.data.dataList.id+'&goods_name='+this.data.dataList.name+'&spec_id='+item.id+'&key_name='+item.key_name,
+      url: '../addXiaoshu/addXiaoshu?goods_id='+this.data.dataList.id+'&goods_name='+this.data.dataList.name+'&spec_id='+item.id+'&key_name='+item.key_name+'&my_onhand='+this.data.dataList.my_onhand,
     })
   },
 

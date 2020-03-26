@@ -12,7 +12,8 @@ Page({
     goods_id: '',
     goods_name: '',
     spec_id: '',
-    key_name: ''
+    key_name: '',
+    my_onhand: ''
   },
 
   /**
@@ -24,7 +25,8 @@ Page({
       goods_id: options.goods_id,
       goods_name: options.goods_name,
       spec_id: options.spec_id,
-      key_name: options.key_name
+      key_name: options.key_name,
+      my_onhand: options.my_onhand
     })
   },
 
@@ -42,6 +44,14 @@ Page({
     if (that.data.sale_num < 1) {
       wx.showToast({
         title: '消数数量不能小于1',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (that.data.sale_num > that.data.my_onhand) {
+      wx.showToast({
+        title: '消数数量不能大于库存'+that.data.my_onhand,
         icon: 'none',
         duration: 2000
       })

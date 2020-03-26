@@ -42,7 +42,7 @@ Page({
     }else{
       console.log('没有规格')
       wx.navigateTo({
-        url: '../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=',
+        url: '../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=&my_onhand='+item.my_onhand,
       })
     }
     

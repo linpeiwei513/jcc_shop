@@ -42,21 +42,22 @@ input{
   float: left;
 }
 .go-txt{
-  float: left;
+  float: right;
   margin-left: 20rpx;
+  width: 520rpx;
 }
 .go-title{
   font-size: 26rpx;
   padding-bottom: 5rpx;
 }
 .go-no{
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #444444;
   margin-right: 40rpx;
 }
 
 .go-sn{
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #444444;
 }
 .go-tu{
