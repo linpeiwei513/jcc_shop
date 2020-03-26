@@ -48,7 +48,7 @@
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>
-    <view class="nav-li">
+    <view class="nav-li" bindtap="goAddress">
       <view class="lf-img le"><image src="{{iconUrl}}nav_dizhi.png"></image></view>
       <view class="name le">收货地址</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>

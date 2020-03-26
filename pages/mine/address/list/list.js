@@ -7,17 +7,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    listData: '',
+    skip: 0,
+    limit: 10,
+    id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    var addtime = app.formattingDate(1585109077);
-    console.log('格式化时间：', addtime)
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
+    this.getAddressList();
   },
+
+  //新增收货地址
+  goAdd: function() {
+    wx.navigateTo({
+      url: '../add/add',
+    })
+  },
+  //编辑收货地址
+  goUpdate: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../update/update?id=' + e.currentTarget.dataset.id,
+    })
+  },
+
+
+  //获取地址列表
+  getAddressList: function() {
+
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Member/myAddress?skip=' + this.data.skip + '&limit=' + this.data.limit,
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('地址列表：', res)
+        if (res.data.status == '1') {
+          that.setData({
+            listData: res.data.data
+          })
+        }
+      }
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

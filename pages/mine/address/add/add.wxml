@@ -1,0 +1,66 @@
+<!--
+* 新增地址
+* by linpeiwei
+* to 2020.03.25
+-->
+
+<view class="main">
+  <view class="main-main main-f">
+
+    <view class="main-li">
+      <view class="title le">联系人：</view>
+      <view class="put rt">
+        <input type="text" placeholder="请输入联系人" value="{{contacts}}" maxlength="20" bindinput='getContacts'></input>
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li">
+      <view class="title le">手机号码：</view>
+      <view class="put rt">
+        <input type="number" placeholder="请输入手机号码" value="{{tel}}" maxlength="11" bindinput='getTel'></input>
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li">
+      <view class="title le">所在区域：</view>
+      <view class="put rt">
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{timeIndex}}" range="{{cityArray}}">
+            <view class="picker">
+              {{siteName}}
+            </view>
+        </picker>
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li">
+      <view class="title le">详细地址：</view>
+      <view class="put rt">
+        <textarea value="{{street}}" auto-height placeholder="请输入详细地址" maxlength="100" bindinput="getStreet" />
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li">
+      <view class="title le">邮政编码：</view>
+      <view class="put rt">
+        <input type="number" placeholder="请输入邮政编码" value="{{postcode}}" maxlength="6" bindinput='getPostcode'></input>
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li">
+      <view class="title le">是否默认：</view>
+      <view class="put rt">
+        <switch checked="{{switch1Checked}}" style='zoom:.6;' bindchange="switch1Change"/>
+      </view>
+      <view class="co"></view>
+    </view>
+  </view>
+</view>
+
+
+<!--确认按钮-->
+<view class="bottom-btn" bindtap="submitData">确认</view>

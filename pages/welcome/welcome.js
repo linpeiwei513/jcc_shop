@@ -17,10 +17,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('状态:',wx.getStorageSync("lo"))
+    console.log('sessionID:', wx.getStorageSync("sessionID"))
+    if (wx.getStorageSync("lo")){
+      this.setData({
+        loginStatue: wx.getStorageSync("lo")
+      })
+    }
     
-    this.setData({
-      loginStatue: wx.getStorageSync("lo")
-    })
     wx.showToast({
       title: '获取信息中...',
       icon: 'loading',

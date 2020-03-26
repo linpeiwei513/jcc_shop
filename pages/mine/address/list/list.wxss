@@ -5,7 +5,7 @@
 .main-li{
   background-color: #FFFFFF;
     border-radius: 24rpx;
-    min-height: 200rpx;
+    min-height: 160rpx;
     position: relative;
     margin-bottom: 20rpx;
     box-shadow: #ebedf0 0 4rpx 12rpx;
@@ -16,6 +16,36 @@
   height: 90rpx;
   background-color: #3d464b;
   opacity: 0.1;
-  top: 50rpx;
+  top: 45rpx;
   left: 600rpx;
+}
+.user{
+  padding: 20rpx;
+  width: 560rpx;
+}
+.user .name .t1{
+  font-size: 34rpx;
+  margin-right: 20rpx;
+}
+.user .name .t2{
+  font-size: 30rpx;
+  color: #666666;
+}
+.user .address .t1{
+  font-size: 28rpx;
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+  color: #67c23a;
+  padding: 0rpx 10rpx;
+  margin-right: 20rpx;
+}
+.user .address .t2{
+  font-size: 30rpx;
+}
+.update{
+  font-size: 30rpx;
+  color: #555555;
+  position: absolute;
+  right: 35rpx;
+  top: 70rpx;
 }
