@@ -8,7 +8,7 @@ Page({
    */
   data: {
     dataList: '',
-    navList: '',
+    navList: 0,
     skip: 0,
     limit: 10,
     showNav: '',
@@ -25,17 +25,27 @@ Page({
       duration: 500
     })
     this.getGoodsType()
-    
+    this.getGoodsList()
   },
 
 
   //前往消数
   goxiaoshu: function(e) {
-    console.log(e)
-    let item = JSON.stringify(e.currentTarget.dataset.item);
-    wx.navigateTo({
-      url: '../addXiaoshu/addXiaoshu?item='+item,
-    })
+    console.log(e.currentTarget.dataset.item)
+    let item = e.currentTarget.dataset.item
+    if(e.currentTarget.dataset.item.spec_arr){
+      console.log('有规格')
+      let item = JSON.stringify(e.currentTarget.dataset.item);
+      wx.navigateTo({
+        url: '../guigeList/guigeList?item='+item,
+      })
+    }else{
+      console.log('没有规格')
+      wx.navigateTo({
+        url: '../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=',
+      })
+    }
+    
   },
 
   //选择分类
@@ -49,14 +59,26 @@ Page({
     this.setData({
       showNav: id
     })
-    this.getGoodsList(id)
+    this.getGoodsList()
+  },
+  //全部
+  onTypeQb: function(e) {
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
+    this.setData({
+      showNav: ''
+    })
+    this.getGoodsList()
   },
 
   //获取商品列表
-  getGoodsList: function(id){
+  getGoodsList: function(){
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '0&limit=' + that.data.limit + '&catid=' + id +'&keywords=',
+      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords=',
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
@@ -102,9 +124,7 @@ Page({
         if (res.data.status == '1') {
           that.setData({
             navList: res.data.data,
-            showNav: res.data.data[1].id
           })
-          that.getGoodsList(res.data.data[1].id)
         } else {
           wx.showToast({
             title: res.data.msg,

@@ -31,6 +31,7 @@
 
   <scroll-view scroll-x>
     <view style="display: flex; flex-direction:row;">
+      <view class="go-li {{showNav==0?'on':''}}"  bindtap="onTypeQb">全部</view>
       <view class="go-li {{showNav==item.id?'on':''}}"  wx:for="{{navList}}" wx:key="key" data-index="{{item.id}}" bindtap="onType" >{{item.name}}</view>
     </view>
   </scroll-view>

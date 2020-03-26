@@ -8,17 +8,23 @@ Page({
    */
   data: {
     dataList: '',
-    sale_num: ''
+    sale_num: '',
+    goods_id: '',
+    goods_name: '',
+    spec_id: '',
+    key_name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let item = JSON.parse(options.item);
-    console.log('闯过来：', item)
+    console.log('闯过来：', options)
     this.setData({
-      dataList: item
+      goods_id: options.goods_id,
+      goods_name: options.goods_name,
+      spec_id: options.spec_id,
+      key_name: options.key_name
     })
   },
 
@@ -44,8 +50,8 @@ Page({
     wx.request({
       url: apiUrl + '/Api/Goods/goodsSale',
       data: {
-        goods_id: that.data.dataList.id,
-        spec_id: that.data.dataList.spec_id,
+        goods_id: that.data.goods_id,
+        spec_id: that.data.spec_id,
         sale_num: that.data.sale_num
       },
       header: {

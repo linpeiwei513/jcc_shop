@@ -1,0 +1,36 @@
+/* pages/guigeList/guigeList.wxss */
+.main{
+  padding: 20rpx;
+}
+.main-li{
+    background-color: #FFFFFF;
+    position: relative;
+    margin-bottom: 20rpx;
+    box-shadow: #ebedf0 0 4rpx 12rpx;
+    padding: 20rpx;
+    position: relative;
+}
+.name{
+  font-size: 30rpx;
+}
+.main-ul{
+  background-color: rgb(225, 243, 216);
+}
+.main-le{
+  width: 540rpx;
+  font-size: 30rpx;
+  color: #444444;
+}
+.main-btn{
+  background-color: #F56C6C;
+  color: #FFFFFF;
+  position: absolute;
+  font-size: 28rpx;
+  width: 80rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 4rpx;
+  right: 30rpx;
+  top: 30rpx;
+}

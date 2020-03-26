@@ -48,11 +48,14 @@ Page({
       success: function (res) {
         console.log('消数列表：', res)
         if (res.data.status == '1') {
+
+          for(var i=0; i<res.data.data.length; i++){
+            res.data.data[i].newDate = app.formattingDate(res.data.data[i].add_time);
+          }
           that.setData({
             dataList: res.data.data,
-
           })
-
+          console.log('数据111：',res.data.data)
         } else {
           wx.showToast({
             title: res.data.msg,

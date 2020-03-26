@@ -13,10 +13,11 @@
     </view>
     <view class="m-m">
       <view class="m-p">商品：<text>{{item.goods_info.name}}</text></view>
-      <view class="m-p le">规格：<text>{{item.spec_info.key_name}}</text></view>
+      <view class="m-p" wx:if="{{item.spec_info.key_name}}">规格：<text>{{item.spec_info.key_name}}</text></view>
       <view class="m-p le">数量：<text>{{item.quantity}}</text></view>
       <view class="m-p le">奖励积分：<text>{{item.credit}}</text></view>
       <view class="co"></view>
+      <view class="m-p">操作时间：<text>{{item.newDate}}</text></view>
     </view>
     <view class="m-b">
       <view class="m-p le">{{item.credit_status==1?'积分已到账':'积分未到账'}}</view>

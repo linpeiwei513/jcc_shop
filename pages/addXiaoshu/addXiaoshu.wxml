@@ -10,14 +10,14 @@
     <view class="main-li">
       <view class="title le">商品：</view>
       <view class="put rt name">
-        {{dataList.name}}
+        {{goods_name}}
       </view>
       <view class="co"></view>
     </view>
     <view class="main-li">
       <view class="title le">规格：</view>
       <view class="put rt gg">
-        {{dataList.spec_arr.key_name}}
+        {{key_name?key_name:'无'}}
       </view>
       <view class="co"></view>
     </view>
