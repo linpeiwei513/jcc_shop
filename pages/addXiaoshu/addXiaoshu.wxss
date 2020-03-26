@@ -1,0 +1,73 @@
+/* pages/mine/address/add/add.wxss */
+.main{
+  padding: 20rpx;
+}
+.main-main{
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  min-height: 160rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  box-shadow: #ebedf0 0 4rpx 12rpx;
+}
+.main-f{
+  padding-left: 20rpx;
+}
+.main-li{
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.main-li .title{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+}
+.main-li .put{
+  padding-right: 30rpx;
+  widows: 400rpx;
+}
+.main-li .put input{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 440rpx;
+  text-align: right;
+}
+.main-li .put textarea{
+  width: 470rpx;
+  text-align: right;
+  padding-top: 30rpx;
+  line-height: 44rpx;
+}
+switch{
+  margin-top: 40rpx;
+}
+.picker{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.put{
+  width: 470rpx;
+}
+.main-b{
+  background-color: #F56C6C;
+  border-radius: 12rpx;
+  min-height: 90rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  box-shadow: #ebedf0 0 4rpx 12rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  margin-top: 50rpx;
+  color: #FFFFFF;
+}
+.name{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  text-align: right;
+}
+.gg{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  text-align: right;
+}

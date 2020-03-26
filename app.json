@@ -1,11 +1,14 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/goodsList/goodsList",
+    "pages/addXiaoshu/addXiaoshu",
+    
+    
     "pages/mine/address/list/list",
     "pages/mine/address/add/add",
     "pages/home/home",
     "pages/clerkList/clerkList",
-    
     "pages/mine/integral/integral",
     "pages/index/index",
     "pages/fkList/fkList",
@@ -18,7 +21,6 @@
     "pages/agencyAdd/agencyAdd",
     "pages/recordStock/recordStock",
     "pages/xiaocun/xiaocun",
-    "pages/goodsList/goodsList",
     "pages/recordIntegral/recordIntegral",
     "pages/clerk/clerk",
     "pages/clerkAdd/clerkAdd",
@@ -61,6 +63,7 @@
     "pages/fxAdd/fxAdd",
     "pages/mine/xiaoshu/xiaoshu",
     "pages/mine/address/update/update"
+    
   ],
   "plugins": {
     "tencentvideo": {

@@ -28,6 +28,16 @@ Page({
     
   },
 
+
+  //前往消数
+  goxiaoshu: function(e) {
+    console.log(e)
+    let item = JSON.stringify(e.currentTarget.dataset.item);
+    wx.navigateTo({
+      url: '../addXiaoshu/addXiaoshu?item='+item,
+    })
+  },
+
   //选择分类
   onType: function(e) {
     wx.showToast({

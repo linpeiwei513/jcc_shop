@@ -41,20 +41,22 @@
 
 <view class="goods-list" wx:if="{{dataList}}">
   <view class="gos-li" wx:for="{{dataList}}" wx:key="key">
-    <view class="gos-img"><image src="{{imgUrl}}{{item.img}}"></image></view>
-    <view class="go-txt">
-      <view class="go-title">{{item.name}}</view> 
-      <view class="go-sn">{{item.sn}}</view> 
-      <text class="go-no">价格：{{item.shop_price}}</text>
-      <text class="go-no">库存：{{item.my_onhand}}</text>
+    <view class="main-box">
+      <view class="gos-img"><image src="{{imgUrl}}{{item.img}}"></image></view>
+      <view class="go-txt">
+        <view class="go-title">{{item.name}}</view> 
+        <view class="go-sn">{{item.sn}}</view> 
+        <text class="go-no">价格：{{item.shop_price}}</text>
+        <text class="go-no">库存：{{item.my_onhand}}</text>
+        <view class="co"></view>
+      </view>
       <view class="co"></view>
-      <!-- <view class="go-btn">
-        <view><image src="../images/add.png"></image>加入补货</view>
-        <view><image src="../images/add.png"></image>加入待销</view>
-        <view><image src="../images/add.png"></image>销售消货</view>
-      </view> -->
     </view>
-    <view class="co"></view>
+    <view class="go-btn">
+      <view class="btn-li b1" data-item="{{item}}" bindtap="goxiaoshu">
+        销售消货
+      </view>
+    </view>
   </view>
 </view>
 

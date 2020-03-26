@@ -66,3 +66,6 @@ page{
   width: 100%;
   bottom: 0rpx;
 }
+.border-none{
+  border: none;
+}

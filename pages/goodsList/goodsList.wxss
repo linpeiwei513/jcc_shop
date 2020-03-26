@@ -30,6 +30,7 @@ input{
 .goodsLi{
   background-color: #ffffff;
   margin-bottom: 20rpx;
+  
 }
 .go-img image{
   width: 180rpx;
@@ -53,26 +54,10 @@ input{
   color: #444444;
   margin-right: 40rpx;
 }
-.go-btn{
-  margin-top: 15rpx;
-}
+
 .go-sn{
   font-size: 30rpx;
   color: #444444;
-}
-.go-btn button{
-  font-size: 24rpx;
-  color: #ffffff;
-  margin-right: 10rpx;
-}
-.go-btn .btn1{
-  background-color: #10AFFB;
-}
-.go-btn .btn2{
-  background-color: #FC9D1F;
-}
-.go-btn .btn3{
-  background-color: #F6724E;
 }
 .go-tu{
   position: absolute;
@@ -172,9 +157,10 @@ input{
   right: 20rpx;
 }
 .gos-li{
-  padding: 20rpx;
   background-color: #ffffff;
   margin-bottom: 20rpx;
+  box-shadow: #ebedf0 0 4rpx 12rpx;
+  border-radius: 10rpx;
 }
 .gos-img{
   width: 130rpx;
@@ -185,23 +171,7 @@ input{
   width: 100%;
   height: 100%;
 }
-.go-btn{
-  margin-top: 20rpx;
-}
-.go-btn view{
-  float: left;
-  font-size: 24rpx;
-  line-height: 30rpx;
-  color: #1296db;
-  margin-right: 30rpx;
-  vertical-align: middle;
-}
-.go-btn view image{
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 5rpx;
-  vertical-align: middle;
-}
+
 
 .go-nav{
   white-space: nowrap;
@@ -242,4 +212,29 @@ height: 0;
 
 color: transparent;
 
+}
+
+.go-btn{
+  background-color: #f9f9f9;
+  border-radius: 0rpx 0rpx 10rpx 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.main-box{
+  padding: 20rpx;
+}
+.btn-li{
+  font-size: 28rpx;
+  color: #409EFF;
+  float: left;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: bold;
+}
+.btn-li image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.b1{
+  width: 100%;
 }

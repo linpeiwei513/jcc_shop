@@ -1,0 +1,36 @@
+<!--
+* 商品消数
+* by linpeiwei
+* to 2020.03.26
+-->
+
+<view class="main">
+  <view class="main-main main-f">
+
+    <view class="main-li">
+      <view class="title le">商品：</view>
+      <view class="put rt name">
+        {{dataList.name}}
+      </view>
+      <view class="co"></view>
+    </view>
+    <view class="main-li">
+      <view class="title le">规格：</view>
+      <view class="put rt gg">
+        {{dataList.spec_arr.key_name}}
+      </view>
+      <view class="co"></view>
+    </view>
+
+    <view class="main-li border-none">
+      <view class="title le">消数数量：</view>
+      <view class="put rt">
+        <input type="number" placeholder="请输入消数数量" value="{{sale_num}}" maxlength="6" bindinput='getNum'></input>
+      </view>
+      <view class="co"></view>
+    </view>
+  </view>
+
+  <view class="main-main main-b" bindtap="submitData">确认</view>
+
+</view>
