@@ -35,12 +35,14 @@ Page({
       success: function (res) {
         console.log('退出回调：', res)
         if (res.data.status == '1') {
-          
+          //清除缓存
           wx.removeStorageSync("sessionID")
           wx.removeStorageSync("openid")
           wx.removeStorageSync("userInfo")
           wx.removeStorageSync("agent_info")
           wx.removeStorageSync("loginStatus")
+					
+					//返回首页
           wx.redirectTo({
             url: '../welcome/welcome?id=1'
           })

@@ -106,7 +106,7 @@ Page({
               url: apiUrl + '/Api/Member/wxLogin/code/' + res.code,
               header: {
                 'content-type': 'application/json',
-                'Cookie': 'PHPSESSID=' + sessionid
+                // 'Cookie': 'PHPSESSID=' + sessionid
               },
               method: 'GET',
               dataType: 'json',
