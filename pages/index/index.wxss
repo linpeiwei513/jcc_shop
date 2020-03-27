@@ -104,3 +104,6 @@
   padding: 30rpx;
   font-size: 32rpx;
 }
+.user-po text{
+  margin-left: 20rpx;
+}

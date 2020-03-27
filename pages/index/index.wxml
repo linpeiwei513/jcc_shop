@@ -5,8 +5,7 @@
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="user-t">
           <view class="user-no">{{userData.username}} ({{userInfo.nickName}})</view>
-          <view class="user-po">{{agentData.name}}</view>
-          <view class="po-ben" bindtap="goShop">管理</view>
+          <view class="user-po">{{agentData.name}}<text>积分:{{userData.credits}}</text></view>
         </view>
         <view class="co"></view>
       </view> 
@@ -18,11 +17,11 @@
   <view class="nav-main nav1">
     <view class="nav-li le">
       <image src="{{iconUrl}}nav1.png"></image>
-       补货申请
+       补货单
     </view>
     <view class="nav-li le">
       <image src="{{iconUrl}}nav2.png"></image>
-       销货申请
+       销货单
     </view>
     <view class="co"></view>
   </view>
