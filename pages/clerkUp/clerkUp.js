@@ -40,7 +40,6 @@ Page({
           password: that.data.password,
           realname: that.data.realname,
           mobile: that.data.mobile,
-          qq: that.data.qq,
           status: that.data.status,
           id: that.data.id
         },
@@ -89,14 +88,6 @@ Page({
   //校验
   verify: function () {
 
-    if (this.data.realname.length > 0 && this.data.realname.length < 2) {
-      wx.showToast({
-        title: '请输入不少于2个字符的真实姓名',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
 
     if (this.data.password > 0 && this.data.password.length < 6) {
       wx.showToast({

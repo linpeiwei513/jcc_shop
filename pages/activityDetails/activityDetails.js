@@ -1,11 +1,15 @@
 // pages/activityDetails/activityDetails.js
+const app = getApp();
+const apiUrl = app.globalData.apiUrl;
+const WxParse = require('../../wxParse/wxParse.js'); //解析html
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cid:'',
+    catid: '',
+    dataid:'',
     showData:''
   },
 
@@ -13,27 +17,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
     this.setData({
-      cid:options.cid
-    })
-    console.log('传过来的值：',this.data.cid)
+      catid: options.catid,
+      dataid: options.dataid
+    }) 
+    this.getData()
+  },
+
+  //获取内容详情
+  getData: function() {
+    var that = this
     wx.request({
-      url: 'https://fyt.test.fastcmf.com/Api/Content/getContent/catid/1/dataid/'+this.data.cid,
+      url: apiUrl + '/Api/Content/getContent/?catid=' + that.data.catid + '&dataid=' + that.data.dataid,
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
       },
-      success: function(res) {
-        console.log(res.data.data)
-        that.setData({
-          showData:res.data.data
-        })
-          
-        
+      success: function (res) {
+        console.log('内容：',res)
+        if(res.data.status == '1'){
+          that.setData({
+            showData: res.data.data
+          })
+          WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+        }
       }
     })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

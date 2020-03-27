@@ -3,12 +3,12 @@
 * by linpeiwei
 * to 2020.01.05
 -->
-
+<import src="/wxParse/wxParse.wxml"/>
 <view class="act-main">
   <view class="title">{{showData.title}}</view>
   <view class="time">{{showData.createtime}}</view>
   <view class="txt">
-    <text class="p">12月11日，美国管理咨询公司 Bain & Company (贝恩公司)和Antwerp World Diamond Centre(安特卫普世界钻石中心)联合发布了第九份《全球钻石行业年度报告》，钻石行业似乎正面临衰退的迹象，全球抛光钻石和原石的需求都有所下降。</text>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
   </view>
-
+  
 </view>

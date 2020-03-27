@@ -21,11 +21,6 @@
     <view class="co"></view>
   </view>
   <view class="form-li ss">
-    <text>微信号：</text>
-    <input type="text" placeholder="请输入微信号" value="{{qq}}" bindinput='getqq'></input>
-    <view class="co"></view>
-  </view>
-  <view class="form-li ss">
     <text>密码：</text>
     <input password="true" placeholder="请输入密码" value="{{password}}" bindinput='getpassword'></input>
     <view class="co"></view>
@@ -41,4 +36,6 @@
   </view>
 </view>
 
-<view class="btn" bindtap="submitData">确定</view>
+
+
+<view class="bottom-btn" bindtap="submitData">确定</view>

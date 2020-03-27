@@ -1,17 +1,14 @@
-// pages/password/password.js
+// pages/mine/updatedb/updatedb.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
-
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    password: '',
-    passwordNew: '',
-    passwordNews: ''
+    realname: '',
+    mobile: ''
   },
 
   /**
@@ -21,56 +18,29 @@ Page({
 
   },
 
-  //获取输入旧密码
-  formPassOld: function (e) {
-    //console.log(e)
-    this.setData({
-      password: e.detail.value
-    })
-  },
-
-  //获取输入密码
-  formPass: function (e) {
-    //console.log(e)
-    this.setData({
-      passwordNew: e.detail.value
-    })
-  },
-  //获取再次输入密码
-  formPassNew: function (e) {
-    //console.log(e)
-    this.setData({
-      passwordNews: e.detail.value
-    })
-  },
-
-  //确认修改
-  getSubmit: function () {
-
-
+  //确定
+  submitData: function() {
     let that = this
-    if (this.data.password == '') {
+    if (this.data.realname == '' || this.data.realname.length < 2) {
       wx.showToast({
-        title: '请输入旧密码',
+        title: '请输入不少于2个字符的真实姓名',
         icon: 'none',
         duration: 2000
       })
       return
     }
-    if (this.data.passwordNew == '' || this.data.passwordNew.length<6){
-      wx.showToast({
-        title: '请输入不小于六位数新密码',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
+
+    wx.showToast({
+      title: '处理中...',
+      icon: 'loading',
+      duration: 5000
+    })
 
     wx.request({
-      url: apiUrl+'/Api/Member/updatePassword',
+      url: apiUrl + '/Api/Member/updateProfile',
       data: {
-        old_password: that.data.password,
-        new_password: that.data.passwordNew
+        realname: that.data.realname,
+        mobile: that.data.mobile,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -80,33 +50,52 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('修改密码回调：', res)
-        if(res.data.status == '1'){
+        console.log('修改回调：', res)
+        if (res.data.status == '1') {
           wx.showToast({
-            title: res.data.msg,
+            title: '修改成功',
             icon: 'success',
-            duration: 2000
+            duration: 1000,
+            mask: true
           })
+          
           setTimeout(function () {
-            //跳转到首页
             wx.switchTab({
-              url: '/pages/index/index',
+              url: '../../index/index',
             })
-          }, 2000) 
-          
-          
-        }else{
+          }, 1000)
+
+        } else {
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
             duration: 2000
           })
-          return
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 2000)
+
         }
       }
     })
 
   },
+
+  //名字输入
+  getrealname: function (e) {
+    this.setData({
+      realname: e.detail.value
+    })
+  },
+  //手机输入
+  getmobile: function (e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+
 
 
 

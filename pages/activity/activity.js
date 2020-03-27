@@ -42,6 +42,18 @@ Page({
 
   },
 
+  //内容详情
+  goShow: function(e) {
+    console.log(e.currentTarget.dataset.item)
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '../activityDetails/activityDetails?catid=' + item.catid + '&dataid=' + item.dataid,
+    })
+  },
+
+
+
+
   //获取列表
   getList: function(e) {
     var that = this

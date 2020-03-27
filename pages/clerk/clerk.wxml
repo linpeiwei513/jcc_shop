@@ -26,11 +26,6 @@
       <view class="co"></view>
     </view>
     <view class="form-li">
-      <view class="put">{{dataList.qq}}</view>
-      <view class="title">微信号：</view>
-      <view class="co"></view>
-    </view>
-    <view class="form-li">
       <view class="put">{{dataList.credits}}</view>
       <view class="title">积分数：</view>
       <view class="co"></view>

@@ -1,0 +1,20 @@
+<!--
+* 资料修改
+* by linpeiwei
+* to 2020.03.27
+-->
+
+<view class="form">
+  <view class="form-li">
+    <text>真实姓名：</text>
+    <input type="text" placeholder="请输入真实姓名" value="{{realname}}" maxlength="10" bindinput='getrealname'></input>
+    <view class="co"></view>
+  </view>
+  <view class="form-li">
+    <text>联系电话：</text>
+    <input type="number" placeholder="请输入联系电话" value="{{mobile}}" maxlength="11" bindinput='getmobile'></input>
+    <view class="co"></view>
+  </view>
+</view>
+
+<view class="bottom-btn" bindtap="submitData">确定</view>

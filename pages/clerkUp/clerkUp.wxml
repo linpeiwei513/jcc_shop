@@ -24,11 +24,6 @@
     <view class="co"></view>
   </view>
   <view class="form-li ss">
-    <text>微信号：</text>
-    <input type="text" placeholder="留空为不修改" value="{{qq}}" bindinput='getqq'></input>
-    <view class="co"></view>
-  </view>
-  <view class="form-li ss">
     <text>密码：</text>
     <input password="true" placeholder="留空为不修改" value="{{password}}" bindinput='getpassword'></input>
     <view class="co"></view>

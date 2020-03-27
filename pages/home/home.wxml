@@ -9,11 +9,8 @@
   <!--banner-->
   <view class="banner-li">
     <swiper indicator-dots="true" indicator-active-color="#e1ad62" autoplay="true" >
-          <swiper-item>
-            <image src="../images/banner1.jpg"></image>
-          </swiper-item>
-          <swiper-item>
-            <image src="../images/banner2.jpg"></image>
+          <swiper-item wx:for="{{bannerData}}" wx:key="key" >
+            <image src="{{imgUrl}}{{item.thumb}}" data-item="{{item}}" bindtap="goShow"></image>
           </swiper-item>
       </swiper>
   </view>

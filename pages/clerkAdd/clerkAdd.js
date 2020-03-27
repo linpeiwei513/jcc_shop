@@ -10,7 +10,7 @@ Page({
     array: ['禁用','启用' ],
     status: 1,
     username: '',
-    password: '',
+    password: '123456',
     realname: '',
     mobile: '',
     qq: ''
@@ -29,6 +29,12 @@ Page({
     let that = this
     if (this.verify()){
 
+      wx.showToast({
+        title: '处理中...',
+        icon: 'loading',
+        duration: 5000
+      })
+      
       wx.request({
         url: apiUrl + '/Api/AgentEmploy/addEmploy',
         data: {
@@ -36,7 +42,6 @@ Page({
           password: that.data.password,
           realname: that.data.realname,
           mobile: that.data.mobile,
-          qq: that.data.qq,
           status: that.data.status
         },
         header: {
@@ -96,30 +101,7 @@ Page({
       })
       return
     }
-    if (this.data.realname == '' || this.data.realname.length < 2) {
-      wx.showToast({
-        title: '请输入不少于2个字符的真实姓名',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (this.data.mobile == '') {
-      wx.showToast({
-        title: '请输入联系电话',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (this.data.qq == '') {
-      wx.showToast({
-        title: '请输入微信号',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
+
     if (this.data.password == '' || this.data.password.length < 6) {
       wx.showToast({
         title: '请输入不少于6个字符的密码',

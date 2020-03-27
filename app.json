@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/mine/updatedb/updatedb",   
+    
     "pages/goodsList/goodsList",
     "pages/guigeList/guigeList",
-    
-    
     "pages/addXiaoshu/addXiaoshu",
     "pages/mine/address/list/list",
     "pages/mine/address/add/add",

@@ -50,8 +50,7 @@
 
     <!--图文-->
     <block wx:else>
-      <navigator url="../activityDetails/activityDetails?cid={{item.id}}" hover-class="navigator-hover">
-        <view class="at-tw">
+        <view class="at-tw" data-item="{{item}}" bindtap="goShow">
           <view class="at-txt">
             <view class="at-title">{{item.title}}</view>
             <view class="at-time">{{item.description}}</view>
@@ -59,7 +58,6 @@
           <view class="at-img"><image src="{{url}}{{item.thumb}}"></image></view>
           <view class="co"></view>
         </view>
-      </navigator>
     </block>
 
 
