@@ -1,0 +1,27 @@
+/* pages/db/index/index.wxss */
+.main{
+  padding: 20rpx;
+}
+.main-li{
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  box-shadow: #ebedf0 0 4rpx 12rpx;
+  height: 130rpx;
+  width: 329rpx;
+  line-height: 130rpx;
+  margin: 10rpx 15rpx;
+}
+.main-li image{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 36rpx;
+  left: 30rpx;
+}
+.main-li text{
+  font-size: 32rpx;
+  padding-left: 110rpx;
+  color: #444444;
+}

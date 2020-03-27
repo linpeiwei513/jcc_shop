@@ -90,7 +90,7 @@ Page({
   //统计
   goStatistics: function() {
     wx.navigateTo({
-      url: '../statistics/statistics',
+      url: '../db/index/index',
     })
   },
 

@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/mine/updatedb/updatedb",   
+    "pages/db/index/index",
     
+    "pages/mine/updatedb/updatedb",
     "pages/goodsList/goodsList",
     "pages/guigeList/guigeList",
     "pages/addXiaoshu/addXiaoshu",
