@@ -45,7 +45,7 @@ Page({
 
   //销存记录
   goXiaoucun: function() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../xiaocun/xiaocun',
     })
   },
@@ -59,7 +59,7 @@ Page({
 
   //积分商城
   goMall: function() {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../mall/index/index',
     })
   },

@@ -99,10 +99,10 @@
         "text": "货品管理"
       },
       {
-        "pagePath": "pages/xiaocun/xiaocun",
-        "iconPath": "pages/images/icon_record.png",
-        "selectedIconPath": "pages/images/icon_record_n.png",
-        "text": "销存记录"
+        "pagePath": "pages/mall/index/index",
+        "iconPath": "pages/images/icon_dianpu.png",
+        "selectedIconPath": "pages/images/icon_dianpu_n.png",
+        "text": "积分商城"
       },
       {
         "pagePath": "pages/index/index",
