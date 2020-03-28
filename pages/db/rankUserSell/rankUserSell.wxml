@@ -24,7 +24,7 @@
           </view>
         </picker>
       </view>
-      <view class="date-btn" bindtap="getData">搜索</view>
+      <view class="date-btn" bindtap="onPullDownRefresh">搜索</view>
     </view>
   </view>
 

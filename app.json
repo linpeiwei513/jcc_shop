@@ -1,10 +1,14 @@
 {
   "pages": [
-    "pages/mine/address/list/list",
     "pages/welcome/welcome",
+    "pages/db/rankAgencySell/rankAgencySell",
+    "pages/db/rankGoodsSell/rankGoodsSell",
+    "pages/mine/integral/integral",
+    "pages/mine/address/list/list",
+    
     "pages/db/rankAgencyStores/rankAgencyStores",
     "pages/db/rankGoodsStores/rankGoodsStores",
-    "pages/db/rankGoodsSell/rankGoodsSell",
+    
     "pages/db/index/index",
     "pages/db/rankUserSell/rankUserSell",
     
@@ -16,7 +20,7 @@
     "pages/mine/address/add/add",
     "pages/home/home",
     "pages/clerkList/clerkList",
-    "pages/mine/integral/integral",
+    
     "pages/index/index",
     "pages/fkList/fkList",
     "pages/fkDetails/fkDetails",
@@ -69,8 +73,8 @@
     "pages/fxDetails/fxDetails",
     "pages/fxAdd/fxAdd",
     "pages/mine/xiaoshu/xiaoshu",
-    "pages/mine/address/update/update",
-    "pages/db/rankAgencySell/rankAgencySell"
+    "pages/mine/address/update/update"
+    
     
   ],
   

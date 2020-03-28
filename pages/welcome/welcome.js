@@ -10,7 +10,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loginStatue: '0'
+    loginStatue: '0',
+    good: 0
   },
 
   /**
@@ -19,9 +20,11 @@ Page({
   onLoad: function (options) {
     console.log('状态:',wx.getStorageSync("lo"))
     console.log('sessionID:', wx.getStorageSync("sessionID"))
+
     if (wx.getStorageSync("lo")){
       this.setData({
-        loginStatue: wx.getStorageSync("lo")
+        loginStatue: wx.getStorageSync("lo"),
+        good: wx.getStorageSync("good")
       })
     }
     
@@ -32,13 +35,24 @@ Page({
     })
 
     if (wx.getStorageSync("sessionID")) {
-      this.getLoginState()
+      
+      if (this.data.loginStatue == '1' && this.data.good == 1) {
+        //跳转到首页
+        wx.switchTab({
+          url: '/pages/home/home',
+        })
+      }else{
+        this.getLoginState()
+      }
+
     }else{
       //this.accreditLogin()
-      if(this.data.loginStatue == '1'){
-        this.accreditLogin()
+      if(this.data.loginStatue == '1'&& this.data.good == 1){
+        //跳转到首页
+        wx.switchTab({
+          url: '/pages/home/home',
+        })
       }
-      console.log('loginStatue:', wx.getStorageSync('lo'))
     }
 
     
@@ -151,7 +165,7 @@ Page({
                     wx.setStorageSync("userInfo", e.data.data.userInfo);
                     //存储代理商信息
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
-
+                    wx.setStorageSync('good', 1)
                     //跳转到首页
                     wx.switchTab({
                       url: '/pages/home/home',

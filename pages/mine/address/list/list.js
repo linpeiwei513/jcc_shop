@@ -10,14 +10,15 @@ Page({
     listData: [],
     skip: 0,
     limit: 7,
-    id: ''
+    id: '',
+    isStop: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.startPullDownRefresh()
+    wx.startPullDownRefresh() //执行下拉刷新操作
     //this.getAddressList();
   },
 
@@ -50,16 +51,19 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        wx.stopPullDownRefresh()
+        wx.stopPullDownRefresh() //停止刷新动画
         console.log('地址列表：', res)
         if (res.data.status == '1') {
+          
           for(var i=0; i<res.data.data.length; i++){
             newList.push(res.data.data[i])
           }
           let newSkip = that.data.skip + res.data.data.length
+
           that.setData({
             listData: newList,
-            skip: newSkip
+            skip: newSkip,
+            isStop: res.data.data.length
           })
         }
       }
@@ -84,7 +88,10 @@ Page({
    */
   onReachBottom: function () { 
     console.log("页面上拉触底数组");
-    this.getAddressList();
+    if(this.data.isStop != 0){
+      this.getAddressList();
+    }
+    
   },
 
   /**

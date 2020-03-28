@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "代理销售排行"
+  "navigationBarTitleText": "代理销售排行",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
