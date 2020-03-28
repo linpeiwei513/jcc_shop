@@ -53,7 +53,7 @@
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>
-    <view class="nav-li">
+    <view class="nav-li" bindtap="goZiliao">
       <view class="lf-img le"><image src="{{iconUrl}}nav_ziliao.png"></image></view>
       <view class="name le">资料修改</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>

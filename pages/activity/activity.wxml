@@ -26,10 +26,10 @@
         <view class="at-video">
           <block wx:if="{{item.video_url.length < 15}}">
             <txv-video playerid="txv1" autoplay="{{false}}" vid="{{item.video_url}}"></txv-video>
-            <!-- <video id="myVideo" src="https://fyt.test.fastcmf.com{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video> -->
+            <!-- <video id="myVideo" src="{{}}{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video> -->
           </block>
           <block wx:else>
-            <video id="myVideo" src="https://fyt.test.fastcmf.com{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+            <video id="myVideo" src="{{url}}{{item.video_url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
           </block>
           
         </view>

@@ -14,7 +14,7 @@
       </view>
       <view class="address">
         <text class="t1" wx:if="{{item.is_default==1}}">默认</text>
-        <text class="t2">{{item.district_str}}{{item.street}}</text>
+        <text class="t2">{{item.district_str}} {{item.street}}</text>
       </view>
     </view>
     <view class="bian"></view>
@@ -29,6 +29,9 @@
   <view>没有相关数据</view>
 </view>
 
+
+
+<view style="height:120rpx"></view>
 <view class="tool-main">
   <view class="tool-btn w1" bindtap="goAdd">
     <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/icon_add.png"></image>

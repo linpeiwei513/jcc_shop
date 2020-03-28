@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/mine/address/list/list",
     "pages/welcome/welcome",
     "pages/db/rankAgencyStores/rankAgencyStores",
     "pages/db/rankGoodsStores/rankGoodsStores",
@@ -11,7 +12,7 @@
     "pages/goodsList/goodsList",
     "pages/guigeList/guigeList",
     "pages/addXiaoshu/addXiaoshu",
-    "pages/mine/address/list/list",
+    
     "pages/mine/address/add/add",
     "pages/home/home",
     "pages/clerkList/clerkList",
@@ -72,6 +73,7 @@
     "pages/db/rankAgencySell/rankAgencySell"
     
   ],
+  
   "plugins": {
     "tencentvideo": {
       "version": "1.1.1",

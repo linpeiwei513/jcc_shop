@@ -138,6 +138,13 @@ Page({
     })
   },
 
+  //修改资料
+  goZiliao: function() {
+    wx.navigateTo({
+      url: '../mine/updatedb/updatedb',
+    })
+  },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

@@ -259,21 +259,21 @@ Page({
   },
   //详细地址 getStreet getPostcode
   getStreet: function (e) {
-    console.log(e)
+    //console.log(e)
     this.setData({
       street: e.detail.value
     })
   },
   //邮编 getStreet getPostcode
   getPostcode: function (e) {
-    console.log(e)
+    //console.log(e)
     this.setData({
       postcode: e.detail.value
     })
   },
   //默认
   switch1Change: function (e) {
-    console.log(e)
+    //console.log(e)
     let isM
     if (e.detail.value == true) {
       isM = 1

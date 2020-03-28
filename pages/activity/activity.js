@@ -1,4 +1,6 @@
 // pages/activity/activity.js
+const app = getApp();
+const apiUrl = app.globalData.apiUrl;
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
     navList: '',
     listData: '',
     listId: '',
-    url: 'https://fyt.test.fastcmf.com/',
+    url: app.globalData.apiUrl,
     navClass: 0,
     skip: 0,
     limit: 10
@@ -21,7 +23,7 @@ Page({
     var that = this
 
     wx.request({
-      url: 'https://fyt.test.fastcmf.com/Api/Content/getCats',
+      url: apiUrl + '/Api/Content/getCats',
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
@@ -62,7 +64,7 @@ Page({
     console.log(val)
 
     wx.request({
-      url: 'https://fyt.test.fastcmf.com/Api/Content/getList/catid/'+val+'/skip/'+that.data.skip+'/limit/'+that.data.limit,
+      url: apiUrl + '/Api/Content/getList/catid/'+val+'/skip/'+that.data.skip+'/limit/'+that.data.limit,
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
@@ -83,7 +85,7 @@ Page({
   getTui: function() {
     var that = this
     wx.request({
-      url: 'https://fyt.test.fastcmf.com/Api/Content/getPos/posid/2',
+      url: apiUrl + '/Api/Content/getPos/posid/2',
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
@@ -108,7 +110,7 @@ Page({
     let val = e.currentTarget.dataset['url'];
     console.log(val)
     wx.downloadFile({
-      url: 'https://fyt.test.fastcmf.com'+val, //仅为示例，并非真实的资源
+      url: apiUrl + val, //仅为示例，并非真实的资源
       success (res) {
         console.log('下载：',res)
         wx.saveFile({

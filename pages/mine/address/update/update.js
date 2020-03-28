@@ -380,7 +380,7 @@ Page({
           if (e.data.status == '1') {
             //存储省市区数据
             wx.setStorageSync("cityData", e.data.data);
-            this.setData({
+            that.setData({
               cityData: wx.getStorageSync("cityData")
             })
           }
