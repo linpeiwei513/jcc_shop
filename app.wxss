@@ -22,7 +22,7 @@ page{
 }
 .none{
   text-align: center;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #888888;
   margin-top: 120rpx;
 }

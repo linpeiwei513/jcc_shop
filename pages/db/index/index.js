@@ -15,6 +15,47 @@ Page({
 
   },
 
+
+  //店员销售排行
+  goUserSell: function() {
+    wx.navigateTo({
+      url: '../rankUserSell/rankUserSell',
+    })
+  },
+
+  //代理销售排行
+  goAgencySell: function () {
+    wx.navigateTo({
+      url: '../rankAgencySell/rankAgencySell',
+    })
+  },
+
+  //店铺商品销售排行 goGoodsStores
+  goGoodsSell: function () {
+    wx.navigateTo({
+      url: '../rankGoodsSell/rankGoodsSell',
+    })
+  },
+
+  //店铺商品库存排行 goAgencyStores
+  goGoodsStores: function () {
+    wx.navigateTo({
+      url: '../rankGoodsStores/rankGoodsStores',
+    })
+  },
+
+  //代理库存排行 goAgencyStores
+  goAgencyStores: function () {
+    wx.navigateTo({
+      url: '../rankAgencyStores/rankAgencyStores',
+    })
+  },
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

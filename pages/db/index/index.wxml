@@ -6,27 +6,27 @@
 
 <view class="main">
 
-  <view class="main-li le">
+  <view class="main-li le" bindtap="goGoodsSell">
     <image src="{{iconUrl}}nav2.png"></image>
     <text>商品销售排行</text>
   </view>
 
-  <view class="main-li le">
+  <view class="main-li le" bindtap="goGoodsStores">
     <image src="{{iconUrl}}nav1.png"></image>
     <text>商品库存排行</text>
   </view>
 
-  <view class="main-li le">
+  <view class="main-li le" bindtap="goUserSell">
     <image src="{{iconUrl}}yonghu-xianxing.png"></image>
     <text>店员销售排行</text>
   </view>
 
-  <view class="main-li le">
+  <view class="main-li le" bindtap="goAgencySell">
     <image src="{{iconUrl}}yonghu.png"></image>
     <text>下级销售排行</text>
   </view>
 
-  <view class="main-li le">
+  <view class="main-li le" bindtap="goAgencyStores">
     <image src="{{iconUrl}}yonghu.png"></image>
     <text>下级库存排行</text>
   </view>

@@ -1,0 +1,97 @@
+/* pages/db/rankUserSell/rankUserSell.wxss */
+
+.main-date{
+  background-color: #f9deb7;
+  height: 80rpx;
+  padding-top: 10rpx;
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+}
+.main-pa{
+  padding: 0rpx 20rpx;
+}
+.main-pa1{
+  padding: 0rpx 30rpx;
+}
+
+.date-put{
+  width: 280rpx;
+  height: 60rpx;
+  background-color: #f3d6ac;
+  font-size: 30rpx;
+  float: left;
+  text-align: center;
+  line-height: 58rpx;
+  border-radius: 6rpx;
+  color: #ffffff;
+}
+.date-btn{
+  float: right;
+  color: #b69c75;
+  margin-right: 20rpx;
+  line-height: 60rpx;
+  font-size: 34rpx;
+}
+.date-bian{
+  color: #958977;
+  margin: 0rpx 10rpx;
+}
+
+
+
+.main-title{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  background-color: #f3d9b2;
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+}
+.main-title .t1{
+  width: 100rpx;
+}
+.main-title .t2{
+  width: 340rpx;
+}
+.main-title .t3{
+  width: 120rpx;
+  text-align: center;
+}
+.main-list{
+  margin-top: 70rpx;
+}
+.main-li{
+  padding: 0rpx 30rpx;
+  font-size: 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #909399;
+}
+.main-li .t1{
+  width: 100rpx;
+}
+.main-li .t2{
+  width: 340rpx;
+}
+.main-li .t3{
+  width: 120rpx;
+  text-align: center;
+}
+.main-li .t4{
+  text-align: right;
+}
+.main-li:nth-child(odd) {
+  background-color: #ffffff;
+}
+.main-li:first-child{
+  font-size: 32rpx;
+  font-weight: bold;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: #F56C6C;
+}
+.none{
+  margin-top: 260rpx;
+}

@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/db/rankAgencyStores/rankAgencyStores",
+    "pages/db/rankGoodsStores/rankGoodsStores",
+    "pages/db/rankGoodsSell/rankGoodsSell",
     "pages/db/index/index",
+    "pages/db/rankUserSell/rankUserSell",
     
     "pages/mine/updatedb/updatedb",
     "pages/goodsList/goodsList",
@@ -64,7 +68,8 @@
     "pages/fxDetails/fxDetails",
     "pages/fxAdd/fxAdd",
     "pages/mine/xiaoshu/xiaoshu",
-    "pages/mine/address/update/update"
+    "pages/mine/address/update/update",
+    "pages/db/rankAgencySell/rankAgencySell"
     
   ],
   "plugins": {
