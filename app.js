@@ -4,7 +4,7 @@ App({
 
   data: {
     apiUrl: 'https://fyt2.test.fastcmf.com',
-    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
+    
   },
 
 
@@ -199,6 +199,7 @@ App({
 
   globalData: {
     userInfo: null,
-    apiUrl: 'https://fyt2.test.fastcmf.com'
+    apiUrl: 'https://fyt2.test.fastcmf.com',
+    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
   }
 })

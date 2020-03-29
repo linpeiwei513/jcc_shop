@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "货品管理"
+  "navigationBarTitleText": "货品管理",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

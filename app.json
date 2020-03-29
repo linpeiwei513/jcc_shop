@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/goods/goodsList/goodsList",
+    
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",
     "pages/mine/integral/integral",
@@ -64,8 +66,8 @@
     "pages/fangkuan/fxList/fxList",
     "pages/fangkuan/fkList/fkList",
     "pages/fangkuan/fxDetails/fxDetails",
-    "pages/fangkuan/fkDetails/fkDetails",
-    "pages/goods/goodsList/goodsList"
+    "pages/fangkuan/fkDetails/fkDetails"
+    
   ],
   "plugins": {
     "tencentvideo": {

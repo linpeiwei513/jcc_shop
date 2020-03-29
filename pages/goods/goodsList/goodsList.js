@@ -1,31 +1,31 @@
 // pages/goodsList/goodsList.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
+const iconUrl = app.globalData.iconUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataList: '',
+    dataList: [],
     navList: 0,
     skip: 0,
     limit: 10,
+    isStop: 0,
     showNav: '',
-    imgUrl:apiUrl
+    imgUrl: apiUrl,
+    iconUrl: iconUrl,
+    keywords: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
+
     this.getGoodsType()
-    this.getGoodsList()
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
 
@@ -50,35 +50,47 @@ Page({
 
   //选择分类
   onType: function(e) {
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
     let id = e.currentTarget.dataset['index']
     this.setData({
       showNav: id
     })
-    this.getGoodsList()
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
   //全部
-  onTypeQb: function(e) {
+  onTypeQb: function() {
+    this.setData({
+      showNav: ''
+    })
+    wx.startPullDownRefresh() //执行下拉刷新操作
+  },
+
+  //搜索
+  getSo: function() {
     wx.showToast({
       title: '获取信息中...',
       icon: 'loading',
       duration: 500
     })
     this.setData({
-      showNav: ''
+      dataList: [],
+      skip: 0
     })
-    this.getGoodsList()
+    this.getGoodsList();
+  },
+
+  //搜索输入
+  formSo: function (e) {
+    //console.log(e)
+    this.setData({
+      keywords: e.detail.value
+    })
   },
 
   //获取商品列表
   getGoodsList: function(){
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords=',
+      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords='+that.data.keywords,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
@@ -88,10 +100,18 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('商品列表：', res)
+        wx.stopPullDownRefresh() //停止刷新动画
         if (res.data.status == '1') {
+
+          let newList = that.data.dataList
+          let newSkip = that.data.skip + res.data.data.length
+          for (var i = 0; i < res.data.data.length; i++) {
+            newList.push(res.data.data[i])
+          }
           that.setData({
-            dataList: res.data.data,
-            
+            dataList: newList,
+            skip: newSkip,
+            isStop: res.data.data.length
           })
           
         } else {
@@ -152,52 +172,26 @@ Page({
     })
   },
 
-
-
-
-
-
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("正在下拉刷新");
+    this.setData({
+      dataList: [],
+      skip: 0
+    })
+    this.getGoodsList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("页面上拉触底数组");
+    if (this.data.isStop != 0) {
+      this.getGoodsList();
+    }
 
   },
 
