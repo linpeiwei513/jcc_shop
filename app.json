@@ -51,7 +51,6 @@
     "pages/mall/helpShow/helpShow",
     "pages/site/city/city",
     "pages/site/region/region",
-
     "pages/recordSalesD/recordSalesD",
     "pages/recordStockD/recordStockD",
     "pages/recordMarketD/recordMarketD",
@@ -67,7 +66,8 @@
     "pages/clerk/add/add",
     "pages/clerk/details/details",
     "pages/clerk/list/list",
-    "pages/clerk/update/update"
+    "pages/clerk/update/update",
+    "pages/fangkuan/index/index"
   ],
   "plugins": {
     "tencentvideo": {

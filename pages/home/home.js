@@ -111,7 +111,7 @@ Page({
   //放款返现
   gofangkuan: function () {
     wx.navigateTo({
-      url: '../fangkuan/fangkuan',
+      url: '../fangkuan/index/index',
     })
   }
 
