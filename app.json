@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/goodsList/goodsList",
     "pages/welcome/welcome",
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",
@@ -16,9 +15,6 @@
     "pages/mine/address/add/add",
     "pages/home/home",
     "pages/index/index",
-    "pages/fkList/fkList",
-    "pages/fkDetails/fkDetails",
-    "pages/fangkuan/fangkuan",
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
     "pages/recordMarket/recordMarket",
@@ -43,7 +39,6 @@
     "pages/mall/list/list",
     "pages/searchGoods/searchGoods",
     "pages/yijian/yijian",
-    "pages/goodsAdd/goodsAdd",
     "pages/statistics/statistics",
     "pages/activityDetails/activityDetails",
     "pages/logs/logs",
@@ -55,8 +50,6 @@
     "pages/recordStockD/recordStockD",
     "pages/recordMarketD/recordMarketD",
     "pages/stockDetails/stockDetails",
-    "pages/fxList/fxList",
-    "pages/fxDetails/fxDetails",
     "pages/mine/xiaoshu/xiaoshu",
     "pages/mine/address/update/update",
     "pages/agency/add/add",
@@ -67,7 +60,12 @@
     "pages/clerk/details/details",
     "pages/clerk/list/list",
     "pages/clerk/update/update",
-    "pages/fangkuan/index/index"
+    "pages/fangkuan/index/index",
+    "pages/fangkuan/fxList/fxList",
+    "pages/fangkuan/fkList/fkList",
+    "pages/fangkuan/fxDetails/fxDetails",
+    "pages/fangkuan/fkDetails/fkDetails",
+    "pages/goods/goodsList/goodsList"
   ],
   "plugins": {
     "tencentvideo": {
@@ -96,7 +94,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/goodsList/goodsList",
+        "pagePath": "pages/goods/goodsList/goodsList",
         "iconPath": "pages/images/icon_goods.png",
         "selectedIconPath": "pages/images/icon_goods_n.png",
         "text": "货品管理"

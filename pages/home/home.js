@@ -62,7 +62,7 @@ Page({
   //前往货品列表
   goGoods: function() {
     wx.switchTab({
-      url: '../goodsList/goodsList'
+      url: '../goods/goodsList/goodsList'
     })
   },
 
