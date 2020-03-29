@@ -1,7 +1,6 @@
-// pages/agencyList/agencyList.js
+// pages/clerkList/clerkList.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
-
 
 Page({
 
@@ -9,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listData: '',
+    dataList: '',
     skip: 0,
     limit: 10,
   },
@@ -18,15 +17,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    this.getData()
   },
 
-
-  //获取代理列表
-  getList: function() {
+  //获取列表数据
+  getData: function() {
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Agent/getSubAgents?skip=' + this.data.skip + '&limit=' + this.data.limit,
+      url: apiUrl + '/Api/AgentEmploy/getEmployList?skip=' + this.data.skip + '&limit=' + this.data.limit,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
@@ -36,9 +34,15 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('代理列表：', res)
-        if(res.data.status == '1'){
+        if (res.data.status == '1') {
           that.setData({
             listData: res.data.data
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
           })
         }
       }
@@ -46,12 +50,26 @@ Page({
   },
 
 
-  //新增代理
+  //新增
   goAdd: function() {
     wx.navigateTo({
-      url: '../agencyAdd/agencyAdd',
+      url: '../add/add',
     })
   },
+
+  //详情
+  goDetails: function(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../details/details?id='+e.currentTarget.dataset.id,
+    })
+  },
+
+
+
+
+
+
 
 
 

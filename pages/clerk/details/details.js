@@ -23,9 +23,10 @@ Page({
     }
   },
 
+  //消数
   xiaoshu: function() {
     wx.navigateTo({
-      url: '../recordMarket/recordMarket?id=' + this.data.id,
+      url: '../../recordMarket/recordMarket?id=' + this.data.id,
     })
   },
 
@@ -33,14 +34,14 @@ Page({
   goUp: function() {
     
     wx.navigateTo({
-      url: '../clerkUp/clerkUp?id=' + this.data.id + '&username=' + this.data.dataList.username,
+      url: '../update/update?id=' + this.data.id + '&username=' + this.data.dataList.username,
     })
   },
 
   //积分
   jifen: function() {
     wx.navigateTo({
-      url: '../recordIntegral/recordIntegral?id=' + this.data.id,
+      url: '../../recordIntegral/recordIntegral?id=' + this.data.id,
     })
   },
 

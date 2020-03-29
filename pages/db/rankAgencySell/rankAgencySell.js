@@ -104,8 +104,15 @@ Page({
     var lastD = lw.getDate();
     var startdate = lastY + "-" + (lastM < 10 ? "0" + lastM : lastM) + "-" + (lastD < 10 ? "0" + lastD : lastD);
 
+    //获取一年前日期
+    var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 365);//最后一个数字365可改，365天的意思
+    var lastY = lw.getFullYear();
+    var lastM = lw.getMonth() + 1;
+    var lastD = lw.getDate();
+    var startDay = lastY + "-" + (lastM < 10 ? "0" + lastM : lastM) + "-" + (lastD < 10 ? "0" + lastD : lastD);
+
     this.setData({
-      dateS: startdate,
+      dateS: startDay,
       dateE: enddate,
       start_date: startdate,
       end_date: enddate

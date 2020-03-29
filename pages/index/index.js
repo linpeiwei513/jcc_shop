@@ -13,51 +13,6 @@ Page({
     userData: '',
     agentData: ''
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-
-  //退出
-  getExit: function() {
-
-    wx.request({
-      url: apiUrl + '/Api/Member/logout',
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        console.log('退出回调：', res)
-        if (res.data.status == '1') {
-          //清除缓存
-          wx.removeStorageSync("sessionID")
-          wx.removeStorageSync("openid")
-          wx.removeStorageSync("userInfo")
-          wx.removeStorageSync("agent_info")
-          wx.removeStorageSync("loginStatus")
-          wx.setStorageSync('lo', 0)
-					//返回首页
-          wx.redirectTo({
-            url: '../welcome/welcome?id=1'
-          })
-
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      }
-    })
-
-  },
 
   onLoad: function () {
 
@@ -92,6 +47,22 @@ Page({
 
     this.getUserData()
   },
+
+  //补货单
+  goBuhuo: function() {
+    wx.navigateTo({
+      url: '../recordStock/recordStock',
+    })
+  },
+
+  //销货单
+  goXiaohuo: function() {
+    wx.navigateTo({
+      url: '../recordSales/recordSales',
+    })
+  },
+
+
 
   //积分记录
   gointegral: function() {
@@ -143,6 +114,45 @@ Page({
     wx.navigateTo({
       url: '../mine/updatedb/updatedb',
     })
+  },
+
+  //退出
+  getExit: function() {
+
+    wx.request({
+      url: apiUrl + '/Api/Member/logout',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('退出回调：', res)
+        if (res.data.status == '1') {
+          //清除缓存
+          wx.removeStorageSync("sessionID")
+          wx.removeStorageSync("openid")
+          wx.removeStorageSync("userInfo")
+          wx.removeStorageSync("agent_info")
+          wx.removeStorageSync("loginStatus")
+          wx.setStorageSync('lo', 0)
+					//返回首页
+          wx.redirectTo({
+            url: '../welcome/welcome?id=1'
+          })
+
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+
   },
 
   getUserInfo: function(e) {

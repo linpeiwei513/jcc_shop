@@ -40,7 +40,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('banner数据：', res)
+        //console.log('banner数据：', res)
         if (res.data.status == '1') {
           that.setData({
             bannerData: res.data.data
@@ -76,7 +76,7 @@ Page({
   //店员
   goClerk: function() {
     wx.navigateTo({
-      url: '../clerkList/clerkList',
+      url: '../clerk/list/list',
     })
   },
 
@@ -104,7 +104,7 @@ Page({
   //下级代理
   goAgency: function () {
     wx.navigateTo({
-      url: '../agencyList/agencyList',
+      url: '../agency/list/list',
     })
   },
 

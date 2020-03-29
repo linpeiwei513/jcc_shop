@@ -48,10 +48,10 @@
       <image src="../images/nav_statistics.png"></image>
       <text>数据统计</text>
     </view>
-    <view class="nav-li" bindtap="goMall">
+    <!-- <view class="nav-li" bindtap="goMall">
       <image src="../images/nav_shop.png"></image>
       <text>积分商城</text>
-    </view>
+    </view> -->
     
   </view>
 </view>

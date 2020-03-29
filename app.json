@@ -1,26 +1,20 @@
 {
   "pages": [
+    "pages/goodsList/goodsList",
     "pages/welcome/welcome",
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",
     "pages/mine/integral/integral",
     "pages/mine/address/list/list",
-    
     "pages/db/rankAgencyStores/rankAgencyStores",
     "pages/db/rankGoodsStores/rankGoodsStores",
-    
     "pages/db/index/index",
     "pages/db/rankUserSell/rankUserSell",
-    
     "pages/mine/updatedb/updatedb",
-    "pages/goodsList/goodsList",
     "pages/guigeList/guigeList",
     "pages/addXiaoshu/addXiaoshu",
-    
     "pages/mine/address/add/add",
     "pages/home/home",
-    "pages/clerkList/clerkList",
-    
     "pages/index/index",
     "pages/fkList/fkList",
     "pages/fkDetails/fkDetails",
@@ -28,14 +22,9 @@
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
     "pages/recordMarket/recordMarket",
-    "pages/agencyList/agencyList",
-    "pages/agencyAdd/agencyAdd",
     "pages/recordStock/recordStock",
     "pages/xiaocun/xiaocun",
     "pages/recordIntegral/recordIntegral",
-    "pages/clerk/clerk",
-    "pages/clerkAdd/clerkAdd",
-    "pages/agencyDetails/agencyDetails",
     "pages/login/login",
     "pages/shop/shop",
     "pages/site/province/province",
@@ -58,26 +47,28 @@
     "pages/statistics/statistics",
     "pages/activityDetails/activityDetails",
     "pages/logs/logs",
-    "pages/clerkUpdate/clerkUpdate",
     "pages/user/user",
     "pages/mall/helpShow/helpShow",
     "pages/site/city/city",
     "pages/site/region/region",
-    "pages/clerkUp/clerkUp",
+
     "pages/recordSalesD/recordSalesD",
     "pages/recordStockD/recordStockD",
     "pages/recordMarketD/recordMarketD",
-    "pages/agencyUp/agencyUp",
     "pages/stockDetails/stockDetails",
     "pages/fxList/fxList",
     "pages/fxDetails/fxDetails",
-    "pages/fxAdd/fxAdd",
     "pages/mine/xiaoshu/xiaoshu",
-    "pages/mine/address/update/update"
-    
-    
+    "pages/mine/address/update/update",
+    "pages/agency/add/add",
+    "pages/agency/details/details",
+    "pages/agency/list/list",
+    "pages/agency/update/update",
+    "pages/clerk/add/add",
+    "pages/clerk/details/details",
+    "pages/clerk/list/list",
+    "pages/clerk/update/update"
   ],
-  
   "plugins": {
     "tencentvideo": {
       "version": "1.1.1",

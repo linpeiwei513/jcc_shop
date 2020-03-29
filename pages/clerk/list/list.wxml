@@ -7,9 +7,8 @@
 <view class="list" wx:if="{{listData.length > 0}}">
 
 
-  <view class="list-li" wx:for="{{listData}}" wx:key="key">
-    <navigator url="../clerk/clerk?id={{item.id}}" hover-class="navigator-hover">
-      <view class="txt" bindtap="goAdd">
+  <view class="list-li" wx:for="{{listData}}" wx:key="key" data-id="{{item.id}}" bindtap="goDetails">
+      <view class="txt">
         <text class="name">{{item.username}}</text>
         <text class="phone">（{{item.realname}}）</text>
       </view>
@@ -20,7 +19,6 @@
       <view class="time">总消数量：{{item.experience}}</view>
       <!-- <view class="del"><image src="../images/delete.png" bindtap="del"></image></view> -->
       <view class="co"></view>
-    </navigator>
   </view>
 
 </view>

@@ -65,7 +65,7 @@ Page({
           })
           setTimeout(function () {
             wx.reLaunch({
-              url: '../agencyList/agencyList'　　// 页面 A
+              url: '../list/list'　　// 页面 A
             })
           }, 1000) 
 

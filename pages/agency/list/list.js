@@ -1,6 +1,7 @@
-// pages/clerkList/clerkList.js
+// pages/agencyList/agencyList.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
+
 
 Page({
 
@@ -8,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: '',
+    listData: '',
     skip: 0,
     limit: 10,
   },
@@ -17,14 +18,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
+    this.getList()
   },
 
-  //获取列表数据
-  getData: function() {
+
+  //获取代理列表
+  getList: function() {
     let that = this
     wx.request({
-      url: apiUrl + '/Api/AgentEmploy/getEmployList?skip=' + this.data.skip + '&limit=' + this.data.limit,
+      url: apiUrl + '/Api/Agent/getSubAgents?skip=' + this.data.skip + '&limit=' + this.data.limit,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
@@ -34,47 +36,22 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('代理列表：', res)
-        if (res.data.status == '1') {
+        if(res.data.status == '1'){
           that.setData({
             listData: res.data.data
           })
-        }else{
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 2000
-          })
         }
       }
     })
   },
 
-  del: function() {
-    wx.showModal({
-      title: '提示',
-      content: '你确定删除改店员吗',
-      success (res) {
-        if(res.confirm){
-          console.log('确定删除')
-        }else if(res.cancel){
-          console.log('取消删除')
-        }
-      }
-    })
-  },
 
+  //新增代理
   goAdd: function() {
     wx.navigateTo({
-      url: '../clerkAdd/clerkAdd',
+      url: '../add/add',
     })
   },
-
-
-
-
-
-
-
 
 
 
