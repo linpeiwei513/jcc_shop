@@ -50,7 +50,7 @@ Page({
 
   //提交信息
   submitData: function() {
-
+    let that = this
     if (this.data.name == ''){
       wx.showToast({
         title: '请输入公司名称',
@@ -118,7 +118,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          this.getShop()
+          that.getShop()
         }else{
           wx.showToast({
             title: res.data.msg,

@@ -257,13 +257,13 @@ color: transparent;
   text-align: center;
   font-size: 26rpx;
   color: #444444;
-  margin-left: 10rpx;
+  width: 100rpx;
 }
 .top-main .nav-li image{
   width: 44rpx;
   height: 44rpx;
   display: block;
-  margin: 8rpx auto;
+  margin: 5rpx auto;
 }
 .nav-soso{
   padding-top: 10rpx;
@@ -271,17 +271,20 @@ color: transparent;
 }
 .nav-soso input{
   background-color: #ffffff;
-  height: 80rpx;
+  height: 66rpx;
   border-radius: 40rpx;
   padding: 0rpx 30rpx;
   font-size: 28rpx;
   padding-right: 90rpx;
-  width: 390rpx;
+  width: 340rpx;
 }
 .nav-soso image{
   width: 44rpx;
   height: 44rpx;
   position: absolute;
-  top: 26rpx;
+  top: 20rpx;
   right: 20rpx;
+}
+.goods-list{
+  margin-top: 200rpx;
 }

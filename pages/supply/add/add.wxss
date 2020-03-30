@@ -1,0 +1,135 @@
+/* pages/supply/add/add.wxss */
+.main{
+  padding: 30rpx;
+}
+.main-box{
+  background-color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  position: relative;
+  min-height: 200rpx;
+  margin-bottom: 20rpx;
+}
+.main-title{
+  padding: 20rpx;
+  font-weight: bold;
+  border-bottom: 3rpx solid #f0f0f0;
+}
+.main-btn{
+  font-weight: normal;
+  font-size: 24rpx;
+  color: #ffffff;
+  background-color: #67C23A;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+}
+.main-add{
+  background-color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  position: relative;
+  margin-bottom: 20rpx;
+  height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #67C23A;
+}
+.main-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #ffffff;
+  width: 100%;
+  border-top: 1rpx solid #f4f4f4;
+  line-height: 100rpx;
+  color: #303133;
+}
+.main-bottom .btn-price{
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+.main-bottom .btn-price text{
+  font-weight: bold;
+}
+.main-bottom .btn-btn{
+  width: 266rpx;
+  text-align: center;
+  background-color: #F56C6C;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+
+.main-list{
+  color: #606266;
+  padding-left: 20rpx;
+}
+.list-li{
+  padding: 20rpx 20rpx 20rpx 0;
+  border-bottom: 1rpx solid #F2F6FC;
+}
+
+.list-li:last-child{
+  border-bottom: none;
+}
+
+
+
+.list-li .list-del image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.list-li .list-del{
+  padding-top: 40rpx;
+}
+.list-li .list-goods{
+  width: 580rpx;
+}
+.goods-name{
+  font-size: 24rpx;
+  color: #303133;
+  padding-bottom: 10rpx;
+}
+.goods-guige{
+  font-size: 22rpx;
+  color: #606266;
+  background-color: #F2F6FC;
+  display: inline-block;
+  height: 40rpx;
+  padding: 0rpx 15rpx;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+}
+.goods-price{
+  font-size: 24rpx;
+  padding-top: 20rpx;
+}
+.goods-price text{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.goods-num{
+  margin-top: 20rpx;
+}
+.goods-num image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin: 0rpx 10rpx;
+  margin-top: 6rpx;
+}
+.goods-num input{
+  height: 30rpx;
+  float: right;
+  background-color: #E4E7ED;
+  line-height: 30rpx;
+  width: auto;
+  width: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 6rpx;
+}

@@ -29,6 +29,15 @@ Page({
   },
 
 
+  //补货
+  goSupply: function() {
+    wx.navigateTo({
+      url: '../../supply/add/add',
+    })
+  },
+
+
+
   //前往消数
   goxiaoshu: function(e) {
     console.log(e.currentTarget.dataset.item)
@@ -52,16 +61,30 @@ Page({
   onType: function(e) {
     let id = e.currentTarget.dataset['index']
     this.setData({
-      showNav: id
+      showNav: id,
+      dataList: [],
+      skip: 0
     })
-    wx.startPullDownRefresh() //执行下拉刷新操作
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
+    this.getGoodsList();
   },
   //全部
   onTypeQb: function() {
     this.setData({
-      showNav: ''
+      showNav: '',
+      dataList: [],
+      skip: 0
     })
-    wx.startPullDownRefresh() //执行下拉刷新操作
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
+    this.getGoodsList();
   },
 
   //搜索

@@ -30,9 +30,13 @@
 <!--头部工具栏-->
 <view class="top-tool">
   <view class="top-main">
-    <view class="nav-li le">
+    <view class="nav-li le" bindtap="goSupply">
       <image src="../../images/nav1.png"></image>
-      <text>一键补货</text>
+      <text>补货</text>
+    </view>
+    <view class="nav-li le">
+      <image src="../../images/nav2.png"></image>
+      <text>销货</text>
     </view>
     <view class="nav-soso rt">
       <input type="text" placeholder="输入关键字" confirm-type="search" bindconfirm="getSo" bindinput='formSo'></input>

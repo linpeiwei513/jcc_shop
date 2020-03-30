@@ -1,0 +1,109 @@
+/* pages/goods/selectList/selectList.wxss */
+
+.main-top{
+  background-color: #f9deb7;
+  height: 70rpx;
+  padding: 10rpx 30rpx;
+  font-size: 28rpx;
+  position: fixed;
+  top: 0rpx;
+  width: 690rpx;
+}
+
+.top-select{
+  width: 200rpx;
+  height: 60rpx;
+  background-color: #eec489;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  color: #303133;
+}
+
+.top-so{
+  width: 470rpx;
+  height: 60rpx;
+  background-color: #ffffff;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.top-so input{
+  width: 370rpx;
+  height: 60rpx;
+  padding-left: 30rpx;
+}
+.top-so image{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.main-list{
+  padding: 120rpx 30rpx 30rpx 30rpx;
+}
+.list-ul{
+  background-color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  position: relative;
+  margin-bottom: 60rpx;
+  padding: 30rpx 20rpx 40rpx 20rpx;
+}
+.list-goods .list-txt{
+  width: 580rpx;
+}
+.goods-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.goods-img image{
+  width: 100%;
+  height: 100%;
+  border-radius: 5rpx;
+}
+.goods-name{
+  width: 460rpx;
+}
+.goods-name .h{
+  font-size: 24rpx;
+  color: #303133;
+}
+.goods-name .p text{
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  color: #909399;
+}
+.list-more{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 35rpx;
+  text-align: center;
+  line-height: 60rpx;
+  left: 50%;
+  margin-left: -30rpx;
+  bottom: -30rpx;
+}
+.list-more image{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin: 6rpx auto;
+}
+.list-goods{
+  margin-bottom: 20rpx;
+}
+.list-guige{
+  margin-bottom: 20rpx;
+}
+.list-guige .list-txt{
+  width: 580rpx;
+  padding-top: 8rpx;
+}
+.list-guige .goods-name{
+  width: 580rpx;
+}

@@ -1,14 +1,14 @@
-// pages/mine/updatedb/updatedb.js
+// pages/supply/add/add.js
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
+const iconUrl = app.globalData.iconUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    realname: '',
-    mobile: ''
+    iconUrl: iconUrl
   },
 
   /**
@@ -18,81 +18,35 @@ Page({
 
   },
 
-  //确定
-  submitData: function() {
+
+  //一键获取补货
+  oneSupply: function() {
+
     let that = this
-    if (this.data.realname == '' || this.data.realname.length < 2) {
-      wx.showToast({
-        title: '请输入不少于2个字符的真实姓名',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-
-    wx.showToast({
-      title: '处理中...',
-      icon: 'loading',
-      duration: 5000
-    })
-
     wx.request({
-      url: apiUrl + '/Api/Member/updateProfile',
-      data: {
-        realname: that.data.realname,
-        mobile: that.data.mobile,
-      },
+      url: apiUrl + '/Api/Invoice/addInForSales',
       header: {
-        'content-type': 'application/x-www-form-urlencoded',
+        'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
       },
-      method: 'POST',
+      method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('修改回调：', res)
+        console.log('补货列表：', res)
         if (res.data.status == '1') {
-          wx.showToast({
-            title: '修改成功',
-            icon: 'success',
-            duration: 1000,
-            mask: true
-          })
           
-          setTimeout(function () {
-            wx.switchTab({
-              url: '../../index/index',
-            })
-          }, 1000)
-
         } else {
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
             duration: 2000
           })
-
         }
       }
     })
 
   },
-
-  //名字输入
-  getrealname: function (e) {
-    this.setData({
-      realname: e.detail.value
-    })
-  },
-  //手机输入
-  getmobile: function (e) {
-    this.setData({
-      mobile: e.detail.value
-    })
-  },
-
-
-
 
 
   /**

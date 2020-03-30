@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/goods/selectList/selectList",
     "pages/welcome/welcome",
-    "pages/clerk/list/list",
+    
+    "pages/supply/add/add",
     
     "pages/goods/goodsList/goodsList",
-    
+    "pages/clerk/list/list",
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",
     "pages/mine/integral/integral",
@@ -62,7 +64,6 @@
     "pages/agency/update/update",
     "pages/clerk/add/add",
     "pages/clerk/details/details",
-    
     "pages/clerk/update/update",
     "pages/fangkuan/index/index",
     "pages/fangkuan/fxList/fxList",

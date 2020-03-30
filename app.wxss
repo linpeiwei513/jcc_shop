@@ -69,3 +69,13 @@ page{
 .border-none{
   border: none;
 }
+.main-null{
+  text-align: center;
+  font-size: 26rpx;
+  color: #999999;
+  padding: 100rpx;
+}
+.main-null image{
+  width: 80rpx;
+  height: 80rpx;
+}
