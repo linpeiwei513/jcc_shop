@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/clerk/list/list",
+    
     "pages/goods/goodsList/goodsList",
     
     "pages/db/rankAgencySell/rankAgencySell",
@@ -60,7 +62,7 @@
     "pages/agency/update/update",
     "pages/clerk/add/add",
     "pages/clerk/details/details",
-    "pages/clerk/list/list",
+    
     "pages/clerk/update/update",
     "pages/fangkuan/index/index",
     "pages/fangkuan/fxList/fxList",

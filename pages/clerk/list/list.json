@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "店员列表"
+  "navigationBarTitleText": "店员列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

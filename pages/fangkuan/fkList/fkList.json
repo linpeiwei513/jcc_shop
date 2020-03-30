@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "我的放款单"
+  "navigationBarTitleText": "我的放款单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
