@@ -24,7 +24,7 @@ Page({
   //确定
   submitData: function() {
     
-    let datas = this.data.dataListNew
+    let datas = JSON.stringify(this.data.dataListNew)
     console.log('提交数据：', datas)
     let that = this
     wx.request({
@@ -124,6 +124,7 @@ Page({
     let newPrice = 0
     for(var i=0; i<newList.length; i++){
       newPrice = Number(newPrice) + Number(newList[i].price)
+      
       newArr.push(this.getArr(newList[i].goodsId,newList[i].guigeId,newList[i].num))
     }
     newPrice = (newPrice).toFixed(2) //总价格
@@ -132,8 +133,6 @@ Page({
       totalPrice: newPrice,
       dataListNew: newArr
     })
-
-    console.log('新数据：',this.data.dataListNew)
 
   },
 

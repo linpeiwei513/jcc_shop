@@ -16,7 +16,7 @@
       
       <view class="list-li" wx:for="{{dataList}}" wx:key="key">
         <view class="list-del le">
-          <image src="{{iconUrl}}icon_del.png"></image>
+          <image src="{{iconUrl}}icon_del.png" data-item="{{item}}" bindtap="delGoods"></image>
         </view>
         <view class="list-goods rt">
           <view class="goods-name">{{item.goodsName}}</view>
