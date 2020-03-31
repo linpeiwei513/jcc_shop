@@ -16,7 +16,9 @@ Page({
     skip: 0,
     limit: 10,
     isStop: 0,
-    keywords: ''
+    keywords: '',
+    newArr: [],
+    totalNum: 0
   },
 
   /**
@@ -24,9 +26,140 @@ Page({
    */
   onLoad: function (options) {
 
-    this.getGoodsType();
+    this.getGoodsType()
     
   },
+
+  //确定
+  submitData: function() {
+
+    wx.showToast({
+      title: '处理中...',
+      icon: 'loading',
+      duration: 1000
+    })
+
+    //将选择数据存入缓存
+    wx.setStorageSync("selectGoods", this.data.newArr);
+
+    setTimeout(function () {
+      wx.navigateBack({
+        delta:1
+      })
+    }, 1000)
+
+  },
+
+  //重组数据
+  setSelectData: function() {
+
+    let oldData = this.data.dataList
+    let newData = []
+
+    for(var i=0; i<oldData.length; i++){
+      if(oldData[i].spec_arr.length > 0){
+        for(var j=0; j<oldData[i].spec_arr.length; j++){
+          if(oldData[i].spec_arr[j].isSelect == true){
+            newData.push(this.getArr(
+              oldData[i].name,
+              oldData[i].spec_arr[j].key_name,
+              oldData[i].spec_arr[j].goods_id,
+              oldData[i].spec_arr[j].id,
+              oldData[i].spec_arr[j].price
+            ))
+          }
+        }
+      }else if(oldData[i].spec_arr.length < 1){
+        if(oldData[i].isSelect == true){
+          newData.push(this.getArr(oldData[i].name,'无',oldData[i].id,0,oldData[i].shop_price))
+        }
+      }
+    }
+    //console.log('提交：',newData)
+    this.setData({
+      newArr: newData,
+      totalNum: newData.length
+    })
+
+  },
+
+  //创建数组模板
+  getArr: function(goodsName,guigeName,goodsId,guigeId,price) {
+    return {
+      goodsName: goodsName,
+      guigeName: guigeName,
+      goodsId: goodsId,
+      guigeId: guigeId,
+      price: price,
+      num: 1
+    }
+  },
+
+
+  //勾选规格
+  checkboxChangeLi: function(e){
+    //console.log('选中:',e)
+    let newData = this.data.dataList
+    if(e.detail.value.length>0){
+      for(var i=0; i<newData[e.currentTarget.dataset.index].spec_arr.length; i++){
+        if(newData[e.currentTarget.dataset.index].spec_arr[i].id == e.currentTarget.dataset.id){
+          newData[e.currentTarget.dataset.index].spec_arr[i].isSelect = true
+        }
+      }
+      this.setData({
+        dataList: newData
+      })
+    }else if(e.detail.value.length<1){
+      for(var i=0; i<newData[e.currentTarget.dataset.index].spec_arr.length; i++){
+        if(newData[e.currentTarget.dataset.index].spec_arr[i].id == e.currentTarget.dataset.id){
+          newData[e.currentTarget.dataset.index].spec_arr[i].isSelect = false
+        }
+      }
+      this.setData({
+        dataList: newData
+      })
+    }
+    //console.log('haha:',this.data.dataList)
+    this.setSelectData()
+  },
+
+  //勾选主类
+  checkboxChange: function(e) {
+    //console.log('选中id:',e.currentTarget.dataset.id)
+    //console.log('选中状态:',e.detail.value)
+    let newData = this.data.dataList
+    if(e.detail.value.length>0){
+      for(var i=0; i<newData.length; i++){
+        if(newData[i].id == e.currentTarget.dataset.id) {
+          newData[i].isSelect = true
+          if(newData[i].spec_arr.length > 0){
+            for(var j=0; j<newData[i].spec_arr.length; j++){
+              newData[i].spec_arr[j].isSelect = true
+            }
+          }
+        }
+      }
+      this.setData({
+        dataList: newData
+      })
+    }else if(e.detail.value.length < 1){
+      for(var i=0; i<newData.length; i++){
+        if(newData[i].id == e.currentTarget.dataset.id) {
+          newData[i].isSelect = false
+          if(newData[i].spec_arr.length > 0){
+            for(var j=0; j<newData[i].spec_arr.length; j++){
+              newData[i].spec_arr[j].isSelect = false
+            }
+          }
+        }
+      }
+      this.setData({
+        dataList: newData
+      })
+    }
+    this.setSelectData()
+  },
+
 
   //获取商品列表
   getGoodsList: function(){
@@ -47,9 +180,19 @@ Page({
 
           let newList = that.data.dataList
           let newSkip = that.data.skip + res.data.data.length
-          for (var i = 0; i < res.data.data.length; i++) {
+
+          for(var i=0; i<res.data.data.length; i++){
+            res.data.data[i].isSelect = false
+            if(res.data.data[i].spec_arr.length > 0){
+              for(var j=0; j<res.data.data[i].spec_arr.length; j++){
+                res.data.data[i].spec_arr[j].isSelect = false
+              }
+            }
             newList.push(res.data.data[i])
           }
+
+          console.log('新列表：',newList)
+
           that.setData({
             dataList: newList,
             skip: newSkip,
@@ -82,7 +225,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('商品分类：', res)
+        //console.log('商品分类：', res)
         if (res.data.status == '1') {
           let arrayNew = [{id: '', name:'全部'}]
           for(var i=0; i<res.data.data.length; i++){
@@ -94,7 +237,6 @@ Page({
           })
           that.getGoodsList();
           console.log('新分类：',arrayNew)
-          //for(var i=0; i<)
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -111,59 +253,65 @@ Page({
 
   //选择分类
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('id', this.data.array[e.detail.value].id)
+    console.log('value', e.detail.value)
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      dataList: [],
+      skip: 0
+    })
+    this.getGoodsList();
+  },
+
+  //搜索
+  getSo: function() {
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
+    this.setData({
+      dataList: [],
+      skip: 0
+    })
+    this.getGoodsList();
+  },
+
+  //搜索输入
+  formSo: function (e) {
+    //console.log(e)
+    this.setData({
+      keywords: e.detail.value
     })
   },
 
 
 
-
-
-
-
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("正在下拉刷新");
+    this.setData({
+      dataList: [],
+      skip: 0
+    })
+    this.getGoodsList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("页面上拉触底数组");
+    if (this.data.isStop != 0) {
+      this.getGoodsList();
+    }
 
   },
 

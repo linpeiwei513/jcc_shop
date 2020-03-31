@@ -1,9 +1,12 @@
 {
   "pages": [
+    "pages/supply/add/add",
     "pages/goods/selectList/selectList",
     "pages/welcome/welcome",
     
-    "pages/supply/add/add",
+    
+    
+    
     
     "pages/goods/goodsList/goodsList",
     "pages/clerk/list/list",

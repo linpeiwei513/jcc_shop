@@ -12,20 +12,20 @@
     </view>
 
     <!--列表-->
-    <view class="main-list">
+    <view class="main-list" wx:if="{{dataList.length > 0}}">
       
-      <view class="list-li">
+      <view class="list-li" wx:for="{{dataList}}" wx:key="key">
         <view class="list-del le">
           <image src="{{iconUrl}}icon_del.png"></image>
         </view>
         <view class="list-goods rt">
-          <view class="goods-name">周大福 Hello Kitty凯蒂猫 福袋足金黄金吊坠</view>
-          <view class="goods-guige">规格：1.2克字母类别:字母A生肖类别:鼠</view>
+          <view class="goods-name">{{item.goodsName}}</view>
+          <view class="goods-guige">{{item.guigeName}}</view>
           <view class="co"></view>
-          <view class="goods-price le">￥<text>1391.00</text></view>
+          <view class="goods-price le">￥<text>{{item.price}}</text></view>
           <view class="goods-num rt">
             <image src="{{iconUrl}}icon_jia.png"></image>
-            <input type="number" value="231"></input>
+            <input type="number" value="{{item.num}}"></input>
             <image src="{{iconUrl}}icon_jian.png"></image>
           </view>
           <view class="co"></view>
@@ -33,41 +33,23 @@
         <view class="co"></view>
       </view>
 
-      <view class="list-li">
-        <view class="list-del le">
-          <image src="{{iconUrl}}icon_del.png"></image>
-        </view>
-        <view class="list-goods rt">
-          <view class="goods-name">周大福 Hello Kitty凯蒂猫 福袋足金黄金吊坠</view>
-          <view class="goods-guige">规格：无</view>
-          <view class="co"></view>
-          <view class="goods-price le">￥<text>1391.00</text></view>
-          <view class="goods-num rt">
-            <image src="{{iconUrl}}icon_jia.png"></image>
-            <input type="number" value="231"></input>
-            <image src="{{iconUrl}}icon_jian.png"></image>
-          </view>
-          <view class="co"></view>
-        </view>
-        <view class="co"></view>
-      </view>
 
     </view>
 
 
-    <view class="main-null">
+    <view class="main-null" wx:if="{{dataList.length < 1}}">
       <image src="{{iconUrl}}none.png"></image>
       <view>没有商品</view>
     </view>
   </view>
 
 
-  <view class="main-add">添加商品</view>
+  <view class="main-add" bindtap="addGoods">添加商品</view>
 
 </view>
 
 
 <view class="main-bottom">
-  <view class="btn-price le">合计：<text>￥3112.00</text></view>
-  <view class="btn-btn rt">确定</view>
+  <view class="btn-price le">合计：<text>￥{{totalPrice}}</text></view>
+  <view class="btn-btn rt" bindtap="submitData">确定</view>
 </view>

@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "选择商品"
+  "navigationBarTitleText": "选择商品",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

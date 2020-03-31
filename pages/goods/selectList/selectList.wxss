@@ -8,6 +8,7 @@
   position: fixed;
   top: 0rpx;
   width: 690rpx;
+  z-index: 2000;
 }
 
 .top-select{
@@ -106,4 +107,33 @@
 }
 .list-guige .goods-name{
   width: 580rpx;
+}
+
+.main-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #ffffff;
+  width: 100%;
+  border-top: 1rpx solid #f4f4f4;
+  line-height: 100rpx;
+  color: #303133;
+}
+.main-bottom .btn-price{
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+.main-bottom .btn-price text{
+  font-weight: bold;
+}
+.main-bottom .btn-btn{
+  width: 266rpx;
+  text-align: center;
+  background-color: #F56C6C;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+.main-zhan{
+  height: 110rpx;
 }

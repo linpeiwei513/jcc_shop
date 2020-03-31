@@ -16,7 +16,7 @@
   </view>
 
   <view class="top-so rt">
-    <input type="text" placeholder="输入商品关键字搜索"></input>
+    <input type="text" placeholder="输入商品关键字搜索" confirm-type="search" bindconfirm="getSo" bindinput='formSo'></input>
     <image src="{{iconUrl}}search.png"></image>
   </view>
 
@@ -26,13 +26,13 @@
 <view class="main-list">
 
   <view class="list-ul" wx:for="{{dataList}}" wx:key="key">
-
     <!--商品-->
     <view class="list-goods">
       <view class="list-select le">
-        <checkbox value="{{item.name}}" style='zoom:.7;'  checked="{{item.checked}}"/>
+        <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
+          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
+        </checkbox-group>
       </view>
-
       <view class="list-txt rt">
         <view class="goods-img le"><image src="{{imgUrl}}{{item.img}}"></image></view>
         <view class="goods-name rt">
@@ -45,9 +45,11 @@
     </view>
 
     <!--规格-->
-    <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="key">
+    <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="item" wx:for-index="ind">
       <view class="list-select le">
-        <checkbox value="{{item.name}}" style='zoom:.7;'  checked="{{item.checked}}"/>
+        <checkbox-group bindchange="checkboxChangeLi" data-id="{{item.id}}" data-index="{{index}}">
+          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
+        </checkbox-group>
       </view>
       <view class="list-txt rt">
         <view class="goods-name rt">
@@ -68,4 +70,12 @@
 
 
 
+</view>
+
+
+
+<view class="main-zhan"></view>
+<view class="main-bottom">
+  <view class="btn-price le">已选择<text>{{totalNum}}</text>件商品</view>
+  <view class="btn-btn rt" bindtap="submitData">确定</view>
 </view>
