@@ -119,7 +119,7 @@
   width: 30rpx;
   height: 30rpx;
   float: right;
-  margin: 0rpx 10rpx;
+  margin: 0rpx 20rpx;
   margin-top: 6rpx;
 }
 .goods-num input{

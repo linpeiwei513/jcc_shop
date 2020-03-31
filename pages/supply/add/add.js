@@ -48,6 +48,11 @@ Page({
             duration: 1000,
             mask: true
           })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta:1
+            })
+          }, 1000)
 
         } else {
           wx.showToast({
@@ -68,9 +73,86 @@ Page({
     })
   },
 
+  //删除
+  delGoods: function(e) {
+    //console.log(e.currentTarget.dataset.index)
+    let index = e.currentTarget.dataset.index;
+    let newArr = this.data.dataList;
+    newArr.splice(index,1)
+    this.setData({
+      dataList: newArr
+    })
+    this.setGoodstData()
+  },
+
+  //加
+  btnJia: function(e) {
+    app.openLo(); //加载动画
+    let index = e.currentTarget.dataset.index;
+    let newArr = this.data.dataList;
+    if(newArr[index].num > 1000){
+      wx.showToast({
+        title: '商品数量不能小于1000',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }else{
+      newArr[index].num = newArr[index].num + 1
+    }
+    this.setData({
+      dataList: newArr
+    })
+    app.closeLo();  //关闭动画
+    this.setGoodstData()
+  },
+
+  //减
+  btnJian: function(e) {
+    app.openLo(); //加载动画
+    let index = e.currentTarget.dataset.index;
+    let newArr = this.data.dataList;
+    if(newArr[index].num == 1){
+      wx.showToast({
+        title: '商品数量不能小于1',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }else{
+      newArr[index].num = newArr[index].num - 1
+    }
+    this.setData({
+      dataList: newArr
+    })
+    app.closeLo();  //关闭动画
+    this.setGoodstData()
+  },
+
+  //输入数量
+  formNum: function(e) {
+    let index = e.currentTarget.dataset.index;
+    let newArr = this.data.dataList;
+    // let num = parseInt(e.detail.value);
+    let num = e.detail.value;
+    console.log('haha111:',num)
+    if(num == '0' || num == NaN || num == ''){
+      newArr[index].num = 1
+    }else{
+      newArr[index].num = num
+    }
+    
+    this.setData({
+      dataList: newArr
+    })
+    this.setGoodstData()
+    
+  },
+
+
   //一键获取补货
   oneSupply: function() {
-
+    app.openLo(); //加载动画
     let that = this
     wx.request({
       url: apiUrl + '/Api/Invoice/addInForSales',
@@ -83,6 +165,7 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('补货列表：', res)
+        app.closeLo();  //关闭动画
         if (res.data.status == '1') {
           
         } else {
@@ -118,22 +201,20 @@ Page({
 
   //重组数据
   setGoodstData: function() {
+    app.openLo(); //加载动画
     let newList = this.data.dataList
-
     let newArr = []
     let newPrice = 0
     for(var i=0; i<newList.length; i++){
-      newPrice = Number(newPrice) + Number(newList[i].price)
-      
+      newPrice = Number(newPrice) + Number(newList[i].price) * newList[i].num; 
       newArr.push(this.getArr(newList[i].goodsId,newList[i].guigeId,newList[i].num))
     }
     newPrice = (newPrice).toFixed(2) //总价格
-
     this.setData({
       totalPrice: newPrice,
       dataListNew: newArr
     })
-
+    app.closeLo();  //关闭动画
   },
 
   //提交数据结构模板
@@ -144,6 +225,9 @@ Page({
     }
   },
 
+
+  
+  
 
 
   /**

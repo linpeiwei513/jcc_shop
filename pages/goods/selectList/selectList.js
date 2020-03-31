@@ -176,13 +176,15 @@ Page({
       success: function (res) {
         console.log('商品列表：', res.data.data)
         wx.stopPullDownRefresh() //停止刷新动画
+        app.closeLo();  //关闭动画
         if (res.data.status == '1') {
 
           let newList = that.data.dataList
           let newSkip = that.data.skip + res.data.data.length
 
           for(var i=0; i<res.data.data.length; i++){
-            res.data.data[i].isSelect = false
+            res.data.data[i].isSelect = false;
+            res.data.data[i].isOpen = false;
             if(res.data.data[i].spec_arr.length > 0){
               for(var j=0; j<res.data.data[i].spec_arr.length; j++){
                 res.data.data[i].spec_arr[j].isSelect = false
@@ -213,7 +215,7 @@ Page({
 
   //获取商品分类
   getGoodsType: function() {
-
+    app.openLo(); //加载动画
     let that = this
     wx.request({
       url: apiUrl + '/Api/Goods/getCats',
@@ -249,7 +251,24 @@ Page({
 
   },
 
+  //打开规格
+  openLi: function(e) {
+    let index = e.currentTarget.dataset.index;
+    let newArr = this.data.dataList;
+    console.log(newArr[index].isOpen)
+    if(newArr[index].isOpen){
+      console.log(2)
+      newArr[index].isOpen = false
+    }else{
+      console.log(3)
+      newArr[index].isOpen = true
 
+    }
+    this.setData({
+      dataList: newArr
+    })
+    
+  },
 
   //选择分类
   bindPickerChange: function(e) {

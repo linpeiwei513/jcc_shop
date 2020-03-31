@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/supply/add/add",
     "pages/goods/selectList/selectList",
-    "pages/welcome/welcome",
+    
     
     
     

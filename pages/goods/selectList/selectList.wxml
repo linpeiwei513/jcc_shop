@@ -45,26 +45,30 @@
     </view>
 
     <!--规格-->
-    <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="item" wx:for-index="ind">
-      <view class="list-select le">
-        <checkbox-group bindchange="checkboxChangeLi" data-id="{{item.id}}" data-index="{{index}}">
-          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
-        </checkbox-group>
-      </view>
-      <view class="list-txt rt">
-        <view class="goods-name rt">
-          <view class="h">{{item.key_name}}</view>
-          <view class="p"><text>价格：￥{{item.price}}</text></view>
+    <view wx:if="{{item.isOpen}}">
+      <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="item" wx:for-index="ind">
+        <view class="list-select le">
+          <checkbox-group bindchange="checkboxChangeLi" data-id="{{item.id}}" data-index="{{index}}">
+            <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
+          </checkbox-group>
+        </view>
+        <view class="list-txt rt">
+          <view class="goods-name rt">
+            <view class="h">{{item.key_name}}</view>
+            <view class="p"><text>价格：￥{{item.price}}</text></view>
+          </view>
+          <view class="co"></view>
         </view>
         <view class="co"></view>
       </view>
-      <view class="co"></view>
     </view>
 
 
-
     <!--更多-->
-    <view class="list-more"><image src="{{iconUrl}}unfold.png"></image></view>
+    <view class="list-more" wx:if="{{item.spec_arr.length>0}}" data-index="{{index}}" bindtap="openLi">
+      <image src="{{iconUrl}}unfold.png" wx:if="{{item.isOpen==false}}"></image>
+      <image src="{{iconUrl}}packup.png" wx:if="{{item.isOpen==true}}"></image>
+    </view>
 
   </view>
 

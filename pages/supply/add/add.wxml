@@ -16,7 +16,7 @@
       
       <view class="list-li" wx:for="{{dataList}}" wx:key="key">
         <view class="list-del le">
-          <image src="{{iconUrl}}icon_del.png" data-item="{{item}}" bindtap="delGoods"></image>
+          <image src="{{iconUrl}}icon_del.png" data-index="{{index}}" bindtap="delGoods"></image>
         </view>
         <view class="list-goods rt">
           <view class="goods-name">{{item.goodsName}}</view>
@@ -24,15 +24,14 @@
           <view class="co"></view>
           <view class="goods-price le">￥<text>{{item.price}}</text></view>
           <view class="goods-num rt">
-            <image src="{{iconUrl}}icon_jia.png"></image>
-            <input type="number" value="{{item.num}}"></input>
-            <image src="{{iconUrl}}icon_jian.png"></image>
+            <image src="{{iconUrl}}icon_jia.png" data-index="{{index}}" bindtap="btnJia"></image>
+            <input type="number" value="{{item.num}}" maxlength="3" data-index="{{index}}" bindinput='formNum'></input>
+            <image src="{{iconUrl}}icon_jian.png" data-index="{{index}}" bindtap="btnJian"></image>
           </view>
           <view class="co"></view>
         </view>
         <view class="co"></view>
       </view>
-
 
     </view>
 
@@ -48,7 +47,7 @@
 
 </view>
 
-
+<view class="main-zhan"></view>
 <view class="main-bottom">
   <view class="btn-price le">合计：<text>￥{{totalPrice}}</text></view>
   <view class="btn-btn rt" bindtap="submitData">确定</view>

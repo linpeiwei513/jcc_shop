@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDataList()
+    
   },
 
   //查看详情
@@ -24,6 +24,13 @@ Page({
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
       url: '../stockDetails/stockDetails?id='+e.currentTarget.dataset.id,
+    })
+  },
+
+  //补货
+  goAdd: function(){
+    wx.navigateTo({
+      url: '../supply/add/add',
     })
   },
 
@@ -72,7 +79,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getDataList()
   },
 
   /**

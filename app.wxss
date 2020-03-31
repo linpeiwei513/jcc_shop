@@ -79,3 +79,7 @@ page{
   width: 80rpx;
   height: 80rpx;
 }
+
+.main-zhan{
+  height: 110rpx;
+}

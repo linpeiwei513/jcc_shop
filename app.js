@@ -192,6 +192,19 @@ App({
     return Y + M + D + h + m + s;
   },
 
+  //加载动画
+  openLo: function() {
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      duration: 10000
+    })
+  },
+
+  //关闭动画
+  closeLo: function(){
+    wx.hideToast()
+  },
 
 
 
