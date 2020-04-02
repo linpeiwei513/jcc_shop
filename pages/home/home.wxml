@@ -12,10 +12,48 @@
           <swiper-item wx:for="{{bannerData}}" wx:key="key" >
             <image src="{{imgUrl}}{{item.thumb}}" data-item="{{item}}" bindtap="goShow"></image>
           </swiper-item>
-      </swiper>
+    </swiper>
   </view>
+
+  <view class="ac-main">
+    <!--推荐活动-->
+    <view class="act">
+      <view class="act-li" wx:for="{{actData}}" wx:key="key">
+        <image src="{{imgUrl}}{{item.thumb}}" data-item="{{item}}" bindtap="goShow"></image>
+      </view>
+    </view>
+
+    <!--系列列表-->
+    <view class="xilie">
+      <view class="title">热门系列</view>
+      <view class="list">
+        <view class="li" wx:for="{{xilieData}}" wx:key="key" data-id="{{item.id}}" bindtap="goGoodsList">
+          <image src="{{imgUrl}}{{item.logo}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+ 
+      </view>
+    </view>
+
+  </view>
+
+  
+  
+
+
+</view>
+
+
+
+
+
+
+
+
+  
+  
   <!--快捷导航-->
-  <view class="nav">
+  <!-- <view class="nav">
     <view class="nav-li" bindtap="goShop">
       <image src="../images/nav_shop.png"></image>
       <text>公司信息</text>
@@ -48,12 +86,14 @@
       <image src="../images/nav_statistics.png"></image>
       <text>数据统计</text>
     </view>
-    <!-- <view class="nav-li" bindtap="goMall">
+    <view class="nav-li" bindtap="goMall">
       <image src="../images/nav_shop.png"></image>
       <text>积分商城</text>
-    </view> -->
+    </view>
     
-  </view>
-</view>
+  </view> -->
+
+
+
 
 

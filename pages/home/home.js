@@ -8,6 +8,8 @@ Page({
    */
   data: {
     bannerData: [],
+    xilieData: [],
+    actData: [],
     imgUrl: app.globalData.apiUrl
   },
 
@@ -16,6 +18,8 @@ Page({
    */
   onLoad: function (options) {
     this.getBanner()
+    this.getXilie()
+    this.getAct()
   },
 
   //banner详情
@@ -49,6 +53,62 @@ Page({
       }
     })
   },
+
+  //获取活动
+  getAct: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Content/getAdData?ad_id=2',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('act数据：', res)
+        if (res.data.status == '1') {
+          that.setData({
+            actData: res.data.data
+          })
+        }
+      }
+    })
+  },
+
+  //获取系列
+  getXilie: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Goods/getSeries',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('系列数据：', res)
+        if (res.data.status == '1') {
+          that.setData({
+            xilieData: res.data.data
+          })
+        }
+      }
+    })
+  },
+
+  //系列跳转
+  goGoodsList: function(e) {
+    //console.log(e.currentTarget.dataset.id)
+    wx.setStorageSync("seriesid", e.currentTarget.dataset.id);
+    wx.switchTab({
+      url: '../goods/goodsList/goodsList',
+    })
+  },  
+
 
 
 

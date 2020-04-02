@@ -16,14 +16,22 @@ Page({
     showNav: '',
     imgUrl: apiUrl,
     iconUrl: iconUrl,
-    keywords: ''
+    keywords: '',
+    seriesid: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = wx.getStorageSync("seriesid")
+    if(id){
+      this.setData({
+        seriesid: id
+      })
+      wx.removeStorageSync("seriesid")
+    }
+    
     this.getGoodsType()
     wx.startPullDownRefresh() //执行下拉刷新操作
   },
@@ -119,7 +127,7 @@ Page({
   getGoodsList: function(){
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords='+that.data.keywords,
+      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords='+that.data.keywords +'&seriesid='+that.data.seriesid,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
