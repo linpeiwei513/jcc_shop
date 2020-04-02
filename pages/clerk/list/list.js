@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.startPullDownRefresh() //执行下拉刷新操作
+    
   },
 
   //获取列表数据
@@ -103,6 +103,14 @@ Page({
     }
 
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getData()
+  },
+
 
   /**
    * 用户点击右上角分享

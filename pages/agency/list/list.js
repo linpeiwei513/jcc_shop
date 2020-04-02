@@ -19,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.startPullDownRefresh() //执行下拉刷新操作
+    
   },
 
 
@@ -92,6 +92,14 @@ Page({
       this.getList();
     }
 
+  },
+
+
+   /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
   /**

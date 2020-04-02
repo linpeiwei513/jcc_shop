@@ -40,7 +40,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        //console.log('banner数据：', res)
+        console.log('banner数据：', res)
         if (res.data.status == '1') {
           that.setData({
             bannerData: res.data.data

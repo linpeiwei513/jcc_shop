@@ -34,7 +34,7 @@
       <image src="../../images/nav1.png"></image>
       <text>补货</text>
     </view>
-    <view class="nav-li le">
+    <view class="nav-li le" bindtap="goSales">
       <image src="../../images/nav2.png"></image>
       <text>销货</text>
     </view>

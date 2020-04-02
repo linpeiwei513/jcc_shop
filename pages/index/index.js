@@ -155,6 +155,40 @@ Page({
 
   },
 
+  //前往店铺信息
+  goShop: function() {
+    wx.navigateTo({
+      url: '../shop/shop'
+    })
+  },
+
+  //店员
+  goClerk: function() {
+    wx.navigateTo({
+      url: '../clerk/list/list',
+    })
+  },
+
+ //统计
+ goStatistics: function() {
+  wx.navigateTo({
+    url: '../db/index/index',
+  })
+},
+  //下级代理
+  goAgency: function () {
+    wx.navigateTo({
+      url: '../agency/list/list',
+    })
+  },
+
+  //放款返现
+  gofangkuan: function () {
+    wx.navigateTo({
+      url: '../fangkuan/index/index',
+    })
+  },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

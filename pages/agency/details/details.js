@@ -20,15 +20,12 @@ Page({
     this.setData({
       id: options.id
     })
-    if(this.data.id){
-      this.getData()
-    }
   },
 
   //编辑代理
   goUp: function() {
     wx.navigateTo({
-      url: '../agencyUp/agencyUp?id='+this.data.id+'&discount='+this.data.ageData.discount,
+      url: '../update/update?id='+this.data.id+'&discount='+this.data.ageData.discount,
     })
   },
 
@@ -75,7 +72,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData()
   },
 
   /**

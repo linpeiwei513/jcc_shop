@@ -53,14 +53,14 @@
   margin-top: -40rpx;
 }
 .nav1 .nav-li{
-  width: 50%;
+  width: 25%;
   text-align: center;
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #555555;
 }
 .nav1 .nav-li image{
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
   display: block;
   margin: 10rpx auto;
 }

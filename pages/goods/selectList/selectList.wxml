@@ -25,19 +25,20 @@
 <!--列表-->
 <view class="main-list">
 
-  <view class="list-ul" wx:for="{{dataList}}" wx:key="key">
+  <view class="list-ul" wx:for="{{dataList}}" wx:key="key" >
     <!--商品-->
     <view class="list-goods">
       <view class="list-select le">
         <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
-          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
+          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" disabled="{{item.my_onhand>0?false:true}}" wx:if="{{type==1}}"/>
+          <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" wx:else/>
         </checkbox-group>
       </view>
       <view class="list-txt rt">
         <view class="goods-img le"><image src="{{imgUrl}}{{item.img}}"></image></view>
         <view class="goods-name rt">
           <view class="h">{{item.name}}</view>
-          <view class="p"><text>分类：翡翠</text><text>价格：￥{{item.shop_price}}</text></view>
+          <view class="p"><text wx:if="{{type==1}}">库存：{{item.my_onhand}}</text><text>价格：￥{{item.shop_price}}</text></view>
         </view>
         <view class="co"></view>
       </view>
@@ -46,16 +47,17 @@
 
     <!--规格-->
     <view wx:if="{{item.isOpen}}">
-      <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="item" wx:for-index="ind">
+      <view class="list-guige" wx:for="{{item.spec_arr}}" wx:key="item" wx:for-index="ind" >
         <view class="list-select le">
           <checkbox-group bindchange="checkboxChangeLi" data-id="{{item.id}}" data-index="{{index}}">
-            <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" />
+            <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" disabled="{{item.my_onhand>0?false:true}}" wx:if="{{type==1}}"/>
+            <checkbox value="{{item.isSelect}}" style='zoom:.7;'  checked="{{item.isSelect}}" wx:else/>
           </checkbox-group>
         </view>
         <view class="list-txt rt">
           <view class="goods-name rt">
             <view class="h">{{item.key_name}}</view>
-            <view class="p"><text>价格：￥{{item.price}}</text></view>
+            <view class="p"><text wx:if="{{type==1}}">库存：{{item.my_onhand}}</text><text>价格：￥{{item.price}}</text></view>
           </view>
           <view class="co"></view>
         </view>

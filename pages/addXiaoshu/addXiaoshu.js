@@ -80,8 +80,8 @@ Page({
             duration: 2000
           })
           setTimeout(function () {
-            wx.reLaunch({
-              url: '../goodsList/goodsList'　　// 页面 A
+            wx.navigateBack({
+              delta:1
             })
           }, 1000)
 

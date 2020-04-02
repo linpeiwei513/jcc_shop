@@ -1,13 +1,23 @@
 <!--
-* 新增补货单
+* 新增销货单
 * by linpeiwei
-* to 2020.03.30
+* to 2020.04.02
 -->
 
 <view class="main">
+
+  <!--选择代理-->
+  <view class="main-daili">
+    <picker bindchange="bindPickerChange" value="{{dailiList[dailiIndex].id}}" range="{{dailiList}}" range-key="{{'username'}}" wx:if="{{dailiList.length>0}}">
+      <view class="picker">
+        {{dailiName}}
+      </view>
+    </picker>
+  </view>
+
+
   <view class="main-box">
     <view class="main-title">
-      <view class="main-btn" bindtap="oneSupply">一键补货</view>
       商品明细
     </view>
 

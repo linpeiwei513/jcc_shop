@@ -23,30 +23,60 @@
       <image src="{{iconUrl}}nav2.png"></image>
        销货单
     </view>
+    <view class="nav-li le" bindtap="goxiaoshu">
+      <image src="{{iconUrl}}nav_xiaoshu.png"></image>
+       消数记录
+    </view>
+    <view class="nav-li le" bindtap="gointegral">
+      <image src="{{iconUrl}}nav_jifen.png"></image>
+       积分
+    </view>
     <view class="co"></view>
   </view>
 
+
   <view class="nav-main nav2">
-  <view class="nav-li" bindtap="goxiaoshu">
-      <view class="lf-img le">
-      <image src="{{iconUrl}}nav_xiaoshu.png"></image></view>
-      <view class="name le">消数记录</view>
+    <view class="nav-li" bindtap="goClerk">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>
+      <view class="name le">店员管理</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>
-    <view class="nav-li" bindtap="gointegral">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_jifen.png"></image></view>
-      <view class="name le">积分记录</view>
+    <view class="nav-li" bindtap="goShop">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_dianpu.png"></image></view>
+      <view class="name le">店铺信息</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <!-- <view class="p rt">{{userData.credits}}</view> -->
       <view class="co"></view>
     </view>
-    <view class="nav-li">
+    <view class="nav-li" bindtap="goAgency">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_daili.png"></image></view>
+      <view class="name le">下级代理</view>
+      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li" bindtap="gofangkuan">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_fanxian.png"></image></view>
+      <view class="name le">返现放款</view>
+      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li" bindtap="goStatistics">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_tongji.png"></image></view>
+      <view class="name le">数据统计</view>
+      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+      <view class="co"></view>
+    </view>
+    <view class="nav-li no">
       <view class="lf-img le"><image src="{{iconUrl}}nav_jifen.png"></image></view>
       <view class="name le">兑换记录</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>
+  </view>
+
+
+  <view class="nav-main nav2">
+    
     <view class="nav-li" bindtap="goAddress">
       <view class="lf-img le"><image src="{{iconUrl}}nav_dizhi.png"></image></view>
       <view class="name le">收货地址</view>

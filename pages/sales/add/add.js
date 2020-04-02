@@ -14,18 +14,43 @@ Page({
     totalPrice: 0,
     isNum: false,
     index: '',
-    newNum: ''
+    newNum: '',
+    dailiList: [],
+    dailiIndex: 0,
+    dailiName: '请选择代理',
+    dailiId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getDaili()
+  },
 
+  //选择代理
+  bindPickerChange: function(e) {
+    console.log('id', this.data.dailiList[e.detail.value].id)
+    console.log('value', e.detail.value)
+    let id = this.data.dailiList[e.detail.value].id
+    let name = this.data.dailiList[e.detail.value].username
+    this.setData({
+      dailiIndex: e.detail.value,
+      dailiId: id,
+      dailiName: name
+    })
   },
 
   //确定
   submitData: function() {
+    if(this.data.dailiId == ''){
+      wx.showToast({
+        title: '请选择代理',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     if(this.data.dataListNew.length < 1){
       wx.showToast({
         title: '请添加商品',
@@ -38,8 +63,9 @@ Page({
     console.log('提交数据：', datas)
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Invoice/addIn',
+      url: apiUrl + '/Api/Invoice/addOut',
       data: {
+        in_id: that.data.dailiId,
         datas: datas
       },
       header: {
@@ -58,11 +84,11 @@ Page({
             duration: 1000,
             mask: true
           })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta:1
-            })
-          }, 1000)
+          // setTimeout(function () {
+          //   wx.navigateBack({
+          //     delta:1
+          //   })
+          // }, 1000)
 
         } else {
           wx.showToast({
@@ -77,9 +103,10 @@ Page({
 
   },
 
+  //添加商品
   addGoods: function() {
     wx.navigateTo({
-      url: '../../goods/selectList/selectList',
+      url: '../../goods/selectList/selectList?type=1',
     })
   },
 
@@ -141,36 +168,6 @@ Page({
 
  
 
-
-  //一键获取补货
-  oneSupply: function() {
-    app.openLo(); //加载动画
-    let that = this
-    wx.request({
-      url: apiUrl + '/Api/Invoice/addInForSales',
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        console.log('补货列表：', res)
-        app.closeLo();  //关闭动画
-        if (res.data.status == '1') {
-          
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      }
-    })
-
-  },
 
   //获取缓存中添加的数据 wx.getStorageSync("sessionID")
   getSessionData: function() {
@@ -270,6 +267,37 @@ Page({
     
   },
   
+
+  //获取代理商
+  getDaili: function() {
+    app.openLo()
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Agent/getSubAgents?skip=0&limit=100',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('代理列表：', res)
+        app.closeLo()
+        if(res.data.status == '1'){
+          that.setData({
+            dailiList: res.data.data,
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
 
 
   /**

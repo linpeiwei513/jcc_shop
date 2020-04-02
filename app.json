@@ -1,14 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/welcome/welcome",
+    "pages/sales/add/add",
+    "pages/agency/list/list",
+    
     "pages/supply/add/add",
     "pages/goods/selectList/selectList",
-    
-    
-    
-    
-    
-    
     "pages/goods/goodsList/goodsList",
     "pages/clerk/list/list",
     "pages/db/rankAgencySell/rankAgencySell",
@@ -24,7 +22,7 @@
     "pages/addXiaoshu/addXiaoshu",
     "pages/mine/address/add/add",
     "pages/home/home",
-    "pages/index/index",
+    
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
     "pages/recordMarket/recordMarket",
@@ -64,7 +62,7 @@
     "pages/mine/address/update/update",
     "pages/agency/add/add",
     "pages/agency/details/details",
-    "pages/agency/list/list",
+    
     "pages/agency/update/update",
     "pages/clerk/add/add",
     "pages/clerk/details/details",

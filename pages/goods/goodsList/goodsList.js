@@ -36,6 +36,12 @@ Page({
     })
   },
 
+  //销货
+  goSales: function() {
+    wx.navigateTo({
+      url: '../../sales/add/add',
+    })
+  },
 
 
   //前往消数
@@ -46,12 +52,12 @@ Page({
       console.log('有规格')
       let item = JSON.stringify(e.currentTarget.dataset.item);
       wx.navigateTo({
-        url: '../guigeList/guigeList?item='+item,
+        url: '../../guigeList/guigeList?item='+item,
       })
     }else{
       console.log('没有规格')
       wx.navigateTo({
-        url: '../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=&my_onhand='+item.my_onhand,
+        url: '../../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=&my_onhand='+item.my_onhand,
       })
     }
     

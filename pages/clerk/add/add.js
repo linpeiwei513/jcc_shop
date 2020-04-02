@@ -60,11 +60,12 @@ Page({
               duration: 1000,
               mask: true
             })
+            //返回上一步
             setTimeout(function () {
-              wx.reLaunch({
-                url: '../clerkList/clerkList'　　// 页面 A
+              wx.navigateBack({
+                delta:1
               })
-            }, 1000) 
+            }, 1000)
 
           } else {
             wx.showToast({

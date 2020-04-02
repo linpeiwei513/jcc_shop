@@ -7,7 +7,8 @@
 <view class="main" wx:if="{{listData.length > 0}}">
 
   <view class="list" wx:for="{{listData}}" wx:key="key">
-    <navigator url="../agencyDetails/agencyDetails?id={{item.id}}" hover-class="navigator-hover">
+    <navigator url="../details/details?id={{item.id}}" hover-class="navigator-hover">
+      <view class="title">用户名：{{item.username}}</view>
       <view class="title">公司名：{{item.name?item.name:'（未设置）'}}</view>
       <view class="name">联系人：{{item.contact?item.contact:'(未设置)'}} {{item.mobile}}</view>
       <view class="cl"></view>

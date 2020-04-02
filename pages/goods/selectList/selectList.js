@@ -18,16 +18,19 @@ Page({
     isStop: 0,
     keywords: '',
     newArr: [],
-    totalNum: 0
+    totalNum: 0,
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      type: options.type
+    })
     this.getGoodsType()
-    
+    console.log('type:',options.type)
   },
 
   //确定
@@ -190,6 +193,7 @@ Page({
                 res.data.data[i].spec_arr[j].isSelect = false
               }
             }
+            
             newList.push(res.data.data[i])
           }
 

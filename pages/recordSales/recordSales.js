@@ -32,6 +32,13 @@ Page({
     })
   },
 
+  //新增销货
+  goAdd: function() {
+    wx.navigateTo({
+      url: '../sales/add/add',
+    })
+  },
+
 
   //获取列表
   getDataList: function() {

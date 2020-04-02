@@ -47,7 +47,7 @@ Page({
       return
     }
     wx.request({
-      url: apiUrl + '/Api/AgentEmploy/addEmploy',
+      url: apiUrl + '/Api/Agent/addAgent',
       data: {
         username: that.data.username,
         password: that.data.password,
@@ -71,8 +71,8 @@ Page({
             mask: true
           })
           setTimeout(function () {
-            wx.reLaunch({
-              url: '../list/list'　　// 页面 A
+            wx.navigateBack({
+              delta:1
             })
           }, 1000) 
 
