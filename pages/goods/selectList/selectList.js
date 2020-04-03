@@ -168,7 +168,7 @@ Page({
   getGoodsList: function(){
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.array[that.data.index].id +'&keywords='+that.data.keywords,
+      url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.array[that.data.index].id +'&keywords='+that.data.keywords+'&seriesid=0',
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")

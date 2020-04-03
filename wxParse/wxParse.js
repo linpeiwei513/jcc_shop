@@ -25,6 +25,7 @@ wx.getSystemInfo({
     realWindowHeight = res.windowHeight
   }
 })
+
 /**
  * 主函数入口区
  **/

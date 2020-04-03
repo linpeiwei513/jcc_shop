@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/goods/goodsList/goodsList",
+    
     "pages/home/home",
     "pages/index/index",
     
@@ -9,7 +11,7 @@
     
     "pages/supply/add/add",
     "pages/goods/selectList/selectList",
-    "pages/goods/goodsList/goodsList",
+    
     "pages/clerk/list/list",
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",

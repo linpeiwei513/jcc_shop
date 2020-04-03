@@ -22,7 +22,6 @@ page{
 .txt image{
   max-width: 100%;
   display: block;
-  margin: 20rpx 0;
 }
 .txt text{
   display: block;

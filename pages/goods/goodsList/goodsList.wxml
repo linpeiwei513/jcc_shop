@@ -47,7 +47,7 @@
 
 
 <!--分类-->
-<view class="go-nav">
+<!-- <view class="go-nav">
 
   <scroll-view scroll-x>
     <view style="display: flex; flex-direction:row;">
@@ -56,8 +56,37 @@
     </view>
   </scroll-view>
   
-  
+</view> -->
+
+<!--筛选-->
+<view class="saixuan">
+  <view class="sx-main">
+    <view class="sx-li le">
+      <text class="le">分类：</text>
+      <view class="sx-put le">
+        <image src="{{iconUrl}}soso_biao.png"></image>
+        <picker bindchange="bindPickerChange" value="{{typeList[typeIndex].id}}" range="{{typeList}}" range-key="{{'name'}}" wx:if="{{typeList.length>0}}">
+          <view class="picker">
+            {{typeList[typeIndex].name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="sx-li rt">
+      <view class="sx-put rt">
+        <image src="{{iconUrl}}soso_biao.png"></image>
+        <picker bindchange="bindPickerChangeXl" value="{{xilieList[xilieIndex].id}}" range="{{xilieList}}" range-key="{{'name'}}" wx:if="{{xilieList.length>0}}">
+          <view class="picker">
+            {{xilieList[xilieIndex].name}}
+          </view>
+        </picker>
+      </view>
+      <text class="rt">系列：</text>  
+    </view>
+  </view>
 </view>
+
+
 
 
 <view class="goods-list" wx:if="{{dataList}}">

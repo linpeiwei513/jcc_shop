@@ -17,23 +17,24 @@ Page({
     imgUrl: apiUrl,
     iconUrl: iconUrl,
     keywords: '',
-    seriesid: 0
+    seriesid: 0,
+    typeList: [],
+    typeIndex: 0,
+    xilieList: [],
+    xilieIndex: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = wx.getStorageSync("seriesid")
-    if(id){
-      this.setData({
-        seriesid: id
-      })
-      wx.removeStorageSync("seriesid")
-    }
     
     this.getGoodsType()
-    wx.startPullDownRefresh() //执行下拉刷新操作
+    this.getXilie()
+
+    
+
+
   },
 
 
@@ -72,34 +73,41 @@ Page({
   },
 
   //选择分类
-  onType: function(e) {
-    let id = e.currentTarget.dataset['index']
-    this.setData({
-      showNav: id,
-      dataList: [],
-      skip: 0
-    })
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
-    this.getGoodsList();
+  bindPickerChange: function(e) {
+     let id = this.data.typeList[e.detail.value].id
+     let index = e.detail.value
+      this.setData({
+        showNav: id,
+        dataList: [],
+        skip: 0,
+        typeIndex: index,
+      })
+      wx.showToast({
+        title: '获取信息中...',
+        icon: 'loading',
+        duration: 500
+      })
+      this.getGoodsList();
   },
-  //全部
-  onTypeQb: function() {
-    this.setData({
-      showNav: '',
-      dataList: [],
-      skip: 0
-    })
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
-    this.getGoodsList();
-  },
+
+  //选择系列
+  bindPickerChangeXl: function(e) {
+    let id = this.data.typeList[e.detail.value].id
+    let index = e.detail.value
+     this.setData({
+      seriesid: id,
+       dataList: [],
+       skip: 0,
+       xilieIndex: index,
+     })
+     wx.showToast({
+       title: '获取信息中...',
+       icon: 'loading',
+       duration: 500
+     })
+     this.getGoodsList();
+ },
+
 
   //搜索
   getSo: function() {
@@ -179,8 +187,12 @@ Page({
       success: function (res) {
         console.log('商品分类：', res)
         if (res.data.status == '1') {
+          let arrayNew = [{id: '0', name:'全部分类'}]
+          for(var i=0; i<res.data.data.length; i++){
+            arrayNew.push(res.data.data[i])
+          }
           that.setData({
-            navList: res.data.data,
+            typeList: arrayNew,
           })
         } else {
           wx.showToast({
@@ -195,7 +207,58 @@ Page({
   },
 
 
+  //获取系列
+  getXilie: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Goods/getSeries',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('商品系列：', res)
+        if (res.data.status == '1') {
+          let arrayNew = [{id: '0', name:'全部系列'}]
+          for(var i=0; i<res.data.data.length; i++){
+            arrayNew.push(res.data.data[i])
+          }
+          that.setData({
+            xilieList: arrayNew,
+          })
 
+          let id = wx.getStorageSync("seriesid")
+          console.log('系列id',id)
+          if(id){
+            console.log('系列id22222',id)
+            for(var i=0; i<that.data.xilieList.length; i++){
+              console.log('id1:',that.data.xilieList[i].id)
+              if(that.data.xilieList[i].id == id){
+                console.log('i:',i)
+                that.setData({
+                  seriesid: id,
+                  xilieIndex: i
+                })
+              }
+            }
+            wx.removeStorageSync("seriesid")
+          }
+
+
+
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
 
   goAdd: function() {
     wx.navigateTo({
@@ -230,6 +293,21 @@ Page({
       this.getGoodsList();
     }
 
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+    this.getGoodsList();
   },
 
   /**
