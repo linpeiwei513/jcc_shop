@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/welcome/welcome",
+    "pages/home/home",
+    "pages/index/index",
+    
     "pages/sales/add/add",
     "pages/agency/list/list",
     
@@ -21,7 +23,7 @@
     "pages/guigeList/guigeList",
     "pages/addXiaoshu/addXiaoshu",
     "pages/mine/address/add/add",
-    "pages/home/home",
+    
     
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
