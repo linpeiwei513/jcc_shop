@@ -9,7 +9,7 @@
   margin-bottom: 20rpx;
   box-shadow: #ebedf0 0 4rpx 12rpx;
   height: 130rpx;
-  width: 329rpx;
+  width: 326rpx;
   line-height: 130rpx;
   margin: 10rpx 15rpx;
 }
