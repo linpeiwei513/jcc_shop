@@ -4,39 +4,41 @@
   * to 20200210
 -->
 
-
-
+<import src="/wxParse/wxParse1.wxml"/>
+<!--banner-->
 <view class="goods-img">
   <swiper indicator-dots="true" indicator-active-color="#e1ad62" autoplay="true" >
-      <swiper-item>
-          <image src="../../images/goods.jpg"></image>
-      </swiper-item>
-      <swiper-item>
-          <image src="../../images/goods.jpg"></image>
+      <swiper-item wx:for="{{goodsData.imgs}}" wx:key="key" >
+          <image src="{{imgUrl}}{{item.fileurl}}"></image>
       </swiper-item>
     </swiper>
 </view>
 
+
 <view class="goods-title">
-  <view class="goods-name">鼠年新年足金吊坠黄金限量版</view>
-  <view class="goods-price">9831<text>积分</text></view>
+  <view class="goods-name">{{goodsData.name}}</view>
+  <view class="goods-price">{{goodsData.credits}}<text>积分</text></view>
 </view>
 
 <view class="goods-show">
-  <view class="goods1"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/sp1.jpg"></image></view>
-  <view class="goods2"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/sp2.jpg"></image></view>
-  <view class="goods3"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/sp3.jpg"></image></view>
-  <view class="goods4"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/sp4.jpg"></image></view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view>
 
+
+
+
+
+<view class="main-zhan"></view>
 <view class="mall-btn" bindtap="showModal">立即兑换</view>
+
+
 
 <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
   <view class="modals-cancel" bindtap="hideModal"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
     <view class="mo-main">
       <view class="mo-title">支付方式:</view>
-      <view class="mo-li on">9831积分</view>
+      <view class="mo-li on">{{goodsData.credits}}积分</view>
       <view class="co"></view>
       <view class="mo-titles">数量：</view>
       <view class="mo-sum">

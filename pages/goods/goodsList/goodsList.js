@@ -32,9 +32,6 @@ Page({
     this.getGoodsType()
     this.getXilie()
 
-    
-
-
   },
 
 

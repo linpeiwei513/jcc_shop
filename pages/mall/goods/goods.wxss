@@ -26,27 +26,13 @@ swiper image{
 }
 .goods-show{
   background-color: #ffffff;
-  margin-top: 20rpx;
-  position: 30rpx 0rpx;
-  padding-top: 30rpx;
-  padding-bottom: 130rpx;
+  padding: 20rpx;
 }
-.goods-show .goods1 image{
-  width: 750rpx;
-  height: 1500rpx;
+.goods-show image{
+  max-width: 100%;
+  display: block;
 }
-.goods-show .goods2 image{
-  width: 750rpx;
-  height: 980rpx;
-}
-.goods-show .goods3 image{
-  width: 750rpx;
-  height: 1100rpx;
-}
-.goods-show .goods4 image{
-  width: 750rpx;
-  height: 1480rpx;
-}
+
 .mall-btn{
   position: fixed;
   bottom: 0rpx;

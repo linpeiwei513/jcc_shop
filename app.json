@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/mall/list/list",
     "pages/welcome/welcome",
     "pages/goods/goodsList/goodsList",
     
@@ -48,7 +49,7 @@
     "pages/mall/user/user",
     "pages/mall/address/address",
     "pages/mall/goods/goods",
-    "pages/mall/list/list",
+    
     "pages/searchGoods/searchGoods",
     "pages/yijian/yijian",
     "pages/statistics/statistics",

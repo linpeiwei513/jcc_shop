@@ -4,11 +4,26 @@
   * to 20200210
 -->
 
-<view class="list-nav">
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/saixuan.jpg"></image>
+<view class="mall-top">
+  <view class="top-li {{tuijian?'on': ''}}" bindtap="onTuijian">推荐</view>
+  <view class="top-li" bindtap="onSx">积分排序</view>
+  <view class="top-bian"></view>
+  <view class="top-sx" >
+    <image src="{{iconUrl}}sx1.png" wx:if="{{sx==0}}"></image>
+    <image src="{{iconUrl}}sx2.png" wx:if="{{sx==1}}"></image>
+    <image src="{{iconUrl}}sx3.png" wx:if="{{sx==2}}"></image>
+  </view>
 </view>
 
-<view class="mall-goods">
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods1.jpg" bindtap="goGoods"></image>
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods2.jpg" bindtap="goGoods"></image>
+
+
+<!--列表-->
+<view class="mall-list">
+  <view class="list-li"  wx:for="{{dataList}}" wx:key="key" data-id="{{item.id}}" bindtap="goGoods">
+    <view class="li-img"><image src="{{imgUrl}}{{item.thumb}}"></image></view>
+    <view class="li-title">{{item.name}}</view>
+    <view class="li-jifen"><text>{{item.credits}}</text>积分</view>
+    <view class="li-shichang">{{item.market_price}}元</view>
+  </view>
+  <view class="co"></view>
 </view>

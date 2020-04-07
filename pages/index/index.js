@@ -2,11 +2,11 @@
 //获取应用实例
 const app = getApp()
 const apiUrl = app.globalData.apiUrl;
-//const iconUrl = app.globalData.iconUrl;
+const iconUrl = app.globalData.iconUrl;
 Page({
   data: { 
     motto: 'Hello World',
-    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
+    iconUrl: iconUrl, //图标阿里云地址
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),

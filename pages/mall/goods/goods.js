@@ -1,9 +1,73 @@
 const app = getApp()
- 
+const apiUrl = app.globalData.apiUrl;
+const iconUrl = app.globalData.iconUrl;
+const WxParse = require('../../../wxParse/wxParse.js'); //解析html 
 Page({
   data: {
     hideModal: true, //模态框的状态  true-隐藏  false-显示
+    imgUrl: apiUrl,
+    goodsId: '',
+    goodsData: '',
   },
+
+
+  
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      goodsId: options.id
+    })
+    this.getGoodsShow()
+  },
+
+
+  //获取商品详情
+  getGoodsShow: function() {
+    app.openLo()
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Vshop/getGoodsInfo?goods_id=' + that.data.goodsId,
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('商品详情：', res)
+        wx.stopPullDownRefresh() //停止刷新动画
+        app.closeLo()
+        if (res.data.status == '1') {
+
+          that.setData({
+            goodsData: res.data.data
+          })
+          WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
+          
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+
+
+
+  goAffirm: function() {
+    wx.navigateTo({
+      url: '../affirm/affirm',
+    })
+  },
+
+
   // 显示遮罩层 
   showModal: function() {
     var that = this;
@@ -49,17 +113,8 @@ Page({
       animationData: this.animation.export(),
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function() {
- 
-  },
 
-  goAffirm: function() {
-    wx.navigateTo({
-      url: '../affirm/affirm',
-    })
-  }
+
+
 
 })
