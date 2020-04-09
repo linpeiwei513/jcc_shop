@@ -11,7 +11,8 @@ Page({
     skip: 0,
     limit: 7,
     id: '',
-    isStop: 0
+    isStop: 0,
+    type: '', //跳转来源1：确认订单，2：个人中心
   },
 
   /**
@@ -19,8 +20,25 @@ Page({
    */
   onLoad: function (options) {
     wx.startPullDownRefresh() //执行下拉刷新操作
-    //this.getAddressList();
+    this.setData({
+      type: options.type
+    })
   },
+
+
+  //选择收货地址
+  goAffirm: function(e) {
+    console.log(e.currentTarget.dataset.item)
+    let item = e.currentTarget.dataset.item
+    app.setCache('addressOn', item)
+    app.openLo()
+    setTimeout(function () {
+      wx.navigateBack({
+        delta:1
+      })
+    }, 500) 
+  },
+
 
   //新增收货地址
   goAdd: function() {

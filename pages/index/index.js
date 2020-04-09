@@ -81,7 +81,7 @@ Page({
   //收货地址
   goAddress: function() {
     wx.navigateTo({
-      url: '../mine/address/list/list',
+      url: '../mine/address/list/list?type=2',
     })
   },
 

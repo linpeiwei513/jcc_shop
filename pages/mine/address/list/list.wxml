@@ -7,7 +7,7 @@
 <view class="main" wx:if="{{listData.length > 0}}">
 
   <view class="main-li" wx:for="{{listData}}" wx:key="key" >
-    <view class="user">
+    <view class="user" data-item="{{item}}" bindtap="goAffirm">
       <view class="name">
         <text class="t1">{{item.contacts}}</text>
         <text class="t2">{{item.tel}}</text>

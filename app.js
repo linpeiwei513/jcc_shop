@@ -161,6 +161,21 @@ App({
   },
 
 
+  //写入缓存公共方法
+  setCache: function(name,value) {
+    wx.setStorageSync(name, value);
+  },
+  //读取缓存公共方法
+  getCache: function(name) {
+    return wx.getStorageSync(name);
+  },
+  //删除缓存公共方法
+  delCache: function(name) {
+    return wx.removeStorageSync(name);
+  },
+
+
+
   //公共POST方法
   _post: function (url, data,cb) {
     var that = this;

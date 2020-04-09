@@ -62,6 +62,7 @@ Page({
 
 
   goAffirm: function() {
+    app.setCache('goodsData',this.data.goodsData)
     wx.navigateTo({
       url: '../affirm/affirm',
     })

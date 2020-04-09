@@ -29,11 +29,11 @@
 
 
 <view class="main-zhan"></view>
-<view class="mall-btn" bindtap="showModal">立即兑换</view>
+<view class="mall-btn" bindtap="goAffirm">立即兑换</view>
 
 
 
-<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+<!-- <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
   <view class="modals-cancel" bindtap="hideModal"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
     <view class="mo-main">
@@ -51,4 +51,4 @@
     </view>
     <button class="yuyue" bindtap="goAffirm">立即兑换</button>
   </view>
-</view>
+</view> -->

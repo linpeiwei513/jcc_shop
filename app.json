@@ -1,7 +1,11 @@
 {
   "pages": [
+    "pages/mall/affirm/affirm",
     "pages/mall/list/list",
+    
     "pages/welcome/welcome",
+    
+    
     "pages/goods/goodsList/goodsList",
     
     "pages/home/home",
@@ -43,7 +47,7 @@
     "pages/mall/orderShow/orderShow",
     "pages/mall/order/order",
     "pages/mall/index/index",
-    "pages/mall/affirm/affirm",
+    
     "pages/mall/cart/cart",
     "pages/mall/help/help",
     "pages/mall/user/user",

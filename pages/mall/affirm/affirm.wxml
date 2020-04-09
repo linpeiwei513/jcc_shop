@@ -3,44 +3,63 @@
   * by linpeiwei
   * to 20200211
 -->
-<view class="mall-main">
-  <view class="mall-address" bindtap="goAddress">
-    <view class="add-img">
-      <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-map.png"></image>
+<view class="main">
+  
+  <!--收货地址-->
+  <view class="m-address">
+    
+    <view class="m-bg m-none" wx:if="{{!addressData}}" bindtap="goAddress">
+      请添加地址
     </view>
-    <view class="add-txt">
-      <view class="add-name">
-        <text>林先森</text>
-        <text>13588892729</text>
-      </view>
-      <view class="add-add">广东省深圳市龙华区白石路34号猎德大厦24F</view>
+
+    <view class="m-bg m-list" wx:if="{{addressData}}" bindtap="goAddress">
+      <view class="m-name le">{{addressData.contacts}}</view>
+      <view class="m-phone">{{addressData.tel}}</view>
+      <view class="co"></view>
+      <view class="m-address">{{addressData.district_str}} {{addressData.street}}</view>
+      <view class="m-icon"><image src="{{iconUrl}}nav-rt.png"></image></view>
     </view>
-    <view class="add-right">
-      <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-right.png"></image>
-    </view>
-    <view class="co"></view>
+
   </view>
 
-  <view class="order-list">
-    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
-    <view class="order-right">
-      <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
-      <view class="order-shu">
-        <text class="te1">5893积分</text>
-        <text class="te2">X 2</text>
-      </view>
+
+  <!--商品信息-->
+  <view class="m-goods m-bg">
+    <view class="m-img le"><image src="{{imgUrl}}{{goodsData.thumb}}"></image></view>
+    <view class="m-con rt">
+      <view class="m-title">{{goodsData.name}}</view>
+      <view class="m-jifen"><text>积分：</text>{{goodsData.credits}}</view>
+      <view class="m-price">市场价：{{goodsData.market_price}}元</view>
+    </view>
+    <view class="goods-num">
+      <image src="{{iconUrl}}icon_jia.png"  bindtap="btnJia"></image>
+      <view class="num-m" bindtap="shownum">{{num}}</view>
+      <image src="{{iconUrl}}icon_jian.png" bindtap="btnJian"></image>
     </view>
     <view class="co"></view>
-  </view>
-
-  <view class="beizhu">
-    <input type="text" placeholder="请输入备注"></input>
   </view>
 
 </view>
 
+<!--输入数量-->
+<view class="num-main" wx:if="{{isNum}}">
+  <view class="num-bg"></view>
+  <view class="num-box">
+    <view class="num-mt">
+      <view class="num-title">商品数量</view>
+      <view class="num-put">
+        <input type="number" value="{{numNew}}" maxlength="3" bindinput="formNum"></input>
+      </view>
+      <view class="num-btn">
+        <view class="num-btns btn1 le" bindtap="closeNum">取消</view>
+        <view class="num-btns btn2 rt" bindtap="updateNum">确定</view>
+      </view>
+    </view> 
+  </view>
+</view>
+
 
 <view class="mall-btn">
-  <view class="btn-shu">总计：3991积分</view>
-  <view class="btn-btn">确认支付</view>
+  <view class="btn-shu">总计：{{jifen}}积分</view>
+  <view class="btn-btn" bindtap="submitOrder">提交订单</view>
 </view>
