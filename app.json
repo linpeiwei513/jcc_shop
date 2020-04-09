@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/mall/affirm/affirm",
-    "pages/mall/list/list",
-    
     "pages/welcome/welcome",
+    "pages/mall/order/order",
+    
+    "pages/mall/list/list",
+    "pages/mall/affirm/affirm",
     
     
+    
+
     "pages/goods/goodsList/goodsList",
     
     "pages/home/home",
@@ -45,7 +48,7 @@
     "pages/activity/activity",
     "pages/mall/integral/integral",
     "pages/mall/orderShow/orderShow",
-    "pages/mall/order/order",
+    
     "pages/mall/index/index",
     
     "pages/mall/cart/cart",

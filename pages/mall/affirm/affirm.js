@@ -15,7 +15,8 @@ Page({
     goodsData: '',
     num: 1,
     numNew: 1,
-    jifen: 0
+    jifen: 0,
+    orderId: ''
   },
 
   /**
@@ -49,12 +50,21 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('提交订单回调：', res)
+        //删除缓存
+        app.delCache('addressOn')
+        app.delCache('goodsData')
         if(res.data.status == '1'){
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'success',
-            duration: 2000
+          that.setData({
+            orderId: res.data.data.order_id
           })
+          wx.showToast({
+            title: '支付中...',
+            icon: 'loading',
+            duration: 10000
+          })
+          setTimeout(function () {
+            that.getPay()
+          }, 1000)
           
         }else{
           wx.showToast({
@@ -62,11 +72,59 @@ Page({
             icon: 'none',
             duration: 2000
           })
-          return
+          setTimeout(function () {
+            wx.navigateBack({
+              delta:2
+            })
+          }, 1000)
+          
         }
       }
     })
   },
+
+  //支付
+  getPay: function() {
+
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Vshop/payOrder?order_id=' + that.data.orderId,
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('支付回调：', res)
+        app.closeLo()
+        if (res.data.status == '1') {
+
+          wx.showToast({
+            title: '支付成功',
+            icon: 'none',
+            duration: 2000
+          })
+
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '../orderShow/orderShow?orderId='+that.data.orderId+'&type=1',
+            })
+          }, 1000)
+          
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+
+  },
+
 
   //前往地址列表
   goAddress: function() {

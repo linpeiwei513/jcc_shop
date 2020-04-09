@@ -189,6 +189,13 @@ Page({
     })
   },
 
+  //兑换记录
+  goDuihuan: function() {
+    wx.navigateTo({
+      url: '../mall/order/order',
+    })
+  },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

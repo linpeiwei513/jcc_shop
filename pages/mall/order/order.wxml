@@ -4,58 +4,30 @@
   * to 20200210
 -->
 
-<view class="or-nav">
-  <view class="nav-li on">全部</view>
-  <view class="nav-li">待付款</view>
-  <view class="nav-li">待发货</view>
-  <view class="nav-li">退款/售后</view>
-  <view class="nav-li">已完成</view>
-  <view class="co"></view>
+<view class="mall-main" wx:if="{{listData.length > 0}}">
+
+  <view class="order-list" bindtap="goOrderS" wx:for="{{listData}}" wx:key="key" data-id="{{item.id}}">
+    <view class="or-tt">
+      <text wx:if="{{item.pay_status==0}}">{{item.pay_status==1?'已付款':'待付款'}}</text>
+      <text wx:else>{{item.shipping_status==1?'已发货':'待发货'}}</text>
+      订单号：{{item.bill_no}}
+    </view>
+    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
+    <view class="order-right">
+      <view class="order-title">{{item.item_info[0].goods_info.name}}</view>
+      <view class="order-shu">
+        <text class="te1">共计：{{item.total_amount}}积分</text> 
+        <text class="te2">X {{item.total_qty}}</text>
+      </view>
+    </view>
+    <view class="co"></view>
+    <view class="or-time">{{item.newDate}}</view>
+  </view>
+
 </view>
 
-<view class="mall-main">
 
-  <view class="order-list" bindtap="goOrderS">
-    <view class="or-tt"><text>待付款</text>订单号：HKK7182919277199</view>
-    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
-    <view class="order-right">
-      <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
-      <view class="order-shu">
-        <text class="te1">5893积分</text> 
-        <text class="te2">X 2</text>
-      </view>
-    </view>
-    <view class="co"></view>
-    <view class="or-time">2020-12-12 21:11:11</view>
-  </view>
-
-  <view class="order-list" bindtap="goOrderS">
-    <view class="or-tt"><text>待付款</text>订单号：HKK7182919277199</view>
-    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
-    <view class="order-right">
-      <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
-      <view class="order-shu">
-        <text class="te1">5893积分</text> 
-        <text class="te2">X 2</text>
-      </view>
-    </view>
-    <view class="co"></view>
-    <view class="or-time">2020-12-12 21:11:11</view>
-  </view>
-  <view class="order-list" bindtap="goOrderS">
-    <view class="or-tt"><text>待付款</text>订单号：HKK7182919277199</view>
-    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
-    <view class="order-right">
-      <view class="order-title">鼠年新年足金吊坠黄金限量版</view>
-      <view class="order-shu">
-        <text class="te1">5893积分</text> 
-        <text class="te2">X 2</text>
-      </view>
-    </view>
-    <view class="co"></view>
-    <view class="or-time">2020-12-12 21:11:11</view>
-  </view>
-
-
-
+<view class="none" wx:if="{{listData.length < 1}}">
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
+  <view>没有相关数据</view>
 </view>

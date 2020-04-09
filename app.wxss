@@ -46,6 +46,15 @@ page{
   font-size: 28rpx;
   color: #666666;
 }
+.tool-mt{
+  background-color: #f56c6c;
+  color: #ffffff;
+  height: 90rpx;
+}
+.tool-mt .tool-btn {
+  color: #ffffff;
+  line-height: 90rpx;
+}
 .tool-main .tool-btn image{
   display: block;
   width: 50rpx;
