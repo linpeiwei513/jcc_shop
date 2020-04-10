@@ -28,15 +28,17 @@ Page({
 
   //选择收货地址
   goAffirm: function(e) {
-    console.log(e.currentTarget.dataset.item)
-    let item = e.currentTarget.dataset.item
-    app.setCache('addressOn', item)
-    app.openLo()
-    setTimeout(function () {
-      wx.navigateBack({
-        delta:1
-      })
-    }, 500) 
+    if(this.data.type == 1){
+      console.log(e.currentTarget.dataset.item)
+      let item = e.currentTarget.dataset.item
+      app.setCache('addressOn', item)
+      app.openLo()
+      setTimeout(function () {
+        wx.navigateBack({
+          delta:1
+        })
+      }, 500) 
+    } 
   },
 
 

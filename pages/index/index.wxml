@@ -2,10 +2,10 @@
 <view class="user-top">
   <view class="userinfo">
       <view class="user-main">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="user-t">
-          <view class="user-no">{{userData.username}} ({{userInfo.nickName}})</view>
-          <view class="user-po">{{agentData.name}}<text>积分:{{userData.credits}}</text></view>
+          <view class="user-no">{{userData.username}} ({{userData.realname}})</view>
+          <view class="user-po">{{userData.agent_info.name}}<text>积分:{{userData.credits}}</text></view>
         </view>
         <view class="co"></view>
       </view> 
@@ -29,7 +29,7 @@
     </view>
     <view class="nav-li le" bindtap="gointegral">
       <image src="{{iconUrl}}nav_jifen.png"></image>
-       积分
+       积分记录
     </view>
     <view class="co"></view>
   </view>

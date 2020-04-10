@@ -17,10 +17,10 @@
   </view>
 
   <view class="mall-tool">
-    <view class="tool-l" bindtap="goCart"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-gwc.png"></image></view>
+    <!-- <view class="tool-l" bindtap="goCart"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-gwc.png"></image></view> -->
     <view class="tool-l" bindtap="goOrder"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-dingdan.png"></image></view>
     <view class="tool-l" bindtap="goJifen"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-jifen.png"></image></view>
-    <view class="tool-l"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-soso.png"></image></view>
+    <!-- <view class="tool-l"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-soso.png"></image></view> -->
   </view>
 </view>
 

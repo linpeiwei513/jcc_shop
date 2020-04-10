@@ -18,7 +18,7 @@ swiper image{
   position: fixed;
   top: 20rpx;
   right: 30rpx;
-  width: 310rpx;
+  width: 180rpx;
   height: 70rpx;
   background-color:rgba(0,0,0,0.6);
   border-radius: 35rpx;

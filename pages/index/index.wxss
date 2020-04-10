@@ -22,12 +22,12 @@
   float: left;
 }
 .user-no{
-  font-size: 34rpx;
+  font-size: 30rpx;
   font-weight: bold;
   padding-bottom: 10rpx;
 }
 .user-po{
-  font-size: 28rpx;
+  font-size: 26rpx;
   float: left;
 }
 .po-ben{
@@ -55,12 +55,12 @@
 .nav1 .nav-li{
   width: 25%;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #555555;
 }
 .nav1 .nav-li image{
-  width: 50rpx;
-  height: 50rpx;
+  width: 46rpx;
+  height: 46rpx;
   display: block;
   margin: 10rpx auto;
 }

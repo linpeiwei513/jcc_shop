@@ -48,6 +48,9 @@ Page({
     this.getUserData()
   },
 
+
+
+
   //补货单
   goBuhuo: function() {
     wx.navigateTo({
@@ -87,12 +90,29 @@ Page({
 
   //获取用户信息 agent_info wxUserInfo
   getUserData: function() {
-    this.setData({
-      userData: wx.getStorageSync("userInfo"),
-      agentData: wx.getStorageSync("agent_info"),
-      userInfo: wx.getStorageSync("wxUserInfo"),
+    app.openLo()
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Member/getProfile',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        //console.log('用户数据：', res)
+        app.closeLo()
+        if (res.data.status == '1') {
+          that.setData({
+            userData: res.data.data,
+            userInfo: wx.getStorageSync("wxUserInfo"),
+          })
+        }
+      }
     })
-    console.log('用户信息：',this.data.userData)
+
   },
 
   //公司信息
