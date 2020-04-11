@@ -1,23 +1,122 @@
 // pages/mall/index/index.js
+const app = getApp()
+const apiUrl = app.globalData.apiUrl;
+const iconUrl = app.globalData.iconUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgUrl:apiUrl,
+    iconUrl: iconUrl,
+    bannerData: [],
+    navData: [],
+    goodsData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getBanner()
+    this.getGoodsNav()
+    this.getGoodsList()
+  },
+
+  //获取商品列表
+  getGoodsList: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Vshop/getGoodsList?skip=0&limit=10&is_recommend=&catid=&keywords=&listorder="DESC"',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('商品列表：', res)
+        app.closeLo()
+        if (res.data.status == '1') {
+
+          that.setData({
+            goodsData: res.data.data,
+
+          })
+          
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+
+  //获取商品分类
+  getGoodsNav: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Vshop/getCats',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('商品分类数据：', res)
+        if (res.data.status == '1') {
+          that.setData({
+            navData: res.data.data
+          })
+        }
+      }
+    })
+  },
+
+  //获取banner
+  getBanner: function() {
+
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Content/getAdData?ad_id=3',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('banner数据：', res)
+        if (res.data.status == '1') {
+          that.setData({
+            bannerData: res.data.data
+          })
+        }
+      }
+    })
 
   },
 
-  goList: function () {
+  //跳转商品详情
+  goShow: function(e) {
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../list/list',
+      url: '../goods/goods?id='+e.currentTarget.dataset.id,
+    })
+  },
+
+  //跳转列表
+  goList: function (e) {
+    wx.navigateTo({
+      url: '../list/list?id='+e.currentTarget.dataset.id,
     })
   },
 

@@ -27,6 +27,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      catid: options.id
+    })
     this.onPullDownRefresh()
   },
 
@@ -70,9 +73,10 @@ Page({
 
   //获取列表
   getGoodsList: function() {
+    console.log('catid:',this.data.catid)
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Vshop/getGoodsList?skip=' + that.data.skip + '&limit=' + that.data.limit + 'is_recommend='+that.data.is_recommend+'catid='+that.data.catid+'keywords='+that.data.keywords+'listorder='+that.data.listorder,
+      url: apiUrl + '/Api/Vshop/getGoodsList?skip=' + that.data.skip + '&limit=' + that.data.limit + '&is_recommend='+that.data.is_recommend+'&catid='+that.data.catid+'&keywords='+that.data.keywords+'&listorder='+that.data.listorder,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")

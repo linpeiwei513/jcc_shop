@@ -4,6 +4,7 @@
   * to 20200210
 -->
 
+
 <view class="mall-top">
   <view class="top-li {{tuijian?'on': ''}}" bindtap="onTuijian">推荐</view>
   <view class="top-li" bindtap="onSx">积分排序</view>
@@ -18,7 +19,7 @@
 
 
 <!--列表-->
-<view class="mall-list">
+<view class="mall-list" wx:if="{{dataList.length > 0}}">
   <view class="list-li"  wx:for="{{dataList}}" wx:key="key" data-id="{{item.id}}" bindtap="goGoods">
     <view class="li-img"><image src="{{imgUrl}}{{item.thumb}}"></image></view>
     <view class="li-title">{{item.name}}</view>
@@ -26,4 +27,11 @@
     <view class="li-shichang">{{item.market_price}}元</view>
   </view>
   <view class="co"></view>
+</view>
+
+
+<view class="none" wx:if="{{dataList.length < 1}}">
+  <view class="none-hei"></view>
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
+  <view>没有相关商品</view>
 </view>

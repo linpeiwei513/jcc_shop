@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/mall/index/index",
+    
     "pages/index/index",
     
     "pages/mall/order/order",
@@ -51,7 +53,7 @@
     "pages/mall/integral/integral",
     "pages/mall/orderShow/orderShow",
     
-    "pages/mall/index/index",
+    
     
     "pages/mall/cart/cart",
     "pages/mall/help/help",

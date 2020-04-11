@@ -3,18 +3,16 @@
   * by linpeiwei
   * to 20200210
 -->
-
 <view class="mall-top">
   <view class="mall-banner">
     <swiper indicator-dots="true" indicator-active-color="#e1ad62" autoplay="true" >
-      <swiper-item>
-          <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall1.jpg"></image>
-      </swiper-item>
-      <swiper-item>
-          <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall2.jpg"></image>
+      <swiper-item wx:for="{{bannerData}}" wx:key="key" >
+        <image src="{{imgUrl}}{{item.thumb}}" data-id="{{item.dataid}}" bindtap="goShow"></image>
       </swiper-item>
     </swiper>
   </view>
+
+
 
   <view class="mall-tool">
     <!-- <view class="tool-l" bindtap="goCart"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-gwc.png"></image></view> -->
@@ -25,18 +23,37 @@
 </view>
 
 <view class="mall-nav">
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/nav.jpg" bindtap="goList"></image>
+  <view class="nav-li" wx:for="{{navData}}" wx:key="key" data-id="{{item.id}}" bindtap="goList">
+    <image src="{{iconUrl}}textimg.png"></image>{{item.name}}
+  </view>
+  <view class="co"></view>
 </view>
 
-<view class="mall-tj">
+
+
+
+
+<!-- <view class="mall-tj">
   <view class="mall-title">热门推荐</view>
-  <view class="mall-li"><image src="../../images/banner2.jpg"></image></view>
-</view>
+  <view class="mall-li" data-id=""><image src="../../images/banner2.jpg"></image></view>
+</view> -->
 
 <view class="mall-goods">
   <view class="mall-title">新品展示</view>
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods1.jpg" bindtap="goGoods"></image>
-  <image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/goods2.jpg" bindtap="goGoods"></image>
+</view>
+<!--列表-->
+<view class="mall-list">
+  <view class="list-li"  wx:for="{{goodsData}}" wx:key="key" data-id="{{item.id}}" bindtap="goShow">
+    <view class="li-img"><image src="{{imgUrl}}{{item.thumb}}"></image></view>
+    <view class="li-title">{{item.name}}</view>
+    <view class="li-jifen"><text>{{item.credits}}</text>积分</view>
+    <view class="li-shichang">{{item.market_price}}元</view>
+  </view>
+  <view class="co"></view>
 </view>
 
-<view class="mall-bz" bindtap="goHelp"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-wenti.png"></image></view>
+
+
+
+
+<!-- <view class="mall-bz" bindtap="goHelp"><image src="https://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/mall/mall/mall-wenti.png"></image></view> -->
