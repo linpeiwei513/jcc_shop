@@ -34,7 +34,7 @@ Page({
     console.log('id', this.data.dailiList[e.detail.value].id)
     console.log('value', e.detail.value)
     let id = this.data.dailiList[e.detail.value].id
-    let name = this.data.dailiList[e.detail.value].username
+    let name = this.data.dailiList[e.detail.value].name
     this.setData({
       dailiIndex: e.detail.value,
       dailiId: id,
