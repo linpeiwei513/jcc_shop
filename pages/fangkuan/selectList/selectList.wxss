@@ -1,0 +1,38 @@
+/* pages/fangkuan/selectList/selectList.wxss */
+.fx-list{
+  padding: 10rpx 15rpx;
+}
+.fx-li{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #909399;
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  position: relative;
+  box-shadow: #ebedf0 0 4rpx 12rpx;
+}
+.fx-li .fx-no{
+  font-size: 26rpx;
+  color: #303133;
+  padding-bottom: 10rpx;
+}
+.fx-p{
+  margin-right: 40rpx;
+}
+.fx-p text{
+  color: #303133;
+  font-weight: bold;
+}
+.fx-pp{
+  padding-top: 10rpx;
+}
+.fx-del{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.fx-del image{
+  width: 44rpx;
+  height: 44rpx;
+}

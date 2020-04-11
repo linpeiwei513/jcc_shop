@@ -4,6 +4,7 @@ const apiUrl = app.globalData.apiUrl;
 const iconUrl = app.globalData.iconUrl;
 Page({
 
+
   /**
    * 页面的初始数据
    */
@@ -18,7 +19,7 @@ Page({
     dailiList: [],
     dailiIndex: 0,
     dailiName: '请选择代理',
-    dailiId: ''
+    dailiId: '' 
   },
 
   /**
@@ -53,7 +54,7 @@ Page({
     }
     if(this.data.dataListNew.length < 1){
       wx.showToast({
-        title: '请添加商品',
+        title: '请添加清单',
         icon: 'none',
         duration: 2000
       })
@@ -63,7 +64,7 @@ Page({
     console.log('提交数据：', datas)
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Invoice/addOut',
+      url: apiUrl + '/Api/Rebate/addRebate',
       data: {
         in_id: that.data.dailiId,
         datas: datas
@@ -103,15 +104,25 @@ Page({
 
   },
 
-  //添加商品
-  addGoods: function() {
-    wx.navigateTo({
-      url: '../../goods/selectList/selectList?type=1',
-    })
+  //添加清单
+  addReceipts: function(e) {
+    if(this.data.dailiId == ''){
+      wx.showToast({
+        title: '请选择代理',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }else{
+      wx.navigateTo({
+        url: '../selectList/selectList?id='+this.data.dailiId,
+      })
+    }
+    
   },
 
   //删除
-  delGoods: function(e) {
+  delReceipts: function(e) {
     //console.log(e.currentTarget.dataset.index)
     let index = e.currentTarget.dataset.index;
     let newArr = this.data.dataList;
@@ -122,57 +133,15 @@ Page({
     this.setGoodstData()
   },
 
-  //加
-  btnJia: function(e) {
-    app.openLo(); //加载动画
-    let index = e.currentTarget.dataset.index;
-    let newArr = this.data.dataList;
-    if(newArr[index].num > 1000){
-      wx.showToast({
-        title: '商品数量不能小于1000',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }else{
-      newArr[index].num = newArr[index].num + 1
-    }
-    this.setData({
-      dataList: newArr
-    })
-    app.closeLo();  //关闭动画
-    this.setGoodstData()
-  },
-
-  //减
-  btnJian: function(e) {
-    app.openLo(); //加载动画
-    let index = e.currentTarget.dataset.index;
-    let newArr = this.data.dataList;
-    if(newArr[index].num == 1){
-      wx.showToast({
-        title: '商品数量不能小于1',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }else{
-      newArr[index].num = newArr[index].num - 1
-    }
-    this.setData({
-      dataList: newArr
-    })
-    app.closeLo();  //关闭动画
-    this.setGoodstData()
-  },
+ 
 
  
 
 
   //获取缓存中添加的数据 wx.getStorageSync("sessionID")
   getSessionData: function() {
-    console.log('缓存数据：',wx.getStorageSync("selectGoods"))
-    let selectData = wx.getStorageSync("selectGoods")
+    console.log('缓存数据：',wx.getStorageSync("selectFx"))
+    let selectData = wx.getStorageSync("selectFx")
     let newList = this.data.dataList
     if(selectData){
       for(var i=0; i< selectData.length; i++){
@@ -182,7 +151,7 @@ Page({
         dataList: newList
       })
       //删除缓存
-      wx.removeStorageSync("selectGoods")
+      wx.removeStorageSync("selectFx")
       this.setGoodstData()
     }
 
@@ -193,87 +162,32 @@ Page({
     app.openLo(); //加载动画
     let newList = this.data.dataList
     let newArr = []
-    let newPrice = 0
+
     for(var i=0; i<newList.length; i++){
-      newPrice = Number(newPrice) + Number(newList[i].price) * newList[i].num; 
-      newArr.push(this.getArr(newList[i].goodsId,newList[i].guigeId,newList[i].num))
+      newArr.push(this.getArr(newList[i].id))
     }
-    newPrice = (newPrice).toFixed(2) //总价格
     this.setData({
-      totalPrice: newPrice,
       dataListNew: newArr
     })
     app.closeLo();  //关闭动画
   },
 
   //提交数据结构模板
-  getArr: function(goodsId,guigeId,num) {
+  getArr: function(id) {
     return {
-      id: goodsId +'_'+ guigeId,
-      qty: num
+      id: id,
     }
   },
 
 
-  //关闭数量输入
-  closeNum: function() {
-    this.setData({
-      isNum: false
-    })
-  },
-
-  //打开数量输入
-  shownum: function(e) {
-    let index = e.currentTarget.dataset.index;
-    let newArr = this.data.dataList;
-    let newNum = newArr[index].num
-    this.setData({
-      isNum: true,
-      index: index,
-      newNum: newNum
-    })
-  },
-
-  //确定修改数量
-  updateNum: function() {
-    let index = this.data.index;
-    let newArr = this.data.dataList;
-    let num = newArr[index].num
-    if(num < 1 || num ==' '){
-      wx.showToast({
-        title: '商品数量至少为1',
-        icon: 'none',
-        duration: 2000
-      })
-      num = 1
-    }
-    newArr[index].num = num
-    this.setData({
-      dataList: newArr,
-      isNum: false
-    })
-    this.setGoodstData()
-  },
-
-   //输入数量
-   formNum: function(e) {
-    let index = this.data.index;
-    let newArr = this.data.dataList;
-    let num = e.detail.value;
-    newArr[index].num = num
-    this.setData({
-      dataList: newArr
-    })
-    
-  },
   
 
-  //获取代理商
+  //获取待返现下级代理
   getDaili: function() {
     app.openLo()
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Agent/getSubAgents?skip=0&limit=100',
+      url: apiUrl + '/Api/Rebate/getAgentByRebate',
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")

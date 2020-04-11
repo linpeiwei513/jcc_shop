@@ -33,6 +33,11 @@ Page({
     })
   },
 
+  goadd: function() {
+    wx.navigateTo({
+      url: '../add/add',
+    })
+  },
 
 
   /**

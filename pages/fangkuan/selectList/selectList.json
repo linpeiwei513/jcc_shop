@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "待返现清单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

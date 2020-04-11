@@ -98,6 +98,7 @@ Page({
     }
   },
 
+  
 
   //勾选规格
   checkboxChangeLi: function(e){

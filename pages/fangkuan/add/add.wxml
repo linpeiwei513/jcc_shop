@@ -1,0 +1,61 @@
+<!--
+* 新增放款单
+* by linpeiwei
+* to 2020.04.11
+-->
+
+<view class="main">
+
+  <!--选择代理-->
+  <view class="main-daili">
+    <picker bindchange="bindPickerChange" value="{{dailiList[dailiIndex].id}}" range="{{dailiList}}" range-key="{{'username'}}">
+      <view class="picker">
+        {{dailiName}}
+      </view>
+    </picker>
+  </view>
+
+
+  <view class="main-box">
+    <view class="main-title">
+      返现清单明细
+    </view>
+
+    <!--列表-->
+    <view class="fx-list">
+      
+      <view class="fx-li" wx:if="{{dataList.length > 0}}">
+        <view class="fx-no">单号：{{item.no}}</view>
+        <view class="fx-tt">
+          <view class="fx-p le">单据金额：<text>{{item.price}}</text> 元</view>
+          <view class="fx-p le">货品数量：<text>{{item.num}}</text></view>
+          <view class="co"></view>
+        </view>
+        <view class="fx-pp">进货方：{{item.name}}</view>
+        <view class="fx-pp">单据时间：{{item.time}}</view>
+        <view class="fx-del">
+          <image src="{{iconUrl}}icon_del.png" data-index="{{index}}" bindtap="delReceipts"></image>
+        </view>
+      </view>
+
+    </view>
+
+
+    <view class="main-null" wx:if="{{dataList.length < 1}}">
+      <image src="{{iconUrl}}none.png"></image>
+      <view>没有清单</view>
+    </view>
+  </view>
+
+
+  <view class="main-add" bindtap="addReceipts">添加清单</view>
+
+</view>
+
+
+
+<!--底部确认-->
+<view class="main-zhan"></view>
+<view class="bottom-btn" bindtap="submitData">
+  确定
+</view>

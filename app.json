@@ -1,29 +1,20 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/fangkuan/selectList/selectList",
+    "pages/fangkuan/add/add",
+    
     "pages/mall/index/index",
-    
     "pages/index/index",
-    
     "pages/mall/order/order",
-    
     "pages/mall/list/list",
     "pages/mall/affirm/affirm",
-    
-    
-    
-
     "pages/goods/goodsList/goodsList",
-    
     "pages/home/home",
-    
-    
     "pages/sales/add/add",
     "pages/agency/list/list",
-    
     "pages/supply/add/add",
     "pages/goods/selectList/selectList",
-    
     "pages/clerk/list/list",
     "pages/db/rankAgencySell/rankAgencySell",
     "pages/db/rankGoodsSell/rankGoodsSell",
@@ -37,8 +28,6 @@
     "pages/guigeList/guigeList",
     "pages/addXiaoshu/addXiaoshu",
     "pages/mine/address/add/add",
-    
-    
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
     "pages/recordMarket/recordMarket",
@@ -52,15 +41,11 @@
     "pages/activity/activity",
     "pages/mall/integral/integral",
     "pages/mall/orderShow/orderShow",
-    
-    
-    
     "pages/mall/cart/cart",
     "pages/mall/help/help",
     "pages/mall/user/user",
     "pages/mall/address/address",
     "pages/mall/goods/goods",
-    
     "pages/searchGoods/searchGoods",
     "pages/yijian/yijian",
     "pages/statistics/statistics",
@@ -78,7 +63,6 @@
     "pages/mine/address/update/update",
     "pages/agency/add/add",
     "pages/agency/details/details",
-    
     "pages/agency/update/update",
     "pages/clerk/add/add",
     "pages/clerk/details/details",
