@@ -102,7 +102,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        //console.log('用户数据：', res)
+        console.log('用户数据：', res)
         app.closeLo()
         if (res.data.status == '1') {
           that.setData({
