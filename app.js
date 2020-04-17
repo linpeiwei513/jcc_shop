@@ -39,6 +39,20 @@ App({
         this.getLoginState()
       }
     }
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log('微信信息：',res.userInfo)
+              wx.setStorageSync("wxUserInfo", res.userInfo);
+            }
+          })
+        }
+      }
+    })
   },
 
   //获取用户登录状态
@@ -123,6 +137,7 @@ App({
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
                     wx.setStorageSync('good', 1)
                     //跳转到首页
+                    
                     wx.switchTab({
                       url: '/pages/home/home',
                     })

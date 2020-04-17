@@ -4,30 +4,10 @@
 * to 2020.01.04
 -->
 
-<!-- <view class="top-nav">
-  <view class="nav" bindtap="goAdd">
-    <image src="../images/nav1.png"></image>
-    <text>补货清单</text>
-    <text class="ic">2</text>
-  </view>
-  <view class="nav" bindtap="goAdd">
-    <image src="../images/nav2.png"></image>
-    <text>销货清单</text>
-    <text class="ic">8</text>
-  </view>
-  <view class="nav" bindtap="goYijian">
-    <image src="../images/nav3.png"></image>
-    <text>一键补货</text>
-    <text class="ic">6</text>
-  </view>
-  <view class="top-so">
-    <text>搜索货品</text>
-    <icon type="search" size="22" color="rgb(0,0,0)"/>
-  </view>
-</view> -->
 
+<view wx:if="{{loSta==1}}">
 
-<!--头部工具栏-->
+  <!--头部工具栏-->
 <view class="top-tool">
   <view class="top-main">
     <view class="nav-li le" bindtap="goSupply">
@@ -46,17 +26,6 @@
 </view>
 
 
-<!--分类-->
-<!-- <view class="go-nav">
-
-  <scroll-view scroll-x>
-    <view style="display: flex; flex-direction:row;">
-      <view class="go-li {{showNav==0?'on':''}}"  bindtap="onTypeQb">全部</view>
-      <view class="go-li {{showNav==item.id?'on':''}}"  wx:for="{{navList}}" wx:key="key" data-index="{{item.id}}" bindtap="onType" >{{item.name}}</view>
-    </view>
-  </scroll-view>
-  
-</view> -->
 
 <!--筛选-->
 <view class="saixuan">
@@ -104,7 +73,7 @@
     </view>
     <view class="go-btn" wx:if="{{item.my_onhand > 0}}">
       <view class="btn-li b1" data-item="{{item}}" bindtap="goxiaoshu">
-        销售消货
+        销售消数
       </view>
     </view>
   </view>
@@ -119,4 +88,14 @@
   <view class="none-hei"></view>
   <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/none.png"></image>
   <view>没有相关商品</view>
+</view>
+
+</view>
+
+
+<view class="none" wx:if="{{loSta == 0}}">
+  <view class="none-hei"></view>
+  <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/lianjie.png"></image>
+  <view style="margin-top: 20rpx;">请先登录</view>
+  <button class="btns" bindtap="goLogin">登录</button>
 </view>

@@ -9,6 +9,13 @@
         </view>
         <view class="co"></view>
       </view> 
+      <view class="user-main" wx:if="{{loSta==0}}" bindtap="goLogin">
+        <image class="userinfo-avatar" src="{{iconUrl}}my.png" mode="cover"></image>
+        <view class="user-t">
+          <view class="user-no1">点击登录账号</view>
+        </view>
+        <view class="co"></view>
+      </view> 
   </view>
 </view>
 
@@ -19,9 +26,9 @@
       <image src="{{iconUrl}}nav1.png"></image>
        补货单
     </view>
-    <view class="nav-li le" bindtap="goXiaohuo">
-      <image src="{{iconUrl}}nav2.png"></image>
-       销货单
+    <view class="nav-li le" bindtap="goShop">
+      <image src="{{iconUrl}}nav_dianpu.png"></image>
+      店铺信息
     </view>
     <view class="nav-li le" bindtap="goxiaoshu">
       <image src="{{iconUrl}}nav_xiaoshu.png"></image>
@@ -36,36 +43,39 @@
 
 
   <view class="nav-main nav2">
-    <view class="nav-li" bindtap="goClerk">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>
-      <view class="name le">店员管理</view>
-      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <view class="co"></view>
+    <view wx:if="{{userData.agent_info.rank != 9}}">
+      <view class="nav-li" bindtap="goClerk">
+        <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>
+        <view class="name le">店员管理</view>
+        <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+        <view class="co"></view>
+      </view>
+      <view class="nav-li" bindtap="goXiaohuo">
+        <view class="lf-img le"><image src="{{iconUrl}}nav2.png"></image></view>
+        <view class="name le">销货单</view>
+        <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+        <view class="co"></view>
+      </view>
+      <view class="nav-li" bindtap="goAgency">
+        <view class="lf-img le"><image src="{{iconUrl}}nav_daili.png"></image></view>
+        <view class="name le">下级代理</view>
+        <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+        <view class="co"></view>
+      </view>
+      <view class="nav-li" bindtap="gofangkuan">
+        <view class="lf-img le"><image src="{{iconUrl}}nav_fanxian.png"></image></view>
+        <view class="name le">返现放款</view>
+        <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+        <view class="co"></view>
+      </view>
+      <view class="nav-li" bindtap="goStatistics">
+        <view class="lf-img le"><image src="{{iconUrl}}nav_tongji.png"></image></view>
+        <view class="name le">数据统计</view>
+        <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
+        <view class="co"></view>
+      </view>
     </view>
-    <view class="nav-li" bindtap="goShop">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_dianpu.png"></image></view>
-      <view class="name le">店铺信息</view>
-      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <view class="co"></view>
-    </view>
-    <view class="nav-li" bindtap="goAgency">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_daili.png"></image></view>
-      <view class="name le">下级代理</view>
-      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <view class="co"></view>
-    </view>
-    <view class="nav-li" bindtap="gofangkuan">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_fanxian.png"></image></view>
-      <view class="name le">返现放款</view>
-      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <view class="co"></view>
-    </view>
-    <view class="nav-li" bindtap="goStatistics">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_tongji.png"></image></view>
-      <view class="name le">数据统计</view>
-      <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
-      <view class="co"></view>
-    </view>
+    
     <view class="nav-li no" bindtap="goDuihuan">
       <view class="lf-img le"><image src="{{iconUrl}}nav_jifen.png"></image></view>
       <view class="name le">兑换记录</view>

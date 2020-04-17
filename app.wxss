@@ -92,3 +92,9 @@ page{
 .main-zhan{
   height: 110rpx;
 }
+.btns{
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  background-color: red;
+  color: #ffffff;
+}

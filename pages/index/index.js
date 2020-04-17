@@ -12,7 +12,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userData: '',
     agentData: '',
-    loSta: 0
+    loSta: 0,
+    userType: ''
   },
 
   onLoad: function () {
@@ -44,7 +45,13 @@ Page({
         }
       })
     }
+    
+    
 
+  },
+
+  //初始化
+  chushi: function() {
     let lo = wx.getStorageSync("lo")
     if(lo == 0){
       this.setData({
@@ -56,13 +63,170 @@ Page({
       })
       this.getUserData()
     }
+  },
 
+  //登录
+  goLogin: function() {
+    app.openLo()
+    app.accreditLogin()
+  },
 
+  
 
+  //获取用户信息 agent_info wxUserInfo
+  getUserData: function() {
+    app.openLo()
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Member/getProfile',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('用户数据：', res)
+        app.closeLo()
+        if (res.data.status == '1') {
+          that.setData({
+            userData: res.data.data,
+            userInfo: wx.getStorageSync("wxUserInfo"),
+          })
+        }
+      }
+    })
+
+  },
+
+  
+
+  //退出
+  getExit: function() {
+    let that = this
+    app.openLo()
+    wx.request({
+      url: apiUrl + '/Api/Member/logout',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        app.closeLo()
+        console.log('退出回调：', res)
+        if (res.data.status == '1') {
+          //清除缓存
+          wx.removeStorageSync("sessionID")
+          wx.removeStorageSync("openid")
+          wx.removeStorageSync("userInfo")
+          wx.removeStorageSync("agent_info")
+          wx.removeStorageSync("loginStatus")
+          wx.setStorageSync('lo', 0)
+          that.chushi()
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+
+  },
+
+  //公司信息
+  goShop: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../shop/shop'
+      })
+    }
     
   },
 
+  //修改密码
+  goMima: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../password/password'
+      })
+    }
+    
+  },
 
+  //修改资料
+  goZiliao: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mine/updatedb/updatedb',
+      })
+    }
+    
+  },
+
+  //前往店铺信息
+  goShop: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../shop/shop'
+      })
+    }
+    
+  },
+
+  //店员
+  goClerk: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../clerk/list/list',
+      })
+    }
+    
+  },
+
+ //统计
+ goStatistics: function() {
+  if(this.hint()){
+    wx.navigateTo({
+      url: '../db/index/index',
+    })
+  }
+  
+},
+  //下级代理
+  goAgency: function () {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../agency/list/list',
+      })
+    }
+    
+  },
+
+  //放款返现
+  gofangkuan: function () {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../fangkuan/index/index',
+      })
+    }
+    
+  },
+
+  //兑换记录
+  goDuihuan: function() {
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mall/order/order',
+      })
+    }
+    
+  },
 
   //提示登录
   hint: function() {
@@ -129,159 +293,6 @@ Page({
     
   },
 
-  //获取用户信息 agent_info wxUserInfo
-  getUserData: function() {
-    app.openLo()
-    let that = this
-    wx.request({
-      url: apiUrl + '/Api/Member/getProfile',
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        console.log('用户数据：', res)
-        app.closeLo()
-        if (res.data.status == '1') {
-          that.setData({
-            userData: res.data.data,
-            userInfo: wx.getStorageSync("wxUserInfo"),
-          })
-        }
-      }
-    })
-
-  },
-
-  //公司信息
-  goShop: function() {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../shop/shop'
-      })
-    }
-    
-  },
-
-  //修改密码
-  goMima: function() {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../password/password'
-      })
-    }
-    
-  },
-
-  //修改资料
-  goZiliao: function() {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../mine/updatedb/updatedb',
-      })
-    }
-    
-  },
-
-  //退出
-  getExit: function() {
-
-    wx.request({
-      url: apiUrl + '/Api/Member/logout',
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-        console.log('退出回调：', res)
-        if (res.data.status == '1') {
-          //清除缓存
-          wx.removeStorageSync("sessionID")
-          wx.removeStorageSync("openid")
-          wx.removeStorageSync("userInfo")
-          wx.removeStorageSync("agent_info")
-          wx.removeStorageSync("loginStatus")
-          wx.setStorageSync('lo', 0)
-					//返回首页
-          wx.redirectTo({
-            url: '../welcome/welcome?id=1'
-          })
-
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      }
-    })
-
-  },
-
-  //前往店铺信息
-  goShop: function() {
-    if(this.hint()){}
-    wx.navigateTo({
-      url: '../shop/shop'
-    })
-  },
-
-  //店员
-  goClerk: function() {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../clerk/list/list',
-      })
-    }
-    
-  },
-
- //统计
- goStatistics: function() {
-  if(this.hint()){
-    wx.navigateTo({
-      url: '../db/index/index',
-    })
-  }
-  
-},
-  //下级代理
-  goAgency: function () {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../agency/list/list',
-      })
-    }
-    
-  },
-
-  //放款返现
-  gofangkuan: function () {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../fangkuan/index/index',
-      })
-    }
-    
-  },
-
-  //兑换记录
-  goDuihuan: function() {
-    if(this.hint()){
-      wx.navigateTo({
-        url: '../mall/order/order',
-      })
-    }
-    
-  },
-
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -289,5 +300,14 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+    this.chushi()
+
+  },
 })

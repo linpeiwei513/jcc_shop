@@ -12,16 +12,21 @@ Page({
     iconUrl: iconUrl,
     bannerData: [],
     navData: [],
-    goodsData: []
+    goodsData: [],
+    loSta: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getBanner()
-    this.getGoodsNav()
-    this.getGoodsList()
+    
+  },
+
+  //登录
+  goLogin: function(){
+    app.openLo()
+    app.accreditLogin()
   },
 
   //获取商品列表
@@ -162,7 +167,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let lo = wx.getStorageSync("lo")
+    if(lo == 0){
+      this.setData({
+        loSta: 0
+      })
+    }else if(lo == 1){
+      this.setData({
+        loSta: 1
+      })
+      this.getBanner()
+      this.getGoodsNav()
+      this.getGoodsList()
+    }
   },
 
   /**

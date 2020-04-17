@@ -107,3 +107,7 @@
 .user-po text{
   margin-left: 20rpx;
 }
+.user-no1{
+  padding-top: 20rpx;
+  font-size: 30rpx;
+}

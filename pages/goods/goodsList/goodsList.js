@@ -22,6 +22,7 @@ Page({
     typeIndex: 0,
     xilieList: [],
     xilieIndex: 0,
+    loSta: 0
   },
 
   /**
@@ -32,6 +33,12 @@ Page({
     this.getGoodsType()
     this.getXilie()
 
+  },
+
+  //登录
+  goLogin: function(){
+    app.openLo()
+    app.accreditLogin()
   },
 
 
@@ -303,8 +310,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
-    this.getGoodsList();
+
+    let lo = wx.getStorageSync("lo")
+    if(lo == 0){
+      this.setData({
+        loSta: 0
+      })
+    }else if(lo == 1){
+      this.setData({
+        loSta: 1
+      })
+      this.getGoodsList();
+    }
+
   },
 
   /**

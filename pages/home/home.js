@@ -22,6 +22,7 @@ Page({
     this.getAct()
   },
 
+
   //banner详情
   goShow: function(e) {
     console.log(e.currentTarget.dataset.item)
@@ -111,16 +112,10 @@ Page({
 
 
 
-
-  //前往店铺信息
-  goShop: function() {
-    wx.navigateTo({
-      url: '../shop/shop'
-    })
-  },
   
   //前往货品列表
   goGoods: function() {
+    
     wx.switchTab({
       url: '../goods/goodsList/goodsList'
     })
@@ -133,47 +128,7 @@ Page({
     })
   },
 
-  //店员
-  goClerk: function() {
-    wx.navigateTo({
-      url: '../clerk/list/list',
-    })
-  },
-
-  //销存记录
-  goXiaoucun: function() {
-    wx.navigateTo({
-      url: '../xiaocun/xiaocun',
-    })
-  },
-
-  //统计
-  goStatistics: function() {
-    wx.navigateTo({
-      url: '../db/index/index',
-    })
-  },
-
-  //积分商城
-  goMall: function() {
-    wx.switchTab({
-      url: '../mall/index/index',
-    })
-  },
-
-  //下级代理
-  goAgency: function () {
-    wx.navigateTo({
-      url: '../agency/list/list',
-    })
-  },
-
-  //放款返现
-  gofangkuan: function () {
-    wx.navigateTo({
-      url: '../fangkuan/index/index',
-    })
-  }
+ 
 
 
 })
