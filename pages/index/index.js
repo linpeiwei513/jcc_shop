@@ -11,7 +11,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userData: '',
-    agentData: ''
+    agentData: '',
+    loSta: 0
   },
 
   onLoad: function () {
@@ -44,48 +45,88 @@ Page({
       })
     }
 
+    let lo = wx.getStorageSync("lo")
+    if(lo == 0){
+      this.setData({
+        loSta: 0
+      })
+    }else if(lo == 1){
+      this.setData({
+        loSta: 1
+      })
+      this.getUserData()
+    }
 
-    this.getUserData()
+
+
+    
   },
 
 
 
+  //提示登录
+  hint: function() {
+    if(this.data.loSta == 0){
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
+    return true
+  },
 
   //补货单
   goBuhuo: function() {
-    wx.navigateTo({
-      url: '../recordStock/recordStock',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../recordStock/recordStock',
+      })
+    }
+    
   },
 
   //销货单
   goXiaohuo: function() {
-    wx.navigateTo({
-      url: '../recordSales/recordSales',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../recordSales/recordSales',
+      })
+    }
+    
   },
 
 
 
   //积分记录
   gointegral: function() {
-    wx.navigateTo({
-      url: '../mine/integral/integral',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mine/integral/integral',
+      })
+    }
+    
   },
 
   //消数记录
   goxiaoshu: function() {
-    wx.navigateTo({
-      url: '../mine/xiaoshu/xiaoshu',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mine/xiaoshu/xiaoshu',
+      })
+    }
+    
   },
 
   //收货地址
   goAddress: function() {
-    wx.navigateTo({
-      url: '../mine/address/list/list?type=2',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mine/address/list/list?type=2',
+      })
+    }
+    
   },
 
   //获取用户信息 agent_info wxUserInfo
@@ -117,23 +158,32 @@ Page({
 
   //公司信息
   goShop: function() {
-    wx.navigateTo({
-      url: '../shop/shop'
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../shop/shop'
+      })
+    }
+    
   },
 
   //修改密码
   goMima: function() {
-    wx.navigateTo({
-      url: '../password/password'
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../password/password'
+      })
+    }
+    
   },
 
   //修改资料
   goZiliao: function() {
-    wx.navigateTo({
-      url: '../mine/updatedb/updatedb',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mine/updatedb/updatedb',
+      })
+    }
+    
   },
 
   //退出
@@ -177,6 +227,7 @@ Page({
 
   //前往店铺信息
   goShop: function() {
+    if(this.hint()){}
     wx.navigateTo({
       url: '../shop/shop'
     })
@@ -184,36 +235,51 @@ Page({
 
   //店员
   goClerk: function() {
-    wx.navigateTo({
-      url: '../clerk/list/list',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../clerk/list/list',
+      })
+    }
+    
   },
 
  //统计
  goStatistics: function() {
-  wx.navigateTo({
-    url: '../db/index/index',
-  })
+  if(this.hint()){
+    wx.navigateTo({
+      url: '../db/index/index',
+    })
+  }
+  
 },
   //下级代理
   goAgency: function () {
-    wx.navigateTo({
-      url: '../agency/list/list',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../agency/list/list',
+      })
+    }
+    
   },
 
   //放款返现
   gofangkuan: function () {
-    wx.navigateTo({
-      url: '../fangkuan/index/index',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../fangkuan/index/index',
+      })
+    }
+    
   },
 
   //兑换记录
   goDuihuan: function() {
-    wx.navigateTo({
-      url: '../mall/order/order',
-    })
+    if(this.hint()){
+      wx.navigateTo({
+        url: '../mall/order/order',
+      })
+    }
+    
   },
 
   getUserInfo: function(e) {

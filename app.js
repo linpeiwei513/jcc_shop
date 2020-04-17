@@ -4,23 +4,46 @@ App({
 
   data: {
     apiUrl: 'https://fyt2.test.fastcmf.com',
-    
+    loginStatue: '0',
+    good: 0
   },
-
+  globalData: {
+    userInfo: null,
+    apiUrl: 'https://fyt2.test.fastcmf.com',
+    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
+    loginStatue: '0',
+    good: 0
+  },
 
   onLaunch: function () {
     let that = this
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    wx.setStorageSync('logs', logs) 
+    this.inspectLogin()
+  },
 
-    
+  
+
+  //检查登录
+  inspectLogin: function() {
+    console.log('状态:',wx.getStorageSync("lo"))
+    console.log('sessionID:', wx.getStorageSync("sessionID"))
+    if (wx.getStorageSync("lo")){
+      this.globalData.loginStatue = wx.getStorageSync("lo");
+      this.globalData.good = wx.getStorageSync("good");
+    }
+    if (wx.getStorageSync("sessionID")){
+      if (this.globalData.loginStatue != '1' && this.globalData.good != 1) {
+        this.getLoginState()
+      }
+    }
   },
 
   //获取用户登录状态
-  getLoginState: function() {
-    let that = this
+  getLoginState: function () {
+    var that = this
     wx.request({
       url: that.data.apiUrl + '/Api/Member/checkLogin',
       header: {
@@ -32,11 +55,13 @@ App({
       responseType: 'text',
       success: function (res) {
         console.log('登录状态：', res)
-        if(res.data.status == '1'){
-          wx.setStorageSync('loginStatus', 1)
+        if (res.data.status == '1') {
+          wx.setStorageSync('lo', 1)
+          that.globalData.loginStatue = 1
           that.accreditLogin()
-        }else{
-          wx.setStorageSync('loginStatus', 0)
+        } else {
+          wx.setStorageSync('lo', 0)
+          that.globalData.loginStatue = 0
         }
       }
     })
@@ -44,7 +69,8 @@ App({
 
 
   //授权登录
-  accreditLogin: function() {
+  accreditLogin: function () {
+    
     let that = this
     // 登录
     wx.login({
@@ -61,18 +87,21 @@ App({
             //将code存到缓存中  
             wx.setStorageSync('Code', res.code)
             wx.request({
-              url: that.data.apiUrl + '/Api/Member/wxLogin/code/' + res.code,
+              url: that.globalData.apiUrl + '/Api/Member/wxLogin/code/' + res.code,
               header: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                // 'Cookie': 'PHPSESSID=' + sessionid
               },
               method: 'GET',
               dataType: 'json',
               responseType: 'text',
               success: function (e) {
-                console.log('返回数据：', e)
+                console.log('返回数据11：', e)
                 let loginCode = e.data.data.loginCode
                 let userOpenid = e.data.data.userOpenid
                 let sessionID = e.data.data.sessionID
+
+                wx.setStorageSync('lo', 1)
 
                 if (sessionID) {
                   that.setSession(sessionID)
@@ -92,7 +121,7 @@ App({
                     wx.setStorageSync("userInfo", e.data.data.userInfo);
                     //存储代理商信息
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
-
+                    wx.setStorageSync('good', 1)
                     //跳转到首页
                     wx.switchTab({
                       url: '/pages/home/home',
@@ -102,7 +131,6 @@ App({
                 } else if (loginCode == 201) {
                   //将openid存到缓存
                   wx.setStorageSync('openid', userOpenid)
-                  console.log('userOpenid:', userOpenid)
                   //跳转到登录页面
                   wx.reLaunch({
                     url: '/pages/login/login',
@@ -121,28 +149,33 @@ App({
 
 
     // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+    // wx.getSetting({
+    //   success: res => {
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-                linsfhas.userInfoReadyCallbackadficall
-              }
-            }
-          })
-        }
-      }
-    })
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+    //       wx.getUserInfo({
+    //         success: res => {
+    //           // 可以将 res 发送给后台解码出 unionId
+    //           this.globalData.userInfo = res.userInfo
+
+    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+    //           // 所以此处加入 callback 以防止这种情况
+    //           if (this.userInfoReadyCallback) {
+    //             this.userInfoReadyCallback(res)
+    //             linsfhas.userInfoReadyCallbackadficall
+    //           }
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
   },
+
+
+
+
+
 
 
 
@@ -225,9 +258,5 @@ App({
 
 
 
-  globalData: {
-    userInfo: null,
-    apiUrl: 'https://fyt2.test.fastcmf.com',
-    iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
-  }
+  
 })

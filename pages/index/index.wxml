@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="user-top">
   <view class="userinfo">
-      <view class="user-main">
+      <view class="user-main" wx:if="{{loSta==1}}">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="user-t">
           <view class="user-no">{{userData.username}} ({{userData.realname}})</view>
@@ -97,7 +97,7 @@
     </view>
   </view>
 
-  <view class="nav-main nav3" bindtap="getExit">
+  <view class="nav-main nav3" bindtap="getExit" wx:if="{{loSta==1}}">
     退出登录
   </view>
 

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/welcome/welcome",
     "pages/fangkuan/selectList/selectList",
     "pages/fangkuan/add/add",
@@ -10,7 +11,7 @@
     "pages/mall/list/list",
     "pages/mall/affirm/affirm",
     "pages/goods/goodsList/goodsList",
-    "pages/home/home",
+    
     "pages/sales/add/add",
     "pages/agency/list/list",
     "pages/supply/add/add",
