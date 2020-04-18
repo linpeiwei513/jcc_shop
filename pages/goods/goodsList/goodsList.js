@@ -2,6 +2,7 @@
 const app = getApp();
 const apiUrl = app.globalData.apiUrl;
 const iconUrl = app.globalData.iconUrl;
+const rank = app.globalData.rank;
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
     skip: 0,
     limit: 10,
     isStop: 0,
-    showNav: '',
+    showNav: 0,
     imgUrl: apiUrl,
     iconUrl: iconUrl,
     keywords: '',
@@ -22,14 +23,16 @@ Page({
     typeIndex: 0,
     xilieList: [],
     xilieIndex: 0,
-    loSta: 0
+    loSta: 0,
+    rank: rank
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log('seriesid:',app.getCache('seriesid'))
+
     this.getGoodsType()
     this.getXilie()
 
@@ -56,21 +59,21 @@ Page({
     })
   },
 
-
   //前往消数
   goxiaoshu: function(e) {
     console.log(e.currentTarget.dataset.item)
     let item = e.currentTarget.dataset.item
     if(e.currentTarget.dataset.item.spec_arr){
       console.log('有规格')
-      let item = JSON.stringify(e.currentTarget.dataset.item);
+      let item = e.currentTarget.dataset.item;
+      app.setCache('xiaoshuItem',item)
       wx.navigateTo({
-        url: '../../guigeList/guigeList?item='+item,
+        url: '../../guigeList/guigeList',
       })
     }else{
       console.log('没有规格')
       wx.navigateTo({
-        url: '../../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=&my_onhand='+item.my_onhand,
+        url: '../../addXiaoshu/addXiaoshu?goods_id='+item.id+'&goods_name='+item.name+'&spec_id=0&key_name=&my_onhand='+item.my_onhand+'&type=1',
       })
     }
     
@@ -96,7 +99,7 @@ Page({
 
   //选择系列
   bindPickerChangeXl: function(e) {
-    let id = this.data.typeList[e.detail.value].id
+    let id = this.data.xilieList[e.detail.value].id
     let index = e.detail.value
      this.setData({
       seriesid: id,
@@ -137,6 +140,7 @@ Page({
 
   //获取商品列表
   getGoodsList: function(){
+    console.log('系列入参：',this.data.seriesid)
     let that = this
     wx.request({
       url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords='+that.data.keywords +'&seriesid='+that.data.seriesid,
@@ -191,6 +195,9 @@ Page({
       success: function (res) {
         console.log('商品分类：', res)
         if (res.data.status == '1') {
+          that.setData({
+            dataList: [],
+          })
           let arrayNew = [{id: '0', name:'全部分类'}]
           for(var i=0; i<res.data.data.length; i++){
             arrayNew.push(res.data.data[i])
@@ -226,6 +233,9 @@ Page({
       success: function (res) {
         console.log('商品系列：', res)
         if (res.data.status == '1') {
+          that.setData({
+            dataList: [],
+          })
           let arrayNew = [{id: '0', name:'全部系列'}]
           for(var i=0; i<res.data.data.length; i++){
             arrayNew.push(res.data.data[i])
@@ -235,13 +245,13 @@ Page({
           })
 
           let id = wx.getStorageSync("seriesid")
-          console.log('系列id',id)
+          //console.log('系列id',id)
           if(id){
-            console.log('系列id22222',id)
+            //console.log('系列id22222',id)
             for(var i=0; i<that.data.xilieList.length; i++){
-              console.log('id1:',that.data.xilieList[i].id)
+              //console.log('id1:',that.data.xilieList[i].id)
               if(that.data.xilieList[i].id == id){
-                console.log('i:',i)
+                //console.log('i:',i)
                 that.setData({
                   seriesid: id,
                   xilieIndex: i
@@ -310,7 +320,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
     let lo = wx.getStorageSync("lo")
     if(lo == 0){
       this.setData({
@@ -320,6 +330,21 @@ Page({
       this.setData({
         loSta: 1
       })
+      console.log('缓存：',wx.getStorageSync("seriesid"))
+      if(wx.getStorageSync("seriesid")){
+        this.getXilie()
+        this.setData({
+          dataList: [],
+          skip: 0,
+          seriesid: wx.getStorageSync("seriesid")
+        })
+        wx.showToast({
+          title: '获取信息中...',
+          icon: 'loading',
+          duration: 500
+        })
+      }
+      
       this.getGoodsList();
     }
 
@@ -330,5 +355,6 @@ Page({
    */
   onShareAppMessage: function () {
 
+     
   }
 })

@@ -3,6 +3,7 @@
 const app = getApp()
 const apiUrl = app.globalData.apiUrl;
 const iconUrl = app.globalData.iconUrl;
+const rank = app.globalData.rank;
 Page({
   data: { 
     motto: 'Hello World',
@@ -13,12 +14,16 @@ Page({
     userData: '',
     agentData: '',
     loSta: 0,
-    userType: ''
+    userType: '',
+    rank: ''
   },
 
   onLoad: function () {
 
-
+    console.log('rank:',wx.getStorageSync("rank"))
+    this.setData({
+      rank: wx.getStorageSync("rank")
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

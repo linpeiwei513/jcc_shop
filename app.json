@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/goods/goodsList/goodsList",
+    "pages/guigeList/guigeList",
+    
+    
     "pages/welcome/welcome",
     "pages/fangkuan/selectList/selectList",
     "pages/fangkuan/add/add",
@@ -10,7 +14,7 @@
     "pages/mall/order/order",
     "pages/mall/list/list",
     "pages/mall/affirm/affirm",
-    "pages/goods/goodsList/goodsList",
+    
     
     "pages/sales/add/add",
     "pages/agency/list/list",
@@ -26,7 +30,7 @@
     "pages/db/index/index",
     "pages/db/rankUserSell/rankUserSell",
     "pages/mine/updatedb/updatedb",
-    "pages/guigeList/guigeList",
+    
     "pages/addXiaoshu/addXiaoshu",
     "pages/mine/address/add/add",
     "pages/recordSales/recordSales",

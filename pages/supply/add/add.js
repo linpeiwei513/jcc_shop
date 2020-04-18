@@ -158,8 +158,23 @@ Page({
       success: function (res) {
         console.log('补货列表：', res)
         app.closeLo();  //关闭动画
-        if (res.data.status == '1') {
-          
+        if (res.data.status == '1'  && res.data.data.length > 0) {
+          let data = res.data.data
+          let newList = that.data.dataList
+          for(var i=0; i<data.length; i++){
+            newList.push({
+              goodsId: data[i].goods_id, 
+              goodsName: data[i].goods_name,
+              guigeId: data[i].spec_id,
+              guigeName: data[i].spec_name,
+              num: 1,
+              price: data[i].price
+            })
+          }
+          that.setData({
+            dataList: newList
+          })
+          that.setGoodstData()
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -171,6 +186,7 @@ Page({
     })
 
   },
+
 
   //获取缓存中添加的数据 wx.getStorageSync("sessionID")
   getSessionData: function() {

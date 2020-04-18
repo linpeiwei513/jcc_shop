@@ -13,21 +13,47 @@ Page({
     goods_name: '',
     spec_id: '',
     key_name: '',
-    my_onhand: ''
+    my_onhand: '',
+    index: 0,
+    item: [],
+    type: 2
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('闯过来：', options)
-    this.setData({
-      goods_id: options.goods_id,
-      goods_name: options.goods_name,
-      spec_id: options.spec_id,
-      key_name: options.key_name,
-      my_onhand: options.my_onhand
-    })
+    console.log('闯过来type：', options.type)
+
+    if(options.type == 1){
+      this.setData({
+        item: '',
+        index: '',
+        goods_id: options.goods_id,
+        goods_name: options.goods_name,
+        spec_id: options.spec_id,
+        key_name: options.key_name,
+        my_onhand: options.my_onhand,
+        type: options.type
+      })
+    }else if(options.type == 2){
+      let index = options.index
+      let item = app.getCache('xiaoshuItem')
+      console.log('闯过来item：', item)
+      this.setData({
+        item: item,
+        index: index,
+        goods_id: item.id,
+        goods_name: item.name,
+        spec_id: item.spec_arr[index].id,
+        key_name: item.spec_arr[index].key_name,
+        my_onhand: item.spec_arr[index].my_onhand,
+        type: options.type
+      })
+    }
+
+
+    
   },
 
   //确定消数
@@ -57,6 +83,8 @@ Page({
       })
       return
     }
+    
+
     wx.request({
       url: apiUrl + '/Api/Goods/goodsSale',
       data: {
@@ -79,6 +107,13 @@ Page({
             icon: 'success',
             duration: 2000
           })
+          if(that.data.type == 2){
+            let itemNew = that.data.item
+            //console.log('itemNew:',itemNew)
+            itemNew.spec_arr[that.data.index].my_onhand =  parseInt(that.data.item.spec_arr[that.data.index].my_onhand) - parseInt(that.data.sale_num)
+            app.setCache('xiaoshuItem',itemNew)
+          }
+          
           setTimeout(function () {
             wx.navigateBack({
               delta:1

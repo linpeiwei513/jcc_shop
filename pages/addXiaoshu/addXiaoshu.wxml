@@ -21,6 +21,13 @@
       </view>
       <view class="co"></view>
     </view>
+    <view class="main-li">
+      <view class="title le">库存：</view>
+      <view class="put rt gg">
+        {{my_onhand}}
+      </view>
+      <view class="co"></view>
+    </view>
 
     <view class="main-li border-none">
       <view class="title le">消数数量：</view>

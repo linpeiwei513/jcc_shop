@@ -34,7 +34,7 @@
       <text class="le">分类：</text>
       <view class="sx-put le">
         <image src="{{iconUrl}}soso_biao.png"></image>
-        <picker bindchange="bindPickerChange" value="{{typeList[typeIndex].id}}" range="{{typeList}}" range-key="{{'name'}}" wx:if="{{typeList.length>0}}">
+        <picker bindchange="bindPickerChange" value="{{xilieIndex}}" range="{{typeList}}" range-key="{{'name'}}" wx:if="{{typeList.length>0}}">
           <view class="picker">
             {{typeList[typeIndex].name}}
           </view>
@@ -44,7 +44,7 @@
     <view class="sx-li rt">
       <view class="sx-put rt">
         <image src="{{iconUrl}}soso_biao.png"></image>
-        <picker bindchange="bindPickerChangeXl" value="{{xilieList[xilieIndex].id}}" range="{{xilieList}}" range-key="{{'name'}}" wx:if="{{xilieList.length>0}}">
+        <picker bindchange="bindPickerChangeXl" value="{{xilieIndex}}" range="{{xilieList}}" range-key="{{'name'}}" wx:if="{{xilieList.length>0}}">
           <view class="picker">
             {{xilieList[xilieIndex].name}}
           </view>
@@ -66,7 +66,7 @@
         <view class="go-title">{{item.name}}</view> 
         <view class="go-sn">{{item.sn}}</view> 
         <view class="go-no">价格：{{item.shop_price}}</view>
-        <view class="go-no">库存：{{item.my_onhand}}（在途库存：32）</view>
+        <view class="go-no">库存：{{item.my_onhand}}（在途库存：{{item.my_in_onhand}}）</view>
         <view class="co"></view>
       </view>
       <view class="co"></view>

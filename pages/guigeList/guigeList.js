@@ -1,4 +1,7 @@
 // pages/guigeList/guigeList.js
+const app = getApp();
+const apiUrl = app.globalData.apiUrl;
+const iconUrl = app.globalData.iconUrl;
 Page({
 
   /**
@@ -13,19 +16,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let item = JSON.parse(options.item);
-    console.log('闯过来：', item)
-    this.setData({
-      dataList: item
-    })
+    
   },
 
   //前往消数
   goxiaoshu: function(e) {
-    console.log(e.currentTarget.dataset.item)
-    let item = e.currentTarget.dataset.item
+    console.log(e.currentTarget.dataset.index)
+    let index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '../addXiaoshu/addXiaoshu?goods_id='+this.data.dataList.id+'&goods_name='+this.data.dataList.name+'&spec_id='+item.id+'&key_name='+item.key_name+'&my_onhand='+this.data.dataList.my_onhand,
+      url: '../addXiaoshu/addXiaoshu?index=' + index + '&type=2',
     })
   },
 
@@ -42,7 +41,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let item = app.getCache('xiaoshuItem')
+    console.log('闯过来：', item)
+    this.setData({
+      dataList: item
+    })
   },
 
   /**

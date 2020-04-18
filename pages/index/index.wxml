@@ -43,7 +43,7 @@
 
 
   <view class="nav-main nav2">
-    <view wx:if="{{userData.agent_info.rank != 9}}">
+    <view wx:if="{{rank != 9 && loSta==1}}">
       <view class="nav-li" bindtap="goClerk">
         <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>
         <view class="name le">店员管理</view>
@@ -68,7 +68,7 @@
         <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
         <view class="co"></view>
       </view>
-      <view class="nav-li" bindtap="goStatistics">
+      <view class="nav-li no" bindtap="goStatistics">
         <view class="lf-img le"><image src="{{iconUrl}}nav_tongji.png"></image></view>
         <view class="name le">数据统计</view>
         <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
@@ -76,17 +76,17 @@
       </view>
     </view>
     
-    <view class="nav-li no" bindtap="goDuihuan">
+    
+  </view>
+
+
+  <view class="nav-main nav2">
+    <view class="nav-li" bindtap="goDuihuan">
       <view class="lf-img le"><image src="{{iconUrl}}nav_jifen.png"></image></view>
       <view class="name le">兑换记录</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>
-  </view>
-
-
-  <view class="nav-main nav2">
-    
     <view class="nav-li" bindtap="goAddress">
       <view class="lf-img le"><image src="{{iconUrl}}nav_dizhi.png"></image></view>
       <view class="name le">收货地址</view>

@@ -13,6 +13,6 @@
       <view class="gg-name">规格：{{item.key_name}}</view>
       <view class="gg-price">参考价格：{{item.price}}  <text>库存：{{item.my_onhand}}</text> </view>
     </view>
-    <view class="main-btn" data-item="{{item}}" bindtap="goxiaoshu" wx:if="{{item.my_onhand>0}}">消数</view>
+    <view class="main-btn" data-index="{{index}}" bindtap="goxiaoshu" wx:if="{{item.my_onhand>0}}">消数</view>
   </view>
 </view>

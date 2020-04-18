@@ -12,7 +12,8 @@ App({
     apiUrl: 'https://fyt2.test.fastcmf.com',
     iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
     loginStatue: '0',
-    good: 0
+    good: 0,
+    rank: ''
   },
 
   onLaunch: function () {
@@ -37,6 +38,8 @@ App({
     if (wx.getStorageSync("sessionID")){
       if (this.globalData.loginStatue != '1' && this.globalData.good != 1) {
         this.getLoginState()
+      }else{
+        this.getUserData()
       }
     }
     // 查看是否授权
@@ -55,6 +58,30 @@ App({
     })
   },
 
+  //获取用户信息 
+  getUserData: function() {
+    let that = this
+    wx.request({
+      url: that.data.apiUrl + '/Api/Member/getProfile',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        //console.log('用户数据：', res)
+        if (res.data.status == '1') {
+          that.globalData.rank = res.data.data.agent_info.rank
+          wx.setStorageSync("rank", res.data.data.agent_info.rank);
+        }
+        console.log('用户数据rank：', that.globalData.rank)
+      }
+    })
+
+  },
+
   //获取用户登录状态
   getLoginState: function () {
     var that = this
@@ -68,7 +95,7 @@ App({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('登录状态：', res)
+        //console.log('登录状态：', res)
         if (res.data.status == '1') {
           wx.setStorageSync('lo', 1)
           that.globalData.loginStatue = 1
@@ -137,7 +164,7 @@ App({
                     wx.setStorageSync("agent_info", e.data.data.agent_info);
                     wx.setStorageSync('good', 1)
                     //跳转到首页
-                    
+                    that.getUserData()
                     wx.switchTab({
                       url: '/pages/home/home',
                     })
@@ -186,10 +213,6 @@ App({
     //   }
     // })
   },
-
-
-
-
 
 
 
