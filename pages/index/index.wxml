@@ -26,10 +26,7 @@
       <image src="{{iconUrl}}nav1.png"></image>
        补货单
     </view>
-    <view class="nav-li le" bindtap="goShop">
-      <image src="{{iconUrl}}nav_dianpu.png"></image>
-      店铺信息
-    </view>
+    
     <view class="nav-li le" bindtap="goxiaoshu">
       <image src="{{iconUrl}}nav_xiaoshu.png"></image>
        消数记录
@@ -38,12 +35,16 @@
       <image src="{{iconUrl}}nav_jifen.png"></image>
        积分记录
     </view>
+    <view class="nav-li le" bindtap="goDuihuan">
+      <image src="{{iconUrl}}nav_jifen.png"></image>
+      兑换记录
+    </view>
     <view class="co"></view>
   </view>
 
 
-  <view class="nav-main nav2">
-    <view wx:if="{{rank != 9 && loSta==1}}">
+  <view class="nav-main nav2" wx:if="{{rank != 9 && loSta==1}}">
+    
       <view class="nav-li" bindtap="goClerk">
         <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>
         <view class="name le">店员管理</view>
@@ -74,16 +75,14 @@
         <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
         <view class="co"></view>
       </view>
-    </view>
-    
-    
+ 
   </view>
 
 
   <view class="nav-main nav2">
-    <view class="nav-li" bindtap="goDuihuan">
-      <view class="lf-img le"><image src="{{iconUrl}}nav_jifen.png"></image></view>
-      <view class="name le">兑换记录</view>
+    <view class="nav-li" bindtap="goShop">
+      <view class="lf-img le"><image src="{{iconUrl}}nav_dianpu.png"></image></view>
+      <view class="name le">店铺信息</view>
       <view class="rt-img rt"><image src="{{iconUrl}}nav-rt.png"></image></view>
       <view class="co"></view>
     </view>

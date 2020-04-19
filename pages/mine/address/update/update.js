@@ -76,8 +76,8 @@ Page({
               duration: 2000
             })
             setTimeout(function () {
-              wx.reLaunch({
-                url: '../list/list'　　// 页面 A
+              wx.navigateBack({
+                delta:1
               })
             }, 1000)
 
@@ -123,8 +123,8 @@ Page({
                   duration: 2000
                 })
                 setTimeout(function () {
-                  wx.reLaunch({
-                    url: '../list/list'　　// 页面 A
+                  wx.navigateBack({
+                    delta:1
                   })
                 }, 1000) 
               } else {

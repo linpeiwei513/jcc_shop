@@ -4,6 +4,7 @@
   * to 20200210
 -->
 
+
 <view class="mall-main" wx:if="{{listData.length > 0}}">
 
   <view class="order-list" bindtap="goOrderS" wx:for="{{listData}}" wx:key="key" data-id="{{item.id}}">
@@ -12,7 +13,7 @@
       <text wx:else>{{item.shipping_status==1?'已发货':'待发货'}}</text>
       订单号：{{item.bill_no}}
     </view>
-    <view class="order-img"><image src="../../images/goods.jpg"></image></view>
+    <view class="order-img"><image src="{{imgUrl}}{{item.item_info[0].goods_info.thumb}}"></image></view>
     <view class="order-right">
       <view class="order-title">{{item.item_info[0].goods_info.name}}</view>
       <view class="order-shu">

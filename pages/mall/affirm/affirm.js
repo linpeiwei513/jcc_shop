@@ -28,6 +28,14 @@ Page({
 
   //提交订单
   submitOrder: function() {
+    if(this.data.addressData == ''){
+      wx.showToast({
+        title: '请添加收货地址',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     app.openLo()
     let that = this
     let dataObj = [{
@@ -58,13 +66,13 @@ Page({
             orderId: res.data.data.order_id
           })
           wx.showToast({
-            title: '支付中...',
-            icon: 'loading',
-            duration: 10000
+            title: '提交成功',
+            icon: 'success',
+            duration: 2000
           })
-          setTimeout(function () {
-            that.getPay()
-          }, 1000)
+          wx.navigateTo({
+            url: '../orderShow/orderShow?orderId='+res.data.data.order_id+'&type=1'
+          })
           
         }else{
           wx.showToast({
@@ -72,11 +80,6 @@ Page({
             icon: 'none',
             duration: 2000
           })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta:2
-            })
-          }, 1000)
           
         }
       }

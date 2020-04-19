@@ -141,6 +141,11 @@ Page({
   //获取商品列表
   getGoodsList: function(){
     console.log('系列入参：',this.data.seriesid)
+    wx.showToast({
+      title: '获取信息中...',
+      icon: 'loading',
+      duration: 500
+    })
     let that = this
     wx.request({
       url: apiUrl + '/Api/Goods/getGoods?skip=' + that.data.skip + '&limit=' + that.data.limit + '&catid=' + that.data.showNav +'&keywords='+that.data.keywords +'&seriesid='+that.data.seriesid,
@@ -328,21 +333,18 @@ Page({
       })
     }else if(lo == 1){
       this.setData({
-        loSta: 1
+        loSta: 1,
+        dataList: [],
+        skip: 0,
       })
       console.log('缓存：',wx.getStorageSync("seriesid"))
       if(wx.getStorageSync("seriesid")){
         this.getXilie()
         this.setData({
-          dataList: [],
-          skip: 0,
+          
           seriesid: wx.getStorageSync("seriesid")
         })
-        wx.showToast({
-          title: '获取信息中...',
-          icon: 'loading',
-          duration: 500
-        })
+        
       }
       
       this.getGoodsList();
