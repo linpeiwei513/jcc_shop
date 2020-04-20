@@ -43,7 +43,7 @@
   </view>
 
 
-  <view class="nav-main nav2" wx:if="{{rank != 9 && loSta==1}}">
+  <view class="nav-main nav2" wx:if="{{is_manager == 1 && loSta==1}}">
     
       <view class="nav-li" bindtap="goClerk">
         <view class="lf-img le"><image src="{{iconUrl}}nav_dianyuan.png"></image></view>

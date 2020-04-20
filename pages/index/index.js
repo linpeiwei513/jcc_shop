@@ -3,7 +3,7 @@
 const app = getApp()
 const apiUrl = app.globalData.apiUrl;
 const iconUrl = app.globalData.iconUrl;
-const rank = app.globalData.rank;
+const is_manager = app.globalData.is_manager;
 Page({
   data: { 
     motto: 'Hello World',
@@ -15,15 +15,12 @@ Page({
     agentData: '',
     loSta: 0,
     userType: '',
-    rank: ''
+    is_manager: ''
   },
 
   onLoad: function () {
 
-    console.log('rank:',wx.getStorageSync("rank"))
-    this.setData({
-      rank: wx.getStorageSync("rank")
-    })
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -57,6 +54,10 @@ Page({
 
   //初始化
   chushi: function() {
+    console.log('is_manager:',wx.getStorageSync("is_manager"))
+    this.setData({
+      is_manager: wx.getStorageSync("is_manager")
+    })
     let lo = wx.getStorageSync("lo")
     if(lo == 0){
       this.setData({
@@ -313,6 +314,7 @@ Page({
   onShow: function () {
 
     this.chushi()
+    
 
   },
 })

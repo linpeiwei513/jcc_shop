@@ -13,7 +13,7 @@ App({
     iconUrl: 'http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/', //图标阿里云地址
     loginStatue: '0',
     good: 0,
-    rank: ''
+    is_manager: ''
   },
 
   onLaunch: function () {
@@ -71,12 +71,12 @@ App({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        //console.log('用户数据：', res)
+        console.log('用户数据：', res)
         if (res.data.status == '1') {
-          that.globalData.rank = res.data.data.agent_info.rank
-          wx.setStorageSync("rank", res.data.data.agent_info.rank);
+          that.globalData.is_manager = res.data.data.is_manager
+          wx.setStorageSync("is_manager", res.data.data.is_manager);
         }
-        console.log('用户数据rank：', that.globalData.rank)
+        console.log('用户数据is_manager：', that.globalData.is_manager)
       }
     })
 

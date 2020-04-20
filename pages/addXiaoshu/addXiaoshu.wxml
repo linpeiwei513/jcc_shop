@@ -38,6 +38,6 @@
     </view>
   </view>
 
-  <view class="main-main main-b" bindtap="submitData">确认</view>
-
+  <view class="main-main main-b" bindtap="submitData" wx:if="{{isBtn}}">确认</view>
+  <view class="main-main main-b" wx:if="{{!isBtn}}">处理中</view>
 </view>

@@ -16,7 +16,8 @@ Page({
     my_onhand: '',
     index: 0,
     item: [],
-    type: 2
+    type: 2,
+    isBtn: true
   },
 
   /**
@@ -84,7 +85,10 @@ Page({
       return
     }
     
-
+    app.openLo()
+    this.setData({
+      isBtn: false
+    })
     wx.request({
       url: apiUrl + '/Api/Goods/goodsSale',
       data: {
@@ -101,6 +105,10 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('消数回调：', res)
+        app.closeLo()
+        that.setData({
+          isBtn: true
+        })
         if (res.data.status == '1') {
           wx.showToast({
             title: '操作成功',
