@@ -80,7 +80,6 @@
 }
 .m-b .m-p{
   margin-right: 20rpx;
-  background-color: darkseagreen;
   color: #ffffff;
   padding: 2rpx 10rpx;
   font-size: 24rpx;
@@ -88,4 +87,10 @@
 }
 .list text{
   color: #777777;
+}
+.m-b .p1{
+  background-color: rgb(171, 153, 250);
+}
+.m-b .p2{
+  background-color: rgb(241, 97, 31);
 }

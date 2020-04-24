@@ -31,7 +31,7 @@ Page({
   getList: function() {
     let that = this
     wx.request({
-      url: apiUrl + '/Api/Rebate/getMyOutList?skip=' + this.data.skip + '&limit=' + this.data.limit,
+      url: apiUrl + '/Api/Rebate/getMyInList?skip=' + this.data.skip + '&limit=' + this.data.limit,
       header: {
         'content-type': 'application/json',
         'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")

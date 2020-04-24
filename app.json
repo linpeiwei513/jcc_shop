@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/recordStock/recordStock",
     "pages/home/home",
     "pages/fangkuan/add/add",
     
@@ -44,7 +45,7 @@
     "pages/recordSales/recordSales",
     "pages/salesDetails/salesDetails",
     "pages/recordMarket/recordMarket",
-    "pages/recordStock/recordStock",
+    
     "pages/xiaocun/xiaocun",
     "pages/recordIntegral/recordIntegral",
     "pages/login/login",
