@@ -38,12 +38,12 @@
         <view class="li-txt rt">{{orderData.out_id_name}}</view>
         <view class="co"></view>
       </view>
-      <view class="m-li">
+      <view class="m-li" wx:if="{{orderData.status==1}}">
         <view class="li-title le">入库状态：</view>
         <view class="li-txt rt">{{orderData.onhand_status==1?'已入库':'未入库'}}</view>
         <view class="co"></view>
       </view>
-      <view class="m-li">
+      <view class="m-li" wx:if="{{orderData.status==1}}">
         <view class="li-title le">出库状态：</view>
         <view class="li-txt rt">{{orderData.shipping_status==1?'已发货':'未发货'}}</view>
         <view class="co"></view>
@@ -84,8 +84,14 @@
 
 </view>
 
-<!--底部确认-->
-<view class="main-zhan"></view>
-<view class="bottom-btn" bindtap="submitData" wx:if="{{orderData.status==0}}">
-  审核通过
+
+<view wx:if="{{is_manager==1}}">
+  <!--底部确认-->
+  <view class="main-zhan"></view>
+  <view class="bottom-btn" bindtap="submitData" wx:if="{{orderData.status==0}}">
+    审核通过
+  </view>
+  <view class="bottom-btn" bindtap="submitDataShouhuo" wx:if="{{orderData.status==1 && orderData.onhand_status==0 && orderData.shipping_status==1}}">
+    确认收货
+  </view>
 </view>

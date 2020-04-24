@@ -34,7 +34,7 @@
       <text class="le">分类：</text>
       <view class="sx-put le">
         <image src="{{iconUrl}}soso_biao.png"></image>
-        <picker bindchange="bindPickerChange" value="{{xilieIndex}}" range="{{typeList}}" range-key="{{'name'}}" wx:if="{{typeList.length>0}}">
+        <picker bindchange="bindPickerChange" value="{{typeList}}" range="{{typeList}}" range-key="{{'name'}}" wx:if="{{typeList.length>0}}">
           <view class="picker">
             {{typeList[typeIndex].name}}
           </view>

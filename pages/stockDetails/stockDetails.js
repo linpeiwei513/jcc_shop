@@ -11,13 +11,18 @@ Page({
     orderData: '',
     goodsData: '',
     imgUrl: '',
-    id: ''
+    id: '',
+    is_manager: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('is_manager:',wx.getStorageSync("is_manager"))
+    this.setData({
+      is_manager: wx.getStorageSync("is_manager")
+    })
     wx.showToast({
       title: '获取信息中...',
       icon: 'loading',
@@ -30,6 +35,38 @@ Page({
     this.getData()
   },
 
+  //确认收货
+  submitDataShouhuo: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Invoice/confirmIn?bill_no=' + this.data.id,
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('确认收货：', res)
+        if (res.data.status == '1') {
+          wx.showToast({
+            title: '确认成功',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+          that.getData()
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
 
   //审核通过
   submitData: function(){
@@ -47,12 +84,12 @@ Page({
         console.log('确认审核：', res)
         if (res.data.status == '1') {
           wx.showToast({
-            title: '确认成功',
+            title: '审核成功',
             icon: 'success',
             duration: 1000,
             mask: true
           })
-          this.getData()
+          that.getData()
         }else{
           wx.showToast({
             title: res.data.msg,

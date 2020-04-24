@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/recordStock/recordStock",
     "pages/home/home",
+    "pages/recordStock/recordStock",
+    
     "pages/fangkuan/add/add",
     
     

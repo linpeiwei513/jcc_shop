@@ -7,7 +7,7 @@
 <view class="main-top">
 
   <view class="top-select le">
-    <picker bindchange="bindPickerChange" value="{{array[index].id}}" range="{{array}}" range-key="{{'name'}}" wx:if="{{array.length>0}}">
+    <picker bindchange="bindPickerChange" value="{{array}}" range="{{array}}" range-key="{{'name'}}" wx:if="{{array.length>0}}">
       <view class="picker">
         {{array[index].name}}
       </view>
