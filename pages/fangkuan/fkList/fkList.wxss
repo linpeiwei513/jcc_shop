@@ -26,3 +26,12 @@
   right: 20rpx;
   border-radius: 6rpx;
 }
+.li-tap1{
+  background-color: rgb(230, 118, 14);
+  padding: 2rpx 6rpx;
+  color: #ffffff;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 6rpx;
+}

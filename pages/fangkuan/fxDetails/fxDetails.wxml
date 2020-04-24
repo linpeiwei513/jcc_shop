@@ -62,3 +62,9 @@
   </view>
 
 </view>
+
+<!--底部确认-->
+<view class="main-zhan"></view>
+<view class="bottom-btn" bindtap="submitData" wx:if="{{orderData.receipt_status==0}}">
+  确认收款
+</view>

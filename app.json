@@ -1,13 +1,21 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/fangkuan/add/add",
+    
+    
+    
+    
+    
+    "pages/fangkuan/fxDetails/fxDetails",
+    
     "pages/goods/goodsList/goodsList",
     "pages/guigeList/guigeList",
     
     
     "pages/welcome/welcome",
     "pages/fangkuan/selectList/selectList",
-    "pages/fangkuan/add/add",
+    
     
     "pages/mall/index/index",
     "pages/index/index",
@@ -75,7 +83,7 @@
     "pages/fangkuan/index/index",
     "pages/fangkuan/fxList/fxList",
     "pages/fangkuan/fkList/fkList",
-    "pages/fangkuan/fxDetails/fxDetails",
+    
     "pages/fangkuan/fkDetails/fkDetails"
     
   ],

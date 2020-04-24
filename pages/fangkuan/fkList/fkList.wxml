@@ -11,7 +11,8 @@
     <view class="li-p">返现金额：￥ {{item.amount}}</view>
     <view class="li-p">收款方：{{item.in_id_name}}</view>
     <view class="li-p">日期：{{item.billdate}}</view>
-    <view class="li-tap">{{item.receipt_status==1?'已收款':'未收款'}}</view>
+    <view class="li-tap" wx:if="{{item.receipt_status==1}}">已收款</view>
+    <view class="li-tap1" wx:else>未收款</view>
   </view>
 
 </view>

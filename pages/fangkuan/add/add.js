@@ -19,7 +19,11 @@ Page({
     dailiList: [],
     dailiIndex: 0,
     dailiName: '请选择代理',
-    dailiId: '' 
+    dailiId: '',
+    rank_list: '',
+    rank: '',
+    rankList: '',
+    rankIndex: 0,
   },
 
   /**
@@ -29,22 +33,20 @@ Page({
     this.getDaili()
   },
 
+
   //选择代理
   bindPickerChange: function(e) {
-    console.log('id', this.data.dailiList[e.detail.value].id)
-    console.log('value', e.detail.value)
-    let id = this.data.dailiList[e.detail.value].id
-    let name = this.data.dailiList[e.detail.value].name
+    console.log('id', this.data.rank_list[e.detail.value].id)
     this.setData({
-      dailiIndex: e.detail.value,
-      dailiId: id,
-      dailiName: name
+      rankIndex: e.detail.value,
+      rank: this.data.rank_list[e.detail.value].id,
+      dailiName: this.data.rank_list[e.detail.value].name
     })
   },
 
   //确定
   submitData: function() {
-    if(this.data.dailiId == ''){
+    if(this.data.rank == ''){
       wx.showToast({
         title: '请选择代理',
         icon: 'none',
@@ -66,7 +68,7 @@ Page({
     wx.request({
       url: apiUrl + '/Api/Rebate/addRebate',
       data: {
-        in_id: that.data.dailiId,
+        in_id: that.data.rank,
         datas: datas
       },
       header: {
@@ -106,7 +108,7 @@ Page({
 
   //添加清单
   addReceipts: function(e) {
-    if(this.data.dailiId == ''){
+    if(this.data.rank == ''){
       wx.showToast({
         title: '请选择代理',
         icon: 'none',
@@ -133,9 +135,6 @@ Page({
     this.setGoodstData()
   },
 
- 
-
- 
 
 
   //获取缓存中添加的数据 wx.getStorageSync("sessionID")
@@ -199,8 +198,9 @@ Page({
         console.log('代理列表：', res)
         app.closeLo()
         if(res.data.status == '1'){
+          that.getDengji(res.data.data)
           that.setData({
-            dailiList: res.data.data,
+            rank_list: res.data.data,
           })
         } else {
           wx.showToast({
@@ -211,6 +211,20 @@ Page({
         }
       }
     })
+  },
+
+  //格式化代理
+  getDengji: function(list) {
+    let djList = []
+    for(var i=0; i<list.length; i++){
+      djList.push(list[i].name)
+    }
+    let mm = ['哈哈','卡死']
+    this.setData({
+      rankList: djList
+    })
+    
+    console.log('代理：',this.data.rankList)
   },
 
 

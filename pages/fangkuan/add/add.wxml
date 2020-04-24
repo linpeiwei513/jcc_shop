@@ -8,7 +8,7 @@
 
   <!--选择代理-->
   <view class="main-daili">
-    <picker bindchange="bindPickerChange" value="{{dailiList[dailiIndex].id}}" range="{{dailiList}}" range-key="{{'username'}}">
+    <picker bindchange="bindPickerChange" value="{{rankIndex}}" range="{{rankList}}">
       <view class="picker">
         {{dailiName}}
       </view>

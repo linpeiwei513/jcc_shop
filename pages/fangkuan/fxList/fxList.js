@@ -24,7 +24,7 @@ Page({
   goxq: function(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../fkDetails/fkDetails?id='+e.currentTarget.dataset.id,
+      url: '../fxDetails/fxDetails?id='+e.currentTarget.dataset.id,
     })
   },
 

@@ -61,6 +61,40 @@ Page({
   },
 
 
+  //确认收款
+  submitData: function() {
+    let that = this
+    wx.request({
+      url: apiUrl + '/Api/Rebate/receipt?bill_no=' + this.data.id,
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'PHPSESSID=' + wx.getStorageSync("sessionID")
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        console.log('确认收款：', res)
+        if (res.data.status == '1') {
+          wx.showToast({
+            title: '确认成功',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+          this.getData()
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -73,7 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
