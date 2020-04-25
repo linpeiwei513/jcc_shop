@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/supply/add/add",
+    
+    
+    
     "pages/recordStock/recordStock",
     
     "pages/fangkuan/add/add",
@@ -28,7 +32,7 @@
     
     "pages/sales/add/add",
     "pages/agency/list/list",
-    "pages/supply/add/add",
+    
     "pages/goods/selectList/selectList",
     "pages/clerk/list/list",
     "pages/db/rankAgencySell/rankAgencySell",

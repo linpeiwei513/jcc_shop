@@ -12,14 +12,15 @@ Page({
     goodsData: '',
     imgUrl: '',
     id: '',
-    is_manager: ''
+    is_manager: '',
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('is_manager:',wx.getStorageSync("is_manager"))
+    console.log('id:',options.id)
     this.setData({
       is_manager: wx.getStorageSync("is_manager")
     })
@@ -30,7 +31,8 @@ Page({
     })
     this.setData({
       id: options.id,
-      imgUrl: apiUrl
+      imgUrl: apiUrl,
+      type: options.type
     })
     this.getData()
   },
@@ -158,7 +160,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if(this.data.type == 2){
+      wx.navigateBack({
+        delta:2
+      })
+    }
   },
 
   /**

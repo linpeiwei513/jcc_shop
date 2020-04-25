@@ -24,6 +24,7 @@ Page({
 
   },
 
+
   //确定
   submitData: function() {
     if(this.data.dataListNew.length < 1){
@@ -59,8 +60,8 @@ Page({
             mask: true
           })
           setTimeout(function () {
-            wx.navigateBack({
-              delta:1
+            wx.navigateTo({
+              url: '../../stockDetails/stockDetails?id='+res.data.data+'&type=2',
             })
           }, 1000)
 

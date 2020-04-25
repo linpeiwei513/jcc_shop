@@ -60,7 +60,7 @@ Page({
     let newData = []
 
     for(var i=0; i<oldData.length; i++){
-      if(oldData[i].spec_arr.length > 0){
+      if(oldData[i].spec_arr){
         for(var j=0; j<oldData[i].spec_arr.length; j++){
           if(oldData[i].spec_arr[j].isSelect == true){
             newData.push(this.getArr(
@@ -72,7 +72,7 @@ Page({
             ))
           }
         }
-      }else if(oldData[i].spec_arr.length < 1){
+      }else{
         if(oldData[i].isSelect == true){
           newData.push(this.getArr(oldData[i].name,'无',oldData[i].id,0,oldData[i].shop_price))
         }
@@ -129,20 +129,21 @@ Page({
 
   //勾选主类
   checkboxChange: function(e) {
-    //console.log('选中id:',e.currentTarget.dataset.id)
-    //console.log('选中状态:',e.detail.value)
+    console.log('选中id:',e.currentTarget.dataset.id)
+    console.log('选中状态:',e.detail.value.length)
     let newData = this.data.dataList
     if(e.detail.value.length>0){
       for(var i=0; i<newData.length; i++){
         if(newData[i].id == e.currentTarget.dataset.id) {
           newData[i].isSelect = true
-          if(newData[i].spec_arr.length > 0){
+          if(newData[i].spec_arr){
             for(var j=0; j<newData[i].spec_arr.length; j++){
               newData[i].spec_arr[j].isSelect = true
             }
           }
         }
       }
+      console.log('haha1:')
       this.setData({
         dataList: newData
       })
@@ -183,28 +184,34 @@ Page({
         app.closeLo();  //关闭动画
         if (res.data.status == '1') {
 
-          let newList = that.data.dataList
-          let newSkip = that.data.skip + res.data.data.length
+          console.log('商品数量：', res.data.data.length)
+          if(res.data.data.length > 0){
+            let newList = that.data.dataList
+            //let newSkip = that.data.skip + res.data.data.length
 
-          for(var i=0; i<res.data.data.length; i++){
-            res.data.data[i].isSelect = false;
-            res.data.data[i].isOpen = false;
-            if(res.data.data[i].spec_arr.length > 0){
-              for(var j=0; j<res.data.data[i].spec_arr.length; j++){
-                res.data.data[i].spec_arr[j].isSelect = false
+            for(var i=0; i<res.data.data.length; i++){
+              res.data.data[i].isSelect = false;
+              res.data.data[i].isOpen = false;
+              if(res.data.data[i].spec_arr){
+                for(var j=0; j<res.data.data[i].spec_arr.length; j++){
+                  res.data.data[i].spec_arr[j].isSelect = false
+                }
               }
+              
+              newList.push(res.data.data[i])
             }
-            
-            newList.push(res.data.data[i])
+            console.log('新列表：',newList)
+
+            that.setData({
+              dataList: newList,
+              //skip: newSkip,
+              isStop: res.data.data.length
+            })
           }
 
-          console.log('新列表：',newList)
+          
 
-          that.setData({
-            dataList: newList,
-            skip: newSkip,
-            isStop: res.data.data.length
-          })
+          
           
         } else {
           wx.showToast({

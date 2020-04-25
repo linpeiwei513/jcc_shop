@@ -23,7 +23,7 @@ Page({
   goDetails: function(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../stockDetails/stockDetails?id='+e.currentTarget.dataset.id,
+      url: '../stockDetails/stockDetails?id='+e.currentTarget.dataset.id+'&type=1',
     })
   },
 
