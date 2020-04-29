@@ -44,13 +44,16 @@
   </view>
 </view>
 
-<!-- <view class="dh-main">
-  <view class="dh-title"><text>查看详情</text>物流信息：</view>
-  <view class="dh-box">
-    <view class="dh-li">物流单号：18991027389991</view>
-    <view class="dh-li">物流名称：顺丰速递</view>
+<view class="dh-main" wx:if="{{orderData.shipping_status == 1}}">
+  <view class="dh-title">
+    <!-- <text>查看详情</text> -->
+    物流信息：
   </view>
-</view> -->
+  <view class="dh-box">
+    <view class="dh-li">物流单号：{{orderData.express_num}}</view>
+    <view class="dh-li">物流名称：{{orderData.express_name}}</view>
+  </view>
+</view>
 
 
 
