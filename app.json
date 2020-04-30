@@ -1,6 +1,12 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/shop/shop",
+    
+    
+    
+    
+    
     "pages/supply/add/add",
     
     
@@ -54,7 +60,7 @@
     "pages/xiaocun/xiaocun",
     "pages/recordIntegral/recordIntegral",
     "pages/login/login",
-    "pages/shop/shop",
+    
     "pages/site/province/province",
     "pages/password/password",
     "pages/activity/activity",

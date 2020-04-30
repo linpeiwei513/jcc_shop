@@ -10,13 +10,14 @@ Page({
     dataList: '',
     skip: 0,
     limit: 10,
+    isStop: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
   //查看详情
@@ -38,6 +39,7 @@ Page({
   getDataList: function () {
 
     let that = this
+    let newList = that.data.dataList
     wx.request({
       url: apiUrl + '/Api/Invoice/getMyInList?skip=' + that.data.skip + '0&limit=' + that.data.limit,
       header: {
@@ -49,10 +51,18 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('补货列表：', res)
+        wx.stopPullDownRefresh() //停止刷新动画
         if (res.data.status == '1') {
-          that.setData({
-            dataList: res.data.data,
 
+          for (var i = 0; i < res.data.data.length; i++) {
+            newList.push(res.data.data[i])
+          }
+          let newSkip = that.data.skip + res.data.data.length
+
+          that.setData({
+            dataList: newList,
+            skip: newSkip,
+            isStop: res.data.data.length
           })
 
         } else {
@@ -79,7 +89,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getDataList()
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
   /**
@@ -100,13 +110,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("正在下拉刷新");
+    this.setData({
+      dataList: [],
+      skip: 0
+    })
+    this.getDataList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("页面上拉触底数组");
+    if (this.data.isStop != 0) {
+      this.getDataList();
+    }
 
   },
 

@@ -66,5 +66,5 @@
   <view class="none-hei"></view>
   <image src="http://lbdj.oss-cn-beijing.aliyuncs.com/lbdj_app_h5/page/cwz/lianjie.png"></image>
   <view style="margin-top: 20rpx;">请先登录</view>
-  <button class="btns" bindtap="goLogin">登录</button>
+  <button class="btns" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
 </view>

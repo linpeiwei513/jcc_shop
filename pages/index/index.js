@@ -15,11 +15,12 @@ Page({
     agentData: '',
     loSta: 0,
     userType: '',
-    is_manager: ''
+    is_manager: '',
+    ceshi: ''
   },
 
   onLoad: function () {
-
+    console.log('userInfo:', this.data.canIUse)
     
     if (app.globalData.userInfo) {
       this.setData({
@@ -30,15 +31,18 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
+          ceshi: res
         })
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
+          console.log('555')
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
@@ -56,7 +60,7 @@ Page({
   chushi: function() {
     console.log('is_manager:',wx.getStorageSync("is_manager"))
     this.setData({
-      is_manager: wx.getStorageSync("is_manager")
+      is_manager: wx.getStorageSync("is_manager"),
     })
     let lo = wx.getStorageSync("lo")
     if(lo == 0){
@@ -67,20 +71,25 @@ Page({
       this.setData({
         loSta: 1
       })
-      this.getUserData()
+      this.getUserDatas()
     }
   },
 
   //登录
-  goLogin: function() {
+  getUserInfo: function(e) {
     app.openLo()
     app.accreditLogin()
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   },
 
   
 
   //获取用户信息 agent_info wxUserInfo
-  getUserData: function() {
+  getUserDatas: function() {
     app.openLo()
     let that = this
     wx.request({
@@ -98,7 +107,7 @@ Page({
         if (res.data.status == '1') {
           that.setData({
             userData: res.data.data,
-            userInfo: wx.getStorageSync("wxUserInfo"),
+            //userInfo: wx.getStorageSync("wxUserInfo"),
           })
         }
       }
@@ -125,12 +134,13 @@ Page({
         app.closeLo()
         console.log('退出回调：', res)
         if (res.data.status == '1') {
-          //清除缓存
+          //清除缓存 is_manager
           wx.removeStorageSync("sessionID")
           wx.removeStorageSync("openid")
           wx.removeStorageSync("userInfo")
           wx.removeStorageSync("agent_info")
           wx.removeStorageSync("loginStatus")
+          wx.removeStorageSync("is_manager")
           wx.setStorageSync('lo', 0)
           that.chushi()
         } else {
@@ -299,14 +309,7 @@ Page({
     
   },
 
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
+
 
   /**
    * 生命周期函数--监听页面显示

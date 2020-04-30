@@ -24,9 +24,14 @@ Page({
   },
 
   //登录
-  goLogin: function(){
+  getUserInfo: function(e) {
     app.openLo()
     app.accreditLogin()
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   },
 
   //获取商品列表

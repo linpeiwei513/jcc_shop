@@ -10,7 +10,8 @@ Page({
     dataList: '',
     skip: 0,
     limit: 10,
-    id: ''
+    id: '',
+    isStop: 0
   },
 
   /**
@@ -23,12 +24,7 @@ Page({
       })
     }
 
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
-    this.getDataList()
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
 
@@ -36,6 +32,7 @@ Page({
   getDataList: function () {
 
     let that = this
+    let newList = that.data.dataList
     wx.request({
       url: apiUrl + '/Api/Member/mySalesLog?skip=' + that.data.skip + '0&limit=' + that.data.limit + '&id=' + that.data.id,
       header: {
@@ -47,15 +44,24 @@ Page({
       responseType: 'text',
       success: function (res) {
         console.log('消数列表：', res)
+        wx.stopPullDownRefresh() //停止刷新动画
         if (res.data.status == '1') {
 
           for(var i=0; i<res.data.data.length; i++){
             res.data.data[i].newDate = app.formattingDate(res.data.data[i].add_time);
           }
+
+          for (var i = 0; i < res.data.data.length; i++) {
+            newList.push(res.data.data[i])
+          }
+          let newSkip = that.data.skip + res.data.data.length
+
           that.setData({
-            dataList: res.data.data,
+            dataList: newList,
+            skip: newSkip,
+            isStop: res.data.data.length
           })
-          console.log('数据111：',res.data.data)
+
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -80,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.startPullDownRefresh() //执行下拉刷新操作
   },
 
   /**
@@ -101,13 +107,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log("正在下拉刷新");
+    this.setData({
+      dataList: [],
+      skip: 0
+    })
+    this.getDataList();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("页面上拉触底数组");
+    if (this.data.isStop != 0) {
+      this.getDataList();
+    }
 
   },
 

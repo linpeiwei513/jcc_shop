@@ -31,7 +31,8 @@ Page({
     tempFilePaths: '',
     imageUrl: '',
     imageUrlNew: '',
-    userInfo: ''
+    userInfo: '',
+    loSta: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -372,7 +373,16 @@ Page({
     })
   },
 
-
+//登录
+getUserInfo: function(e) {
+  app.openLo()
+  app.accreditLogin()
+  app.globalData.userInfo = e.detail.userInfo
+  this.setData({
+    userInfo: e.detail.userInfo,
+    hasUserInfo: true
+  })
+},
 
 
 
@@ -387,6 +397,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+
+    let lo = wx.getStorageSync("lo")
+    if(lo != 1){
+      this.setData({
+        loSta: 0
+      })
+    }else{
+      this.setData({
+        loSta: 1,
+      })
+    }
 
   },
 

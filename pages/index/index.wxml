@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="user-top">
+
   <view class="userinfo">
       <view class="user-main" wx:if="{{loSta==1}}">
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -9,13 +10,15 @@
         </view>
         <view class="co"></view>
       </view> 
-      <view class="user-main" wx:if="{{loSta==0}}" bindtap="goLogin">
+      <view class="user-main" wx:if="{{loSta==0}}" >
         <image class="userinfo-avatar" src="{{iconUrl}}my.png" mode="cover"></image>
         <view class="user-t">
-          <view class="user-no1">点击登录账号</view>
+          <button class="user-no1"  open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录账号 </button>
         </view>
         <view class="co"></view>
       </view> 
+
+      
   </view>
 </view>
 

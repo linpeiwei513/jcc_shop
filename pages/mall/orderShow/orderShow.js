@@ -81,7 +81,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        console.log('订单详情：', res)
+        console.log('积分订单详情：', res)
         app.closeLo()
         if (res.data.status == '1') {
 
