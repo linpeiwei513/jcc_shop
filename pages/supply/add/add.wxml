@@ -22,7 +22,8 @@
           <view class="goods-name">{{item.goodsName}}</view>
           <view class="goods-guige">{{item.guigeName}}</view>
           <view class="co"></view>
-          <view class="goods-price le">￥<text>{{item.price}}</text></view>
+          <view class="goods-price le">￥<text>{{item.zhekou}}</text></view>
+          <view class="goods-yuanjia le">原价:￥<text>{{item.price}}</text></view>
           <view class="goods-num rt">
             <image src="{{iconUrl}}icon_jia.png" data-index="{{index}}" bindtap="btnJia"></image>
             <view class="num-m" data-index="{{index}}" bindtap="shownum">{{item.num}}</view>

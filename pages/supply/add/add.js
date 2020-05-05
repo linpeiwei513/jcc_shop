@@ -14,14 +14,17 @@ Page({
     totalPrice: 0,
     isNum: false,
     index: '',
-    newNum: ''
+    newNum: '',
+    discount: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      discount: wx.getStorageSync("discount"),
+    })
   },
 
 
@@ -169,7 +172,8 @@ Page({
               guigeId: data[i].spec_id,
               guigeName: data[i].spec_name,
               num: 1,
-              price: data[i].price
+              price: data[i].price,
+              zhekou: (data[i].price * (that.data.discount/100)).toFixed(2)
             })
           }
           that.setData({
@@ -196,6 +200,7 @@ Page({
     let newList = this.data.dataList
     if(selectData){
       for(var i=0; i< selectData.length; i++){
+        selectData[i].zhekou =  (selectData[i].price * (this.data.discount/100)).toFixed(2)
         newList.push(selectData[i])
       }
       this.setData({
@@ -220,7 +225,7 @@ Page({
     }
     newPrice = (newPrice).toFixed(2) //总价格
     this.setData({
-      totalPrice: newPrice,
+      totalPrice: (newPrice * (this.data.discount/100)).toFixed(2),
       dataListNew: newArr
     })
     app.closeLo();  //关闭动画

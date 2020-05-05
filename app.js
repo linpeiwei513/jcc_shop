@@ -84,6 +84,8 @@ App({
         if (res.data.status == '1') {
           that.globalData.is_manager = res.data.data.is_manager
           wx.setStorageSync("is_manager", res.data.data.is_manager);
+          wx.setStorageSync("discount", res.data.data.agent_info.discount);
+
         }
         console.log('用户数据is_manager：', that.globalData.is_manager)
       }

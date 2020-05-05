@@ -190,3 +190,9 @@
   color: #777777;
   border-right: 1rpx solid #f0f0f0;
 }
+.goods-yuanjia{
+  text-decoration:line-through;
+  font-size: 24rpx;
+  padding-top: 27rpx;
+  margin-left: 20rpx;
+}

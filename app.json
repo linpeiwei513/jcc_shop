@@ -1,15 +1,13 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/shop/shop",
-    
-    
-    
-    
-    
+
     "pages/supply/add/add",
-    
-    
+
+
+
+    "pages/shop/shop",
+
     
     "pages/recordStock/recordStock",
     

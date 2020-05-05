@@ -11,23 +11,21 @@ Page({
     orderData: '',
     goodsData: '',
     imgUrl: '',
-    id: ''
+    id: '',
+    is_manager: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showToast({
-      title: '获取信息中...',
-      icon: 'loading',
-      duration: 500
-    })
     this.setData({
       id: options.id,
     })
-    console.log('idid:', this.data.id)
-    this.getData()
+    this.setData({
+      is_manager: wx.getStorageSync("is_manager"),
+    })
+    this.onPullDownRefresh()
   },
 
   //获取详情
@@ -82,7 +80,7 @@ Page({
             duration: 1000,
             mask: true
           })
-          this.getData()
+          that.onPullDownRefresh()
         }else{
           wx.showToast({
             title: res.data.msg,
@@ -128,7 +126,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getData()
   },
 
   /**
